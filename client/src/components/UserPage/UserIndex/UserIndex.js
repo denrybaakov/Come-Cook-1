@@ -1,9 +1,47 @@
 
 import { Link } from 'react-router-dom'
 
+import { useState } from 'react'
+
+import SearchOrder from '../UserContent/SearchOrder'
+import IndexPage from '../UserContent/IndexPage'
+import CurrentOrders from '../UserContent/CurrentOrders'
+import CompletedOrders from '../UserContent/CompletedOrders'
+import Calendar from '../UserContent/Calendar'
+import MessagePage from '../UserContent/Message'
+import Settings from '../UserContent/Settings'
+
 import avatar from './img/avatar.png'
 
 const UserIndex = () => {
+
+  const [linkPage, setLinkPage] = useState(false)
+
+  const changeLink = e => {
+    e.preventDefault()
+    const { link } = e.target.dataset
+    switch (link) {
+      case 'index':
+        return setLinkPage(<IndexPage />)
+      case 'searchOrder':
+        return setLinkPage(<SearchOrder />)
+      case 'currentOrders':
+        return setLinkPage(<CurrentOrders />)
+      case 'completedOrders':
+        return setLinkPage(<CompletedOrders />)
+      case 'calendar':
+        return setLinkPage(<Calendar />)
+      case 'message':
+        return setLinkPage(<MessagePage />)
+      case 'settings':
+        return setLinkPage(<Settings />)
+      default:
+        return false
+    }
+
+  }
+
+
 
   return (
     <section className="profile">
@@ -37,18 +75,17 @@ const UserIndex = () => {
           <div className="col-30 profile__col-30">
             <h3 className="title profile__title">Меню</h3>
             <nav className="profile__nav">
-              <Link to={'/profile'}>Главная</Link>
-              <Link to={'/profile/search'}>Поиск заказов</Link>
-              <Link to={'/profile/order'}>Текущие заказы</Link>
-              <Link to={'/profile/completed'}>Выполненные заказы</Link>
-              <Link to={'/profile/calendar'}>Календарь</Link>
-              <Link to={'/profile/messages'}>Сообщения</Link>
-              <Link to={'/profile/setting'}>Настройки</Link>
+              <a href="!#" data-link="index" onClick={changeLink}>Главная</a>
+              <a href="!#" data-link="searchOrder" onClick={changeLink}>Поиск заказов</a>
+              <a href="!#" data-link="currentOrders" onClick={changeLink}>Текущие заказы</a>
+              <a href="!#" data-link="completedOrders" onClick={changeLink}>Выполненные заказы</a>
+              <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
+              <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
+              <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
             </nav>
           </div>
-          <div className="col-70 profile__col-70">
-            <h2 className="profile__title">Добро пожаловать в личный кабинет</h2>
-          </div>
+          {linkPage ? linkPage : <IndexPage />}
+
         </div>
       </div>
     </section>
