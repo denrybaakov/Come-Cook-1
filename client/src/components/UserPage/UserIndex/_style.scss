@@ -1,0 +1,15 @@
+
+.profile {
+  &__col-30, &__col-70 {
+    background-color: $white;
+    padding: 30px;
+    border-radius: $borderRadius ;
+    -webkit-border-radius: $borderRadius ;
+    -moz-border-radius: $borderRadius ;
+    -ms-border-radius: $borderRadius ;
+    -o-border-radius: $borderRadius ;
+    &__img {
+      width: 40px;
+    }
+  }
+}
