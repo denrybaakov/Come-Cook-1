@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom"
 import logo2 from './logo2.png'
+// import sheff from './img/shef.png'
+// import whiteT from './img/whiteT.jpg'
 
 
 const HeaderMain = () => {
@@ -22,6 +24,8 @@ const HeaderMain = () => {
       <div className="container">
         <div className="header__content">
           <div className="header__block">
+            {/* <img src={sheff} alt="Sheff" /> */}
+            {/* {sheff} */}
             <div className="logo header__logo">
               &
               <strong className="logo__text"><i>COME<br></br>COOK</i></strong>
@@ -33,6 +37,7 @@ const HeaderMain = () => {
           </div>
           <div className="header__person">
             <img src={logo2} alt="" />
+            {/* <img src={whiteT} alt="" /> */}
           </div>
         </div>
 
