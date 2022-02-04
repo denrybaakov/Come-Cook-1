@@ -1,9 +1,19 @@
 
+import { Routes, Route } from 'react-router-dom'
+
+import Main from './components/MainPage/Main';
+import SignIn from './components/Registration/SignIn/SignIn'
+
+import UserIndex from './components/UserPage/UserIndex/UserIndex'
+
+
 function App() {
   return (
-    <div className="App">
-      app
-    </div>
+    <Routes>
+      <Route path='/' element={<Main />}></Route>
+      <Route path='/auth/login' element={<SignIn />}></Route>
+      <Route path='/profile' element={<UserIndex />}></Route>
+    </Routes>
   );
 }
 
