@@ -1,0 +1,53 @@
+.signin {
+  position: relative;
+  height: 100vh;
+  background: url('./img/background.svg') no-repeat right center / 40%;
+  background-color: $fiolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__content {
+    background-color: $white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    border-radius: $borderRadius;
+    -webkit-border-radius: $borderRadius;
+    -moz-border-radius: $borderRadius;
+    -ms-border-radius: $borderRadius;
+    -o-border-radius: $borderRadius;
+    & h2 {
+      color: $fiolet;
+      margin-bottom: 20px;
+    }
+
+    & input {
+      margin-bottom: 15px;
+    }
+
+    & button {
+      padding: 10px 0;
+      transition: background-color .3s ease-in-out;
+      -webkit-transition: background-color .3s ease-in-out;
+      -moz-transition: background-color .3s ease-in-out;
+      -ms-transition: background-color .3s ease-in-out;
+      -o-transition: background-color .3s ease-in-out;
+      border: 1px solid $fiolet;
+      cursor: pointer;
+}
+
+    & button:hover {
+      background-color: transparent;
+      color: $fiolet;
+
+    }
+
+  }
+
+  &__logo {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+  }
+}
