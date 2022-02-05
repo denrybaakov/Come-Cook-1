@@ -18,6 +18,7 @@ function App() {
       {/* <Route path='/profile/search' element={<UserIndex />}></Route>
       <Route path='/profile/order' element={<UserIndex />}></Route>
       <Route path='/profile/completed' element={<UserIndex />}></Route> */}
+    </Routes>
   );
 }
 
