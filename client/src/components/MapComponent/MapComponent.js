@@ -77,6 +77,8 @@ export default function MapComponent() {
         onLoad={(ympasInstance) => (ymaps.current = ympasInstance)}
         onClick={onMapClick}
         state={mapState} 
+        width={'100%'}
+        height={'320px'}
       >
       <SearchControl  />
       </Map>
