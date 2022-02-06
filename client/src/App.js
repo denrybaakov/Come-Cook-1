@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Main from './components/MainPage/Main';
 import SignIn from './components/Registration/SignIn/SignIn'
+import SignUp from './components/Registration/SignUp/SignUp';
 
 import UserIndex from './components/UserPage/UserIndex/UserIndex'
 import MainPageTwo from "./components/MainPageTwo/MainPageTwo";
@@ -16,12 +17,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Main />}></Route>
       <Route path='/auth/login' element={<SignIn />}></Route>
+      <Route path='/auth/register' element={<SignUp />}></Route>
       <Route path='/profile' element={<UserIndex />}></Route>
-      <Route path='/2' element={<MainPageTwo />}></Route>
     </Routes>
-      /* <Route path='/profile/search' element={<UserIndex />}></Route>
-      <Route path='/profile/order' element={<UserIndex />}></Route>
-      <Route path='/profile/completed' element={<UserIndex />}></Route> */
   );
 }
 

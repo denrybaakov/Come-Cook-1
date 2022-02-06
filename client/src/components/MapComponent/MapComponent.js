@@ -1,92 +1,69 @@
-import React from "react";
-import { YMaps, Map, SearchControl } from "react-yandex-maps";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+// import { allRestaurants } from "../../redux/actions/restaurant.action";
+// import { allRestByCoord } from "../../redux/actions/rests.action";
+import { getOrders } from '../../redux/actions/ordersAction'
+import { getAllCoordsOrders } from '../../redux/actions/allCoordsOrdersAction'
+// import 'react-toastify/dist/ReactToastify.css';
 
-const mapState = {
-  center: [55.753994, 37.622093],
-  zoom: 9,
-  controls: ['zoomControl', 'fullscreenControl'],
-};
-export default function MapComponent() {
+const MapComponent = () => {
+  let ymaps = window.ymaps;
+  const dispatch = useDispatch()
 
-  const ymaps = React.useRef(null);
-  const placemarkRef = React.useRef(null);
-  const mapRef = React.useRef(null);
-  const [address, setAddress] = React.useState("");
-  // console.log(address);
+  const coordinates = useSelector(state => state.restaurant)
 
+  const [myLocation, setmyLocation] = useState(getMyAdress())
 
-
-  const createPlacemark = (coords) => {
-    return new ymaps.current.Placemark(
-      coords,
-      {
-        iconCaption: "loading.."
-      },
-      {
-        preset: "islands#violetDotIconWithCaption",
-        draggable: true
-      }
-    );
-  };
-
-  const getAddress = (coords) => {
-    placemarkRef.current.properties.set("iconCaption", "loading..");
-    ymaps.current.geocode(coords).then((res) => {
-      const firstGeoObject = res.geoObjects.get(0);
-
-      const newAddress = [
-        firstGeoObject.getLocalities().length
-          ? firstGeoObject.getLocalities()
-          : firstGeoObject.getAdministrativeAreas(),
-        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-      ]
-        .filter(Boolean)
-        .join(", ");
-      
-      setAddress(newAddress);
-
-      placemarkRef.current.properties.set({
-        iconCaption: newAddress,
-        balloonContent: firstGeoObject.getAddressLine()
-      });
+  // вычисляем геопозицию по IP
+  async function getMyAdress() {
+    navigator.geolocation.getCurrentPosition(async (geoData) => {
+      const { longitude, latitude } = geoData.coords;
+      setmyLocation([latitude, longitude])
     });
   };
 
-  const onMapClick = (e) => {
-    const coords = e.get("coords");
-    // console.log(coords);
+  // useEffect(() => {
+  //   // dispatch(getAllCoordsOrders())
+  //   ymaps.ready(init)
+  // }, [])
 
-    if (placemarkRef.current) {
-      placemarkRef.current.geometry.setCoordinates(coords);
-    } else {
-      placemarkRef.current = createPlacemark(coords);
-      mapRef.current.geoObjects.add(placemarkRef.current);
-      placemarkRef.current.events.add("dragend", function () {
-      getAddress(placemarkRef.current.geometry.getCoordinates());
-      });
-    }
-    getAddress(coords);
-  };
+  //подключаем карты
+  function init() {
+    let myMap = new ymaps.Map("map", {
+      center: [55.7066426, 37.5973765],
+      zoom: 10,
+      controls: ['zoomControl'],
+      behaviors: ['drag', 'scrollZoom']
+    })
+    // Создадим объекты на основе JSON-описания геометрий.
+    let objects = ymaps?.geoQuery([55.760178, 37.618575]).addToMap(myMap)
+
+    objects.searchInside(myMap)
+      // И затем добавим найденные объекты на карту.
+      .addToMap(myMap);
+
+    // objects._objects.forEach(el => el.events.add('click', (e) => {
+    //   dispatch(allRestByCoord([el.geometry._coordinates])) // показывает ресторан по клику
+    // }))
+    // myMap.events.add('boundschange', function () {
+    //   // После каждого сдвига карты будем смотреть, какие объекты попадают в видимую область.
+    //   let visibleObjects = objects.searchInside(myMap).addToMap(myMap);
+    //   const coord = visibleObjects._objects.map(el => el.geometry._coordinates)
+    //   // Оставшиеся объекты будем удалять с карты.
+    //   objects.remove(visibleObjects).removeFromMap(myMap);
+    //   dispatch(allRestByCoord(coord))
+    // });
+  }
+
+  console.log(window);
+
+  ymaps.ready(init)
 
   return (
-    <div className="App">
-    <YMaps query={{ apikey: "5a0ef838-8ef3-4449-8f30-5a93bdf47ddd" }}>
-      <Map
-        modules={["Placemark", "geocode", "geoObject.addon.balloon", 'control.ZoomControl', 'control.FullscreenControl']}
-        instanceRef={mapRef}
-        onLoad={(ympasInstance) => (ymaps.current = ympasInstance)}
-        onClick={onMapClick}
-        state={mapState} 
-      >
-      <SearchControl  />
-      </Map>
-      {address && (
-        <div>
-          <p>{address}</p>
-          {/* {console.log(address)}; */}
-        </div>
-      )}
-    </YMaps>
-  </div>
-    );
+    <div className="main__map ymaps-layers-pane">
+      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map" />
+    </div>
+  )
 }
+
+export default MapComponent

@@ -8,9 +8,10 @@ html {
 
 body {
   // position: relative;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: $font1;
   font-weight: 200;
   font-size: 1rem;
+  
   // background-color: #fefae0;
   // width: 100vw;
 }
@@ -155,7 +156,6 @@ input {
 
 button {
   background-color: $fiolet;
-  
 }
 
 
@@ -163,5 +163,7 @@ button {
   background-color: $fiolet;
   padding: 50px;
   height: 100vh;
-  
+  & .container {
+    max-width: 1500px;
+  }
 }

@@ -5,9 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Client extends Model {
 
-    static associate({ Order, Cuisine}) {
+    static associate({ Order, Cuisines}) {
       this.hasMany(Order, {foreignKey: "client_id"});
-      this.hasMany(Cuisine, {foreignKey: "cuisine_id"});
+      this.hasMany(Cuisines, {foreignKey: "cuisine_id"});
     }
   }
   Client.init({
