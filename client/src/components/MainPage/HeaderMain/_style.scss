@@ -1,9 +1,17 @@
 .header {
-  height: 100vh;
-  background-color: $fiolet;
-  // background-color: $white;
-  & .container {
+  // height: 100vh;
+  position: relative;
+  background-color: $white;
+  &__background {
     padding-top: 10%;
+    background: url('./img/background.jpg') no-repeat center / cover;
+    min-height: 100vh;
+    &--slide1 {
+      background: url('./img/plate10.jpg') no-repeat center / cover;
+    }
+    &--slide2 {
+      background: url('./img/plate11.jpeg') no-repeat center / cover;
+    }
   }
   &__nav {
     position: fixed;
@@ -12,9 +20,10 @@
     align-items: center;
     justify-content: flex-end;
     text-align: center;
-    z-index: 10;
+    z-index: 100;
     background-color: $fiolet;
     width: 100%;
+    letter-spacing: 2px;
     &:last-child {
       display: flex;
       flex-grow: 1;
@@ -62,12 +71,22 @@
     }
   }
   &__block {
-    max-width: 490px;
+    max-width: 590px;
   }
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 700px;
+
+  }
+  &__logo {
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    z-index: 11;
+    // flex-direction: column;
   }
   &__title {
     padding-top: 5rem;
@@ -81,32 +100,23 @@
 
 
 .logo {
-  position: relative;
-  display: inline-block;
-  font-size: 5rem;
+  // position: relative;
+  font-size: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 3rem;
+  align-items: center;
+  justify-content: center;
   font-family: $font2;
   color: $white;
-  &__text {
-    position: absolute;
-    top: -50px;
-    right: -280px;
-    display: block;
-    font-size: 3.4rem;
-    color: $white;
-    font-family: $font2;
-    & i {
-      font-style: normal;
-      font-size: 4.2rem;
-      color: $yellow;
-      font-weight: bold;
-      font-family: $font2;
-      letter-spacing: 15px;
-    }
+  &__text-content {
+    color: $black;
+    text-align: center;
   }
   img {
-    width: 210px;
-    animation: logoAnimate 24s infinite ;
-    -webkit-animation: logoAnimate 24s infinite ;
+    width: 140px;
+    // animation: logoAnimate 24s infinite ;
+    // -webkit-animation: logoAnimate 24s infinite ;
 }
 }
 

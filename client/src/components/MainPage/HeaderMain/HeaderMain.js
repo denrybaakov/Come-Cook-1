@@ -1,11 +1,12 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import logo from './img/indexLogo.png'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper'
+import 'swiper/css'
 import { clientLogout } from "../../../redux/actions/clientAC"
 import logo2 from './logo2.png'
-// import sheff from './img/shef.png'
-// import whiteT from './img/whiteT.jpg'
-
 
 const HeaderMain = () => {
 const client = useSelector(state => state.client)
@@ -13,7 +14,6 @@ const dispatch = useDispatch()
 const logoutHandler = () => {
   dispatch(clientLogout())
 }
-
 
   return (
     <header className="header">
@@ -34,26 +34,29 @@ const logoutHandler = () => {
 
         </div>
       </nav>
-      <div className="container">
-        <div className="header__content">
-          <div className="header__block">
-            {/* <img src={sheff} alt="Sheff" /> */}
-            {/* {sheff} */}
-            <div className="logo header__logo">
-              &
-              <strong className="logo__text"><i>COME<br></br>COOK</i></strong>
-            </div>
-            <h1 className="title header__title">
-              <span className="title title__select">Шеф повар у вас дома</span>
-            </h1>
-            <button className="btn btn__primary">Попробовать</button>
-          </div>
-          <div className="header__person">
-            <img src={logo2} alt="" />
-            {/* <img src={whiteT} alt="" /> */}
-          </div>
-        </div>
+      <Swiper
+        spaceBetween={1}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false
+        }}
+        modules={[Autoplay]}
+      >
+        <SwiperSlide>
+          <div className="header__background"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="header__background header__background--slide2"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="header__background header__background--slide1"></div>
+        </SwiperSlide>
 
+      </Swiper>
+
+      <div class="logo header__logo">
+        <img src={logo} alt="" class="header__img" />
+        <strong class="logo__text-content">Высокая кухня <br></br> у Вас дома</strong>
       </div>
     </header>
   )

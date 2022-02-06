@@ -17,9 +17,6 @@ function App() {
       <Route path='/auth/login' element={<SignIn />}></Route>
       <Route path='/auth/register' element={<SignUp />}></Route>
       <Route path='/profile' element={<UserIndex />}></Route>
-      {/* <Route path='/profile/search' element={<UserIndex />}></Route>
-      <Route path='/profile/order' element={<UserIndex />}></Route>
-      <Route path='/profile/completed' element={<UserIndex />}></Route> */}
     </Routes>
   );
 }
