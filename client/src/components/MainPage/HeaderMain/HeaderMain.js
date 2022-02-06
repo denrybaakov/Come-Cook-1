@@ -1,11 +1,19 @@
 
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { clientLogout } from "../../../redux/actions/clientAC"
 import logo2 from './logo2.png'
 // import sheff from './img/shef.png'
 // import whiteT from './img/whiteT.jpg'
 
 
 const HeaderMain = () => {
+const client = useSelector(state => state.client)
+const dispatch = useDispatch()
+const logoutHandler = () => {
+  dispatch(clientLogout())
+}
+
 
   return (
     <header className="header">
@@ -17,8 +25,13 @@ const HeaderMain = () => {
         </div>
 
         <div className="header__login">
-          <Link to={'/auth'} className="header__link" >Регистрация2</Link>
+          <Link to={'/auth/register'} className="header__link" >Регистрация2</Link>
           <Link to={'/auth/login'} className="header__link" >Войти</Link>
+          
+          {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
+          <button onClick={logoutHandler} >logout</button>
+          
+
         </div>
       </nav>
       <div className="container">
