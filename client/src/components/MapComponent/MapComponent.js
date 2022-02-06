@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 // import { allRestaurants } from "../../redux/actions/restaurant.action";
 // import { allRestByCoord } from "../../redux/actions/rests.action";
-import { getOrders } from '../../redux/actions/ordersAction'
-import { getAllCoordsOrders } from '../../redux/actions/allCoordsOrdersAction'
+// import { getOrders } from '../../redux/actions/ordersAction'
+// import { getAllCoordsOrders } from '../../redux/actions/allCoordsOrdersAction'
 // import 'react-toastify/dist/ReactToastify.css';
 
 const MapComponent = () => {
