@@ -1,5 +1,6 @@
 const initState = {
-  orders: []
+  orders: [],
+  coords: []
 }
 
 export default initState

@@ -3,13 +3,12 @@
   &__row {
     display: flex;
     justify-content: space-between;
-    // flex-direction: row;
   }
   &__row--img {
     margin-right: 3rem;
     width: 2910px;
     height: 610px;
-    background: url('./img/benefitLogo.svg') no-repeat center / 100%;
+    background: url('./img/benefits.png') no-repeat center / 100%;
   }
   &__title {
     position: relative;
@@ -57,7 +56,7 @@
         -moz-transform: translateY(-10px);
         -ms-transform: translateY(-10px);
         -o-transform: translateY(-10px);
-}
+      }
     }
   }
 }
