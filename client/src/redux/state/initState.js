@@ -1,6 +1,5 @@
-const initState = {
-  orders: [],
-  coords: []
+export const initState = {
+  client: {},
+  cook: {},
+  orders: []
 }
-
-export default initState

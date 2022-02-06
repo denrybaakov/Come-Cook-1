@@ -1,13 +1,19 @@
 
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import logo from './img/indexLogo.png'
-
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import 'swiper/css'
-
+import { clientLogout } from "../../../redux/actions/clientAC"
+import logo2 from './logo2.png'
 
 const HeaderMain = () => {
+const client = useSelector(state => state.client)
+const dispatch = useDispatch()
+const logoutHandler = () => {
+  dispatch(clientLogout())
+}
 
   return (
     <header className="header">
@@ -19,8 +25,13 @@ const HeaderMain = () => {
         </div>
 
         <div className="header__login">
-          <Link to={'/auth'} className="header__link" >Регистрация</Link>
+          <Link to={'/auth/register'} className="header__link" >Регистрация2</Link>
           <Link to={'/auth/login'} className="header__link" >Войти</Link>
+          
+          {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
+          <button onClick={logoutHandler} >logout</button>
+          
+
         </div>
       </nav>
       <Swiper
