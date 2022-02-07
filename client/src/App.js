@@ -9,7 +9,9 @@ import SignUp from './components/Registration/SignUp/SignUp';
 import Client from './components/UserPage/Client/Client';
 import Povar from './components/UserPage/Povar/Povar';
 import UserIndex from './components/UserPage/UserIndex/UserIndex'
+import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 import { checkUser } from './redux/actions/userAC';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -50,7 +52,13 @@ function App() {
         } />
 
 
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Main />}></Route>
+      <Route path='/auth/login' element={<SignIn />}></Route>
+      <Route path='/auth/register' element={<SignUp />}></Route>
+      <Route path='/povar' element={<UserIndex />}></Route>
+      <Route path='/client' element={<ClientIndex />}></Route>
+    </Routes>
     </>
   );
 }

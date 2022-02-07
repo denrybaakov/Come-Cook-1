@@ -1,0 +1,11 @@
+
+.setting {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__btn {
+    margin-top: 3rem;
+  }
+}
