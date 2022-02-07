@@ -1,36 +1,76 @@
-// api key - 5a0ef838-8ef3-4449-8f30-5a93bdf47ddd
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrders } from "../../redux/actions/ordersAction";
 
-
-export default function MapComponent({ input }) {
-
-  console.log('input from map ---->', input);
+export default function MapComponent() {
   let ymaps = window.ymaps;
+  let myMap;
+  let placemarkCollections = {};
+  let placemarkList = {};
 
-  // const [myLocation, setmyLocation] = useState(getMyAdress())
-  // console.log(myLocation);
+  let allOrders = useSelector(state => state.orders);
+  // console.log('all orders ---> ',allOrders);
+  let dispatch = useDispatch();
 
-  // async function getMyAdress() {
-  //   navigator.geolocation.getCurrentPosition(async (geoData) => {
-  //     const { longitude, latitude } = geoData.coords;
-  //     setmyLocation([latitude, longitude])
-  //   });
-  // };
+  let orders = allOrders.map(el => el.address)
+  // console.log('orders ---->', orders);
 
-  ymaps.ready(init);
+  // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
+  // console.log(mapp);
+  
+  useEffect(() => {
+    dispatch(getOrders())
+    if (orders.length)
+    ymaps.ready(init)
+  }, [orders.length])
+  
   function init() {
-    let myMap = new ymaps.Map("map", {
+
+    // Создаем карту
+    myMap = new ymaps.Map("map", {
       center: [55.76, 37.64],
-      zoom: 10
+      zoom: 10,
+      controls: [
+        'zoomControl'
+      ],
+      zoomMargin: [20]
     });
+       
+    for (let i = 0; i < orders.length; i++) {
+
+      // Создаём коллекцию меток для города
+      let cityCollection = new ymaps.GeoObjectCollection();
+      let geocoder = ymaps.geocode(orders[i])
+
+      geocoder.then(
+        // eslint-disable-next-line no-loop-func
+        function (res) {
+          let coordinates = res.geoObjects.get(0).geometry.getCoordinates()
+          // console.log('geocoder ----->', geocoder, 'coordinates------>', coordinates);
+          let placemark = new ymaps.Placemark(
+            coordinates, {
+            'hintContent': 'temp',
+            'balloonContent': 'temp'
+          },
+          )
+          if (!placemarkList[i]) placemarkList[i] = {};
+          placemarkList[i] = placemark;
+          // Добавляем метку в коллекцию
+          cityCollection.add(placemark);
+        }
+      )
+
+      placemarkCollections[i] = cityCollection;
+
+      // Добавляем коллекцию на карту
+      myMap.geoObjects.add(cityCollection);
+
+    }
   }
 
   return (
-    <div>
-      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map" ></div>
-    </div>
-  );
+  
+      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map"></div>
+ 
+  )
 }
-
-
-// const url = encodeURI(`https://geocode-maps.yandex.ru/1.x/?apikey=5a0ef838-8ef3-4449-8f30-5a93bdf47ddd&geocode=${input.city},+${fullStreet}+улица,+дом+${input.building}&format=json`)
