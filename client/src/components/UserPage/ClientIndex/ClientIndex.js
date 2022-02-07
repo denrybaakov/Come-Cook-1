@@ -1,13 +1,14 @@
 
 import { useState } from "react"
-
-import avatar from '../img/avatar.png'
+import { useDispatch } from "react-redux"
+import { userLogout } from "../../../redux/actions/userAC"
 
 import ClientIndexPage from "../ClientContent/ClientIndexPage"
 import ClientMainOrder from "./ClientMainOrder"
 import ClientSearch from "./ClientSearch"
 import ClientMessage from "./ClientMessage"
 import ClientSettings from "./ClientSetting"
+import avatar from '../img/avatar.png'
 
 const ClientIndex = () => {
 
@@ -32,6 +33,12 @@ const ClientIndex = () => {
     }
   }
 
+  const dispatch = useDispatch()
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(userLogout())
+  }
+
   return (
     <section className="profile">
       <div className="container">
@@ -50,7 +57,7 @@ const ClientIndex = () => {
               <a href="!#" data-link="search" onClick={changeLink}>Поиск</a>
               <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
               <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-              <a href="!#">Выход</a>
+              <a href="!#" onClick={logoutHandler}>Выход</a>
             </nav>
           </div>
 
