@@ -1,5 +1,7 @@
 
 import profile from './img/profile1.jpg'
+import profile2 from './img/nibiru.png'
+
 
 
 const PovarPage = () => {
@@ -15,10 +17,10 @@ const PovarPage = () => {
         <div className="row preview__row">
 
           <a className="row__item preview__row__item" href="!#">
-            <span className="row__item--title preview__row__item--title">Гермес</span>
-            <span className="row__item--ganre preview__row__item--ganre">Шеф-повар</span>
+            <span className="row__item--title preview__row__item--title">Антон</span>
+            <span className="row__item--ganre preview__row__item--ganre">Главный Шеф-повар</span>
             <div className="row__item-img preview__row__item-img">
-              <img src={profile} alt="Preview" />
+              <img src={profile2} alt="Preview" />
             </div>
           </a>
 

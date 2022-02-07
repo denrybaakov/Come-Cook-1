@@ -7,7 +7,6 @@ const ClientOrder = () => {
       <h2 className="profile__title">Заказы</h2>
       <p>Здесь будут все заказы</p>
       <OrderList />
-      <MapComponent />
     </div>
   )
 }
