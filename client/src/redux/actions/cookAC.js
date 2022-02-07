@@ -1,5 +1,6 @@
 import axios from "axios"
 import { SET_COOK } from "../types/types"
+import { setUser } from "./userAC"
 
 export const setCook = (value) => {
   return {
@@ -8,19 +9,17 @@ export const setCook = (value) => {
   }
 }
 
-export const getPovar = (newUser, navigate) => async (dispatch) => {
+export const getPovar = (newUser) => async (dispatch) => {
   console.log(newUser);
   const res = await axios.post('/auth/signup', newUser)
   console.log(res.data.user);
-  dispatch(setCook(res.data.user)) 
-  navigate('/profile') 
+  dispatch(setUser(res.data.user)) 
 }
 
-export const signInCook = ( loginUser, navigate ) => async ( dispatch ) => {
+export const signInCook = ( loginUser) => async ( dispatch ) => {
   const res = await axios.post('/auth/signin', loginUser)
   console.log(res.data)
-  dispatch(setCook(res.data))
-  navigate('/profile') 
+  dispatch(setUser(res.data))
 
 }
 
