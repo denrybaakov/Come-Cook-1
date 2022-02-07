@@ -8,7 +8,7 @@ export const ordersReducer = (state = [], { type, payload }) => {
 
     case TYPE.CREATE_ORDERS:
       return [payload, ...state];
-
+      
     default:
       return state;
   }

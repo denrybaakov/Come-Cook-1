@@ -72,5 +72,8 @@ export default function MapComponent() {
   
       <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map"></div>
  
+
   )
 }
+
+export default MapComponent
