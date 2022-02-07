@@ -5,14 +5,15 @@ import logo from './img/indexLogo.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import 'swiper/css'
-import { clientLogout } from "../../../redux/actions/clientAC"
+import { userLogout } from "../../../redux/actions/userAC"
 import logo2 from './logo2.png'
 
 const HeaderMain = () => {
-const client = useSelector(state => state.client)
+const user = useSelector(state => state.user)
+
 const dispatch = useDispatch()
 const logoutHandler = () => {
-  dispatch(clientLogout())
+  dispatch(userLogout())
 }
 
   return (
@@ -23,16 +24,20 @@ const logoutHandler = () => {
           <a href="!#" className="header__link">Вторая страница</a>
           <a href="!#" className="header__link">Цены</a> */}
         </div>
-
+          
         <div className="header__login">
+          {user?.id ?
+          <button onClick={logoutHandler} >logout</button>
+          :
+          <>
           <Link to={'/auth/register'} className="header__link" >Регистрация2</Link>
           <Link to={'/auth/login'} className="header__link" >Войти</Link>
-          
           {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
-          <button onClick={logoutHandler} >logout</button>
-          
-
+          </>
+            }
+        
         </div>
+                  
       </nav>
       <Swiper
         spaceBetween={1}

@@ -1,12 +1,13 @@
-import { SET_COOK } from "../types/types"
+import { SET_USER } from "../types/types"
 
-export const cookReducer = (state = {}, action) => {
+
+export const userReducer = (state = {}, action) => {
   const {type, payload} = action
 
   switch (type) {
-    case SET_COOK: 
+    case SET_USER: 
       return payload
-
+  
     default: {
       return state
     }

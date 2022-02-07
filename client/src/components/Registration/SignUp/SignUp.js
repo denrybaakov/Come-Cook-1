@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
 import { getСlient } from '../../../redux/actions/clientAC';
 import { getPovar } from '../../../redux/actions/cookAC'
-import {useNavigate } from "react-router-dom";
 
 
 
@@ -11,7 +10,6 @@ const SignUp = () => {
 const [inputs, setInputs] = useState({name:'', email:'', password:''}) 
 const [role, setRole] = useState('client')
 
-let navigate = useNavigate();
 const dispatch = useDispatch();
 
 
@@ -33,10 +31,10 @@ const submitHandler = (e) => {
 
 if(newUser.role === 'client') {
   
-  return dispatch(getСlient(newUser, navigate))
+  return dispatch(getСlient(newUser))
 
 } else if(newUser.role === 'cook') {
- return dispatch(getPovar(newUser, navigate))
+ return dispatch(getPovar(newUser))
 }
 
 }
