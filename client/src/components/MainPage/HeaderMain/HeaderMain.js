@@ -28,7 +28,11 @@ const HeaderMain = () => {
 
         <div className="header__login">
           {user?.id ?
-            <a href="!#" className="header__link" onClick={logoutHandler} >Выйти</a>
+            <>
+              <Link to="/userpage" className="header__link">Мой профиль</Link>
+              <a href="!#" className="header__link" onClick={logoutHandler} >Выйти</a>
+            </>
+
             :
             <>
               <Link to={'/auth/register'} className="header__link" >Регистрация</Link>

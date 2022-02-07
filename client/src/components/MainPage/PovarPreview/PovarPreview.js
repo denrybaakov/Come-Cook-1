@@ -8,8 +8,8 @@ const PovarPreview = () => {
     <section className="povarPreview">
       <Swiper
         spaceBetween={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => { }}
+        onSwiper={(swiper) => { }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false

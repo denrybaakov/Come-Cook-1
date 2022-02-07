@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { userLogout } from '../../../redux/actions/userAC'
 import { useState } from 'react'
 
 import SearchOrder from '../UserContent/SearchOrder'
@@ -43,7 +44,12 @@ const UserIndex = () => {
     }
   }
 
-  // сделать фиксированным меню лист! 
+
+  const dispatch = useDispatch()
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(userLogout())
+  }
 
 
   return (
@@ -67,7 +73,7 @@ const UserIndex = () => {
               <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
               <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
               <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-              <a href="!#"  >Выход</a>
+              <a href="!#" onClick={logoutHandler}>Выход</a>
             </nav>
           </div>
 

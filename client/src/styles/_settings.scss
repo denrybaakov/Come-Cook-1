@@ -180,6 +180,47 @@ button {
   }
 }
 
+.btn-order {
+  padding: 10px;
+  margin: 10px;
+  border-radius: $borderRadius;
+  -webkit-border-radius: $borderRadius;
+  -moz-border-radius: $borderRadius;
+  -ms-border-radius: $borderRadius;
+  -o-border-radius: $borderRadius;
+  cursor: pointer;
+  &.edit {
+    border: 1px solid $fiolet;
+    background-color: transparent;
+    color: $fiolet;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: #e7bf69;
+      border: 1px solid #e7bf69;
+      color: $darkGreen;
+    }
+  }
+  &.del {
+    border: 1px solid tomato;
+    background-color: transparent;
+    color: tomato;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: tomato;
+      border: 1px solid tomato;
+      color: $white;
+    }
+  }
+}
+
 input {
   padding: 15px 40px;
   border: 1px solid $fiolet;
