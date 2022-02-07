@@ -30,6 +30,7 @@
   max-width: 28%;
   width: 100%;
   margin: 10px;
+  max-height: 800px;
 }
 
 .col-50 {
@@ -42,6 +43,12 @@
   max-width: 68%;
   width: 100%;
   margin: 10px;
+  max-height: 900px;
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 }
 
 
