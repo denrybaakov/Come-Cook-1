@@ -18,7 +18,8 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  color: $white;
+  color: $darkGreen;
+  text-transform: none !important;
 }
 
 div {
@@ -49,6 +50,37 @@ input {
 
 input:focus {
   outline: none;
+}
+
+.input {
+  &-profile {
+    padding: 20px 10px;
+    border: none;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    margin-bottom: 1rem;
+    width: 70%;
+    background-color: #E5E5E5;
+    color: $black;
+    transition: background-color 0.4s ease-in-out;
+    -webkit-transition: background-color 0.4s ease-in-out;
+    -moz-transition: background-color 0.4s ease-in-out;
+    -ms-transition: background-color 0.4s ease-in-out;
+    -o-transition: background-color 0.4s ease-in-out;
+    border-bottom: 3px solid #E5E5E5;
+    font-weight: bold;
+    // font-family: $font2;
+    font-size: 1.1rem;
+    &::placeholder {
+      color: $darkGreen;
+    }
+    &:focus {
+      // border: 2px solid #BBCDAB;
+      background-color: #BBCDAB;
+      border-bottom: 4px solid $fiolet;
+      color: $mediumGreen;
+    }
+  }
 }
 
 button {
@@ -122,6 +154,7 @@ button {
     box-shadow:none;
     color: $white;
   }
+  
 }
 
 .btn-secondary {
@@ -158,6 +191,10 @@ button {
   background-color: $fiolet;
 }
 
+textarea {
+  resize: none;
+}
+
 
 .profile {
   background-color: $fiolet;
@@ -166,4 +203,10 @@ button {
   & .container {
     max-width: 1500px;
   }
+  &__tab {
+    margin-top: 2rem;
+    // max-width: 400px;
+    width: 100%;
+  }
+
 }

@@ -5,15 +5,17 @@ import logo from './img/indexLogo.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import 'swiper/css'
-import { clientLogout } from "../../../redux/actions/clientAC"
+import { userLogout } from "../../../redux/actions/userAC"
 import logo2 from './logo2.png'
 
 const HeaderMain = () => {
-const client = useSelector(state => state.client)
-const dispatch = useDispatch()
-const logoutHandler = () => {
-  dispatch(clientLogout())
-}
+  const user = useSelector(state => state.user)
+
+  const dispatch = useDispatch()
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(userLogout())
+  }
 
   return (
     <header className="header">
@@ -25,14 +27,18 @@ const logoutHandler = () => {
         </div>
 
         <div className="header__login">
-          <Link to={'/auth/register'} className="header__link" >Регистрация2</Link>
-          <Link to={'/auth/login'} className="header__link" >Войти</Link>
-          
-          {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
-          <button onClick={logoutHandler} >logout</button>
-          
+          {user?.id ?
+            <a href="!#" className="header__link" onClick={logoutHandler} >Выйти</a>
+            :
+            <>
+              <Link to={'/auth/register'} className="header__link" >Регистрация</Link>
+              <Link to={'/auth/login'} className="header__link" >Войти</Link>
+              {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
+            </>
+          }
 
         </div>
+
       </nav>
       <Swiper
         spaceBetween={1}

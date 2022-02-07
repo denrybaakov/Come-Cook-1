@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
 import { signinClient } from '../../../redux/actions/clientAC';
 import { signInCook } from '../../../redux/actions/cookAC';
 
@@ -10,7 +9,6 @@ const SignIn = () => {
   const [inputs, setInputs] = useState({ email: '', password: '' })
   const [role, setRole] = useState('client')
 
-  let navigate = useNavigate();
   const dispatch = useDispatch();
 
 
@@ -29,9 +27,9 @@ const SignIn = () => {
     setInputs({name:'', email:'', password:''})
 
     if(loginUser.role === 'client') {
-      return dispatch(signinClient(loginUser, navigate))
+      return dispatch(signinClient(loginUser))
     } else if(loginUser.role === 'cook') {
-      return dispatch(signInCook(loginUser, navigate))
+      return dispatch(signInCook(loginUser))
     }
 
 
