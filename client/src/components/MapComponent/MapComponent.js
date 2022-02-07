@@ -1,69 +1,79 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-// import { allRestaurants } from "../../redux/actions/restaurant.action";
-// import { allRestByCoord } from "../../redux/actions/rests.action";
-import { getOrders } from '../../redux/actions/ordersAction'
-import { getAllCoordsOrders } from '../../redux/actions/allCoordsOrdersAction'
-// import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from "react-redux";
+import { getOrders } from "../../redux/actions/ordersAction";
 
-const MapComponent = () => {
+export default function MapComponent() {
   let ymaps = window.ymaps;
-  const dispatch = useDispatch()
+  let myMap;
+  let placemarkCollections = {};
+  let placemarkList = {};
 
-  const coordinates = useSelector(state => state.restaurant)
+  let allOrders = useSelector(state => state.orders);
+  // console.log('all orders ---> ',allOrders);
+  let dispatch = useDispatch();
 
-  const [myLocation, setmyLocation] = useState(getMyAdress())
+  let orders = allOrders.map(el => el.address)
+  // console.log('orders ---->', orders);
 
-  // вычисляем геопозицию по IP
-  async function getMyAdress() {
-    navigator.geolocation.getCurrentPosition(async (geoData) => {
-      const { longitude, latitude } = geoData.coords;
-      setmyLocation([latitude, longitude])
-    });
-  };
-
-  // useEffect(() => {
-  //   // dispatch(getAllCoordsOrders())
-  //   ymaps.ready(init)
-  // }, [])
-
-  //подключаем карты
+  // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
+  // console.log(mapp);
+  
+  useEffect(() => {
+    dispatch(getOrders())
+    if (orders.length)
+    ymaps.ready(init)
+  }, [orders.length])
+  
   function init() {
-    let myMap = new ymaps.Map("map", {
-      center: [55.7066426, 37.5973765],
+
+    // Создаем карту
+    myMap = new ymaps.Map("map", {
+      center: [55.76, 37.64],
       zoom: 10,
-      controls: ['zoomControl'],
-      behaviors: ['drag', 'scrollZoom']
-    })
-    // Создадим объекты на основе JSON-описания геометрий.
-    let objects = ymaps?.geoQuery([55.760178, 37.618575]).addToMap(myMap)
+      controls: [
+        'zoomControl'
+      ],
+      zoomMargin: [20]
+    });
+       
+    for (let i = 0; i < orders.length; i++) {
 
-    objects.searchInside(myMap)
-      // И затем добавим найденные объекты на карту.
-      .addToMap(myMap);
+      // Создаём коллекцию меток для города
+      let cityCollection = new ymaps.GeoObjectCollection();
+      let geocoder = ymaps.geocode(orders[i])
 
-    // objects._objects.forEach(el => el.events.add('click', (e) => {
-    //   dispatch(allRestByCoord([el.geometry._coordinates])) // показывает ресторан по клику
-    // }))
-    // myMap.events.add('boundschange', function () {
-    //   // После каждого сдвига карты будем смотреть, какие объекты попадают в видимую область.
-    //   let visibleObjects = objects.searchInside(myMap).addToMap(myMap);
-    //   const coord = visibleObjects._objects.map(el => el.geometry._coordinates)
-    //   // Оставшиеся объекты будем удалять с карты.
-    //   objects.remove(visibleObjects).removeFromMap(myMap);
-    //   dispatch(allRestByCoord(coord))
-    // });
+      geocoder.then(
+        // eslint-disable-next-line no-loop-func
+        function (res) {
+          let coordinates = res.geoObjects.get(0).geometry.getCoordinates()
+          // console.log('geocoder ----->', geocoder, 'coordinates------>', coordinates);
+          let placemark = new ymaps.Placemark(
+            coordinates, {
+            'hintContent': 'temp',
+            'balloonContent': 'temp'
+          },
+          )
+          if (!placemarkList[i]) placemarkList[i] = {};
+          placemarkList[i] = placemark;
+          // Добавляем метку в коллекцию
+          cityCollection.add(placemark);
+        }
+      )
+
+      placemarkCollections[i] = cityCollection;
+
+      // Добавляем коллекцию на карту
+      myMap.geoObjects.add(cityCollection);
+
+    }
   }
 
-  console.log(window);
-
-  ymaps.ready(init)
-
   return (
-    <div className="main__map ymaps-layers-pane">
-      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map" />
-    </div>
+  
+      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map"></div>
+ 
+
   )
 }
 
-export default MapComponent
+

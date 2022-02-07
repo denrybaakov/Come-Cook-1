@@ -11,6 +11,12 @@ export const getOrders = () => async (dispatch) => {
   dispatch(setOrders(result.data.allOrders));
 }
 
+export const createOrders = (value) => async (dispatch) => {
+  const result = await axios.post('/orders', value);
+  console.log('order create action --->', result.data.newOrder);
+  dispatch({type: TYPE.CREATE_ORDERS, payload: result.data.newOrder})
+}
+
 // export const getOrderItem = (id) => async (dispatch) => {
 //   const result = await axios(`/orders/${id}`);
 //   dispatch(setOrders(result.data.orderItem));
