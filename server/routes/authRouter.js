@@ -24,14 +24,14 @@ router.route('/signup')
 
         req.session.user = { id: client.id, name: client.name, email: client.email, role: user.role }
         // console.log(req.session.user.role, '>>>>>>>>>>>>>>>>>>>');
-        return res.json({ user })
+        return res.json({ user: req.session.user })
       } else if (req.body.role === 'cook') {
         const cook = await Povar.create({ name, email, password: cryptPass })
         const user = { ...cook, role: 'cook' }
 
         req.session.user = { id: cook.id, name: cook.name, email: cook.email, role: user.role }
         // console.log(req.session);
-        return res.json({ user })
+        return res.json({ user: req.session.user })
       }
 
     } catch (error) {
