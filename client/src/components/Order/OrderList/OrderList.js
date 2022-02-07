@@ -6,6 +6,7 @@ import OrderItem from '../OrderItem/OrderItem';
 
 const OrderList = () => {
   const allOrders = useSelector(state => state.orders);
+  console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,6 +15,7 @@ const OrderList = () => {
 
 
   return (
+
     <div>
       {
         allOrders.map((item, index) => <OrderItem

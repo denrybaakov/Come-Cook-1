@@ -4,7 +4,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('Orders', [
-      {
+      {        
         date: '27 - 11 - 2022',
         address: 'ул. Климашкина д.10 кв.64',
         title: 'Ужин для тёти из Барселоны',

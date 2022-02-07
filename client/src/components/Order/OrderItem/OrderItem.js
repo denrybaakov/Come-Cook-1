@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -43,6 +43,9 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
             <p className="order__text">Описание: {text}</p>
           </div>
           <div className="order__group-btn">
+          <Link to={`/orders/${id}`}>
+          <button className="btn-order edit">Открыть</button>
+          </Link>
             <button className="btn-order edit">Редактировать</button>
             <button className="btn-order del">Отклонить</button>
           </div>

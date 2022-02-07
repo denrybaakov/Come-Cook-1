@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
 import Main from './components/MainPage/Main';
+import OrderPage from './components/Order/OrderPage/OrderPage';
 import AuthUser from './components/ProtectedAuth/AuthUser';
 import ProtectedAuth from './components/ProtectedAuth/ProtectedAuth';
 import SignIn from './components/Registration/SignIn/SignIn'
@@ -50,6 +51,10 @@ function App() {
             <SignUp />
           </ProtectedAuth>
 
+        } />
+
+        <Route path='/orders/:id' element={
+          <OrderPage />
         } />
 
         {/* 

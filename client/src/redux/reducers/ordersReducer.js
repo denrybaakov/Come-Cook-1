@@ -1,12 +1,12 @@
-import * as TYPE from '../types/types'
+import { CREATE_ORDERS, GET_ORDERS } from "../types/types";
 
 export const ordersReducer = (state = [], { type, payload }) => {
 
   switch (type) {
-    case TYPE.GET_ORDERS:
+    case GET_ORDERS:
       return payload;
 
-    case TYPE.CREATE_ORDERS:
+    case CREATE_ORDERS:
       return [payload, ...state];
       
     default:
