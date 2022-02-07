@@ -1,5 +1,6 @@
 export const initState = {
-  client: {},
+  client: null,
   cook: {},
+  user: {},
   orders: []
 }

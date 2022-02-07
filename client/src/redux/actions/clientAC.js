@@ -1,27 +1,29 @@
 import axios from "axios"
 import { SET_CLIENT } from "../types/types"
+import { setUser } from "./userAC"
 
 export const setClient = (value) => {
   return {
     type: SET_CLIENT,
     payload: value
   }
-}
-
-export const getСlient = (newUser, navigate) => async (dispatch) => {
-  const res = await axios.post('/auth/signup', newUser)
-  // console.log(res.data.user);
-  dispatch(setClient(res.data.user)) 
-  navigate('/profile') 
   
-  // console.log(newUser);
 }
 
-export const signinClient = ( loginUser, navigate ) => async ( dispatch ) => {
+
+
+
+export const getСlient = (newUser) => async (dispatch) => {
+  const res = await axios.post('/auth/signup', newUser)
+  dispatch(setUser(res.data.user)) 
+  
+
+}
+
+export const signinClient = ( loginUser) => async ( dispatch ) => {
   const res = await axios.post('/auth/signin', loginUser)
   console.log(res.data)
-  dispatch(setClient(res.data))
-  navigate('/profile') 
+  dispatch(setUser(res.data))
 
 }
 
