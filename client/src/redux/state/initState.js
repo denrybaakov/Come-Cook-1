@@ -5,6 +5,6 @@ export const initState = {
   orders: [],
   orderID: {},
   povars: [],
-  povarID: {}
-  ws: new WebSocket("ws://localhost:3001")
+  povarID: {},
+  ws: new WebSocket("ws://localhost:3001"),
 }
