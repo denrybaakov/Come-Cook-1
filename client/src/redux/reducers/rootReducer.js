@@ -6,6 +6,7 @@ import { ordersReducer } from "./ordersReducer";
 import { povarIDReducer } from './povarIDReducer';
 import { povarReducer } from './povarReducer';
 import { userReducer } from './userReducer';
+import { wsReducer } from './wsReducer';
 
 export const rootReducer = combineReducers({
   orders: ordersReducer,
@@ -15,4 +16,6 @@ export const rootReducer = combineReducers({
   orderID: orderIDReducer,
   povars: povarReducer,
   povarID: povarIDReducer
+  ws: wsReducer,
+
 })

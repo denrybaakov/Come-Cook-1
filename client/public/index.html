@@ -26,7 +26,8 @@
 
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=5a0ef838-8ef3-4449-8f30-5a93bdf47ddd&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=5a0ef838-8ef3-4449-8f30-5a93bdf47ddd&lang=ru_RU"
+    type="text/javascript"></script>
 
   <title>Come & Cook</title>
 </head>
@@ -44,6 +45,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    let socket = io();
+  </script>
 </body>
 
 </html>

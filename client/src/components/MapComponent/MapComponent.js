@@ -15,13 +15,18 @@ export default function MapComponent() {
 
   // let orders = allOrders.map(el => el.address)
   // console.log('orders ---->', orders);
+
   
   useEffect(() => {
     dispatch(getOrders())
     if (allOrders.length)
     ymaps.ready(init)
   }, [allOrders.length])
-  
+
+  // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
+  // console.log(mapp);
+
+
   function init() {
 
     // Создаем карту
@@ -33,6 +38,7 @@ export default function MapComponent() {
       ],
       zoomMargin: [20]
     });
+
        
     for (let i = 0; i < allOrders.length; i++) {
 
@@ -41,6 +47,8 @@ export default function MapComponent() {
       let title = allOrders[i].title;
       let text = allOrders[i].text;
       let id = allOrders[i].id;
+
+
 
       console.log('loop--->', id);
       // Создаём коллекцию меток для города
@@ -75,9 +83,9 @@ export default function MapComponent() {
   }
 
   return (
-  
-      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map"></div>
- 
+
+    <div className="profile__map" style={{ width: '600px', height: '350px', borderRadius: '7px' }} id="map"></div>
+
 
   )
 }

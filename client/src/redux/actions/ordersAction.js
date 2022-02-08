@@ -10,11 +10,11 @@ export const getOrders = () => async (dispatch) => {
   const result = await axios('/orders');
   const result2 = result.data.allOrders.map(el => {
     return {
-      ...el, 
-      name: el.Client.name, 
-      surname: el.Client.surname, 
+      ...el,
+      name: el.Client.name,
+      surname: el.Client.surname,
       avatar: el.Client.avatar,
-      status: el.Status.name 
+      status: el.Status.name
     }
   })
   dispatch(setOrders(result2));
@@ -23,7 +23,7 @@ export const getOrders = () => async (dispatch) => {
 export const createOrders = (value) => async (dispatch) => {
   const result = await axios.post('/orders', value);
   console.log('order create action --->', result.data.newOrder);
-  dispatch({type: CREATE_ORDERS, payload: result.data.newOrder})
+  dispatch({ type: CREATE_ORDERS, payload: result.data.newOrder })
 }
 
 export const deleteOrders = (id) => async (dispatch) => {
