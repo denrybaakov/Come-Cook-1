@@ -3,10 +3,12 @@ import { clientReducer } from '../reducers/clientReducer';
 import { cookReducer } from '../reducers/cookReducer';
 import { ordersReducer } from "./ordersReducer";
 import { userReducer } from './userReducer';
+import { wsReducer } from './wsReducer';
 
 export const rootReducer = combineReducers({
   orders: ordersReducer,
   client: clientReducer,
   cook: cookReducer,
-  user: userReducer
+  user: userReducer,
+  ws: wsReducer,
 })

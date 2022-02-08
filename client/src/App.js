@@ -59,6 +59,8 @@ function App() {
           <OrderPage />
         } />
 
+        <Route path='/test' element={<Tests />}></Route>
+
         {/* 
         <Routes>
           <Route path='/' element={<Main />}></Route>
