@@ -62,11 +62,7 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Povar,
-          attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar', 'cuisine_id'],
-          include: {
-            model: Cuisines,
-            attributes: ['name', 'img']
-          }
+          attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
         },
       ]
     })

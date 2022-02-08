@@ -33,10 +33,6 @@ wsServer.on('connection', (ws, request) => {
 
 map.set(userId, ws);
 
-
-
-
-
 ws.on('message', async (message) => {
   const parsedMessage = JSON.parse(message);
   switch (parsedMessage.type) {
