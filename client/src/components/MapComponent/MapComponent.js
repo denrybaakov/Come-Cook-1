@@ -17,13 +17,13 @@ export default function MapComponent() {
 
   // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
   // console.log(mapp);
-  
+
   useEffect(() => {
     dispatch(getOrders())
     if (orders.length)
-    ymaps.ready(init)
+      ymaps.ready(init)
   }, [orders.length])
-  
+
   function init() {
 
     // Создаем карту
@@ -35,7 +35,7 @@ export default function MapComponent() {
       ],
       zoomMargin: [20]
     });
-       
+
     for (let i = 0; i < orders.length; i++) {
 
       // Создаём коллекцию меток для города
@@ -69,9 +69,9 @@ export default function MapComponent() {
   }
 
   return (
-  
-      <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map"></div>
- 
+
+    <div className="profile__map" style={{ width: '600px', height: '350px', borderRadius: '7px' }} id="map"></div>
+
 
   )
 }

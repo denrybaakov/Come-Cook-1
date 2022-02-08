@@ -82,7 +82,6 @@ const TabsList = styled(TabsListUnstyled)`
 const ClientMainOrder = () => {
   return (
     <div className="col-70 profile__col-70">
-      <h2 className="">Заказы</h2>
       <TabsUnstyled defaultValue={1} className="profile__tab">
         <TabsList>
           <Tab>Создать заказ</Tab>
