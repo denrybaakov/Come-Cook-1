@@ -50,9 +50,9 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
           </div>
           <div className="order__group-btn">
 
-          <Link to={`/orders/${id}`}>
+            {/* <Link to={`/orders/${id}`}>
           <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
-          </Link>
+          </Link> */}
 
             <button className="btn-order edit">Редактировать</button>
             <button className="btn-order del" onClick={() => deleteHandler(id)}>Отклонить</button>
