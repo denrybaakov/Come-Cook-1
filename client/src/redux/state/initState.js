@@ -3,5 +3,8 @@ export const initState = {
   cook: {},
   user: {},
   orders: [],
+  orderID: {},
+  povars: [],
+  povarID: {}
   ws: new WebSocket("ws://localhost:3001")
 }

@@ -1,4 +1,4 @@
-import { CREATE_ORDERS, GET_ORDERS } from "../types/types";
+import { CREATE_ORDERS, DELETE_ORDER, GET_ORDERS } from "../types/types";
 
 export const ordersReducer = (state = [], { type, payload }) => {
 
@@ -8,7 +8,10 @@ export const ordersReducer = (state = [], { type, payload }) => {
 
     case CREATE_ORDERS:
       return [payload, ...state];
-      
+
+    case DELETE_ORDER:
+      return state.filter(el => el.id !== payload);
+
     default:
       return state;
   }

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate({ Order, Cuisines}) {
       this.hasMany(Order, {foreignKey: "client_id"});
-      this.hasMany(Cuisines, {foreignKey: "cuisine_id"});
+      this.belongsTo(Cuisines, {foreignKey: "cuisine_id"});
     }
   }
   Client.init({

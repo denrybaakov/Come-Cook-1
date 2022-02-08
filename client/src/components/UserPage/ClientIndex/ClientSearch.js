@@ -1,14 +1,17 @@
+import PovarList from "../UserContent/PovarList"
 
 
 const ClientSearch = () => {
+ 
+
   return (
     <div className="col-70 profile__col-70">
 
-      <input type="text" className="input__search" placeholder="Поиск..." />
+      <h2 className="profile__title">Поиск</h2>
+      <p>Здесь будут все заказы</p>
+      <input type="text" placeholder="search" />
+      <PovarList />
 
-      <div className="">
-
-      </div>
     </div>
   )
 }

@@ -10,8 +10,8 @@ const WebSocket = require('ws');
 const authRouter = require('./routes/authRouter');
 const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
-const map = new Map();
 
+const map = new Map();
 const app = express();
 
 //SOCKET
@@ -37,6 +37,7 @@ app.use(sessionParser);
 app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
+app.use('/povars', povars);
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ clientTracking: false, noServer: true });

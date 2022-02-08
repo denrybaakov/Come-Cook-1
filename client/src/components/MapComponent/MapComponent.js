@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getOrderItem } from "../../redux/actions/orderIDAction";
 import { getOrders } from "../../redux/actions/ordersAction";
 
 export default function MapComponent() {
@@ -12,17 +13,19 @@ export default function MapComponent() {
   // console.log('all orders ---> ',allOrders);
   let dispatch = useDispatch();
 
-  let orders = allOrders.map(el => el.address)
+  // let orders = allOrders.map(el => el.address)
   // console.log('orders ---->', orders);
+
+  
+  useEffect(() => {
+    dispatch(getOrders())
+    if (allOrders.length)
+    ymaps.ready(init)
+  }, [allOrders.length])
 
   // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
   // console.log(mapp);
 
-  useEffect(() => {
-    dispatch(getOrders())
-    if (orders.length)
-      ymaps.ready(init)
-  }, [orders.length])
 
   function init() {
 
@@ -36,21 +39,32 @@ export default function MapComponent() {
       zoomMargin: [20]
     });
 
-    for (let i = 0; i < orders.length; i++) {
+       
+    for (let i = 0; i < allOrders.length; i++) {
 
+      let date = allOrders[i].date;
+      let address = allOrders[i].address;
+      let title = allOrders[i].title;
+      let text = allOrders[i].text;
+      let id = allOrders[i].id;
+
+
+
+      console.log('loop--->', id);
       // Создаём коллекцию меток для города
       let cityCollection = new ymaps.GeoObjectCollection();
-      let geocoder = ymaps.geocode(orders[i])
+      let geocoder = ymaps.geocode(allOrders[i].address)
 
       geocoder.then(
         // eslint-disable-next-line no-loop-func
         function (res) {
           let coordinates = res.geoObjects.get(0).geometry.getCoordinates()
-          // console.log('geocoder ----->', geocoder, 'coordinates------>', coordinates);
           let placemark = new ymaps.Placemark(
             coordinates, {
-            'hintContent': 'temp',
-            'balloonContent': 'temp'
+            'hintContent': `${address}`,
+            'balloonContent': [
+              `<h1>${date}</br>${address}</br></br>${title}</br>${text}</br></br><a href="http://localhost:3000/orders/${id}">Перейти на страницу заказа</a></h1>`,
+            ]
           },
           )
           if (!placemarkList[i]) placemarkList[i] = {};
