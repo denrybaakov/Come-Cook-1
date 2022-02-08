@@ -1,0 +1,24 @@
+@import './styles/_variable';
+@import './styles/normalize';
+@import './styles/_settings';
+@import './styles/grids.scss';
+@import './styles/_animate';
+@import './styles/_ui';
+
+
+@import './components/MainPage/HeaderMain/_style';
+@import './components/MainPage/PovarPage/_preview';
+@import './components/MainPage/Benefits/_benefits';
+@import './components/MainPage/Footer/_footer';
+
+@import './components/Order/OrderItem/_orderItem';
+
+
+@import './components/Registration/SignIn/style';
+@import './components/UserPage/UserIndex/_style';
+@import './components/MainPage/PovarPreview/_style';
+@import './components/MainPage/ClientPage/_style';
+// @import 'components/Home/PreviewHome/_preview';
+// @import 'components/Home/BenefitsHome/_benefits';
+// @import './components/Home/FooterHome/_footer';
+// @import './components/Login/SignIn/style';
