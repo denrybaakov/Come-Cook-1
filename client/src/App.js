@@ -6,12 +6,14 @@ import AuthUser from './components/ProtectedAuth/AuthUser';
 import ProtectedAuth from './components/ProtectedAuth/ProtectedAuth';
 import SignIn from './components/Registration/SignIn/SignIn'
 import SignUp from './components/Registration/SignUp/SignUp';
+import Tests from './components/Tests/Tests';
 // import Client from './components/UserPage/Client/Client';
 import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 // import Povar from './components/UserPage/Povar/Povar';
 // import UserIndex from './components/UserPage/UserIndex/UserIndex'
 // import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 import { checkUser } from './redux/actions/userAC';
+
 
 
 function App() {
@@ -52,6 +54,9 @@ function App() {
 
         } />
 
+
+
+        <Route path='/tests' element={<Tests />}></Route>
         {/* 
         <Routes>
           <Route path='/' element={<Main />}></Route>

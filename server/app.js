@@ -12,6 +12,12 @@ const orders = require('./routes/ordersRouter');
 
 const app = express();
 
+//SOCKET
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors({
@@ -31,6 +37,10 @@ app.use(
 app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
 
 app.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)
