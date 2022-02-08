@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Order, Client, Status } = require('../db/models');
+const { Order, Client, Status, Povar, Cuisines } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -26,8 +26,19 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const newOrder = await Order.create(req.body);
-    res.json({ newOrder })
+    const { date, address, title, text, numOfPeople, price } = req.body;
+    const newOrder = await Order.create({
+      date,
+      address,
+      title,
+      text,
+      numOfPeople,
+      price,
+      client_id: req.session.user.id,
+      status_id: 1
+    });
+    console.log('new order ------------>', newOrder);
+    res.json({ newOrder });
   } catch (error) {
     console.log('create order error', error);
     res.sendStatus(500)
@@ -35,9 +46,50 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const orderItem = await Order.findOne({ where: { id: req.params.id } })
-  console.log(orderItem);
-  res.json({ orderItem })
+  try {
+    const orderItem = await Order.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Client,
+          attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+        },
+        {
+          model: Status,
+          attributes: ['name'],
+        },
+        {
+          model: Povar,
+          attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar', 'cuisine_id'],
+          include: {
+            model: Cuisines,
+            attributes: ['name', 'img']
+          }
+        },
+      ]
+    })
+    res.json({ orderItem })
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const order = await Order.findOne({ where: { id: req.params.id } })
+    if (req.session.user.id === order.client_id) {
+      await Order.destroy({ where: { id } })
+      res.sendStatus(200);
+    } else {
+      console.log('no')
+    }
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 })
 
 module.exports = router;

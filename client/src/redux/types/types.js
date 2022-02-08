@@ -4,3 +4,7 @@ export const SET_COOK = "SET_COOK"
 export const CREATE_ORDERS = 'CREATE_ORDERS'
 export const SET_ORDERS = 'SET_ORDERS'
 export const SET_USER = "SET_USER"
+export const GET_ORDER_ID = 'GET_ORDER_ID'
+export const GET_POVARS = 'GET_POVARS'
+export const GET_POVAR_ID = 'GET_POVAR_ID'
+export const DELETE_ORDER = 'DELETE_ORDER'

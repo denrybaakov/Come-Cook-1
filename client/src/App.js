@@ -9,6 +9,7 @@ import SignIn from './components/Registration/SignIn/SignIn'
 import SignUp from './components/Registration/SignUp/SignUp';
 // import Client from './components/UserPage/Client/Client';
 import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
+import PovarPage from './components/UserPage/UserContent/PovarPage';
 // import Povar from './components/UserPage/Povar/Povar';
 // import UserIndex from './components/UserPage/UserIndex/UserIndex'
 // import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
@@ -55,6 +56,10 @@ function App() {
 
         <Route path='/orders/:id' element={
           <OrderPage />
+        } />
+
+        <Route path='/povars/:id' element={
+          <PovarPage />
         } />
 
         {/* 

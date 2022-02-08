@@ -9,7 +9,7 @@ const FileStore = require('session-file-store')(session);
 const authRouter = require('./routes/authRouter');
 const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
-
+const povars = require('./routes/povarRouter');
 const app = express();
 
 app.use(morgan('dev'));
@@ -31,6 +31,7 @@ app.use(
 app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
+app.use('/povars', povars);
 
 app.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)

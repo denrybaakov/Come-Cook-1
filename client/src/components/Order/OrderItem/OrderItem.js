@@ -6,6 +6,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
+import { getOrderItem } from '../../../redux/actions/orderIDAction';
+import { deleteOrders } from '../../../redux/actions/ordersAction';
 
 const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status_id, povar_id, client_id }) => {
   // const [expanded, setExpanded] = useState(false);
@@ -14,12 +16,21 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
   //   setExpanded(isExpanded ? panel : false);
   // };
 
+  const dispatch = useDispatch();
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const getOrderHandler = (id) => {
+    dispatch(getOrderItem(id));
+  }
+
+  const deleteHandler = (id) => {
+    dispatch(deleteOrders(id));
+  }
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -44,10 +55,10 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
           </div>
           <div className="order__group-btn">
           <Link to={`/orders/${id}`}>
-          <button className="btn-order edit">Открыть</button>
+          <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
           </Link>
             <button className="btn-order edit">Редактировать</button>
-            <button className="btn-order del">Отклонить</button>
+            <button className="btn-order del" onClick={() => deleteHandler(id)}>Отклонить</button>
           </div>
         </Typography>
       </AccordionDetails>

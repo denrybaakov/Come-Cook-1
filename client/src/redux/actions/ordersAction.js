@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CREATE_ORDERS, GET_ORDERS } from "../types/types";
+import { CREATE_ORDERS, DELETE_ORDER, GET_ORDERS } from "../types/types";
 
 export const setOrders = (value) => ({
   type: GET_ORDERS,
@@ -26,7 +26,7 @@ export const createOrders = (value) => async (dispatch) => {
   dispatch({type: CREATE_ORDERS, payload: result.data.newOrder})
 }
 
-export const getOrderItem = (id) => async (dispatch) => {
-  const result = await axios(`/orders/${id}`);
-  dispatch(setOrders(result.data.orderItem));
+export const deleteOrders = (id) => async (dispatch) => {
+  await axios.delete(`/orders/${id}`);
+  dispatch({type: DELETE_ORDER, payload: id})
 }
