@@ -9,9 +9,11 @@ import Typography from '@mui/material/Typography';
 import { updateOrder } from '../../../redux/actions/ordersAction';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
 
+
 const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
 
   const [expanded, setExpanded] = React.useState(false);
+
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -20,7 +22,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
   const dispatch = useDispatch();
 
   const acceptHandler = () => {
-    dispatch(updateOrder({id}))
+    dispatch(updateOrder({ id }))
   }
 
   return (
