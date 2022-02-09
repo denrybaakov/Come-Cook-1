@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import UserIndex from '../../UserPage/UserIndex/UserIndex';
 import { Link } from 'react-router-dom';
-import Chat from '../../Chat/Chat';
+import Chat from '../../Chat/ChatPovar';
 import ChatClient from '../../Chat/ChatClient';
 import Tests from '../../Tests/Tests';
 
@@ -45,9 +45,8 @@ export default function OrderPage() {
               </div>
 
               <ChatClient />
-         
+ 
 
-              
 
 
             </div>

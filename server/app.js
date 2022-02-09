@@ -5,22 +5,39 @@ const cors = require('cors');
 const PORT = process.env.PORT;
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+
+const fileUpload = require('express-fileupload')
+const path = require('path')
+
 const WebSocket = require('ws');
+
 
 const authRouter = require('./routes/authRouter');
 const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
+
+const uploadRouter = require('./routes/cookAvatarRouter')
+const uploadRouterClient = require('./routes/clientAvatarRouter')
+
+
 const povars = require('./routes/povarRouter')
 
 const map = new Map();// for ws
 const app = express();
 
+
+
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(fileUpload())
+
 //SOCKET
 const http = require('http');
 const { Server } = require("socket.io");
 
+
 app.use(morgan('dev'));
-app.use(express.json());
+
+app.use(express.json({extended: true}))
 app.use(cors({
   credentials: true,
   origin: true,
@@ -38,6 +55,8 @@ app.use(sessionParser);
 app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
+app.use('/upload', uploadRouter)
+app.use('/uploadClient', uploadRouterClient)
 app.use('/povars', povars);
 
 
@@ -50,7 +69,7 @@ server.on('upgrade', function (request, socket, head) {
   console.log('Parsing session from request...');
 
   sessionParser(request, {}, () => {
- 
+
     if (!request.session.user) {
       socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
       socket.destroy();
@@ -73,12 +92,14 @@ wss.on('connection', function (ws, request) {
 
   ws.on('message', function (message) {
     console.log(`Received message ${message} from user ${userId}`);
-    for(const [userId, wsClient] of map){
-      wsClient.send(`${name} : ${message}`)
+    console.log(request.session.user);
+    for (const [userId, wsClient] of map) {
+      wsClient.send(`${name} =:= ${message}`)
     }
   });
 });
 // WS CLOSED
+
 
 server.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)

@@ -155,18 +155,71 @@
 .chat {
   display: flex;
   flex-direction: column;
+  border: 2px solid $fiolet;
+  padding: 0;
+  border-radius: $borderRadius;
+  border-bottom: none;
+  -webkit-border-radius: $borderRadius;
+  -moz-border-radius: $borderRadius;
+  -ms-border-radius: $borderRadius;
+  -o-border-radius: $borderRadius;
   &__content {
     min-width: 300px;
     width: 100%;
     height: 400px;
-    border: 1px solid black;
+    
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow-y: scroll;
+    align-items: end;
   }
-  &__message.povar {
+  &__block-message.povar {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
+  }
+  &__message {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    background-color: #CCE0BB;
+    margin: 5px;
+    max-width: 250px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
+  &__group-btns {
+    background-color: $fiolet;
+    height: 75px;
+    display: flex;
+    padding: 10px;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+  }
+  &__input {
+    background-color: $white;
+    border: none;
+    background-color: #CCE0BB;
+    border-radius: $borderRadius;
+    //padding: 2px;
+    -webkit-border-radius: $borderRadius;
+    -moz-border-radius: $borderRadius;
+    -ms-border-radius: $borderRadius;
+    -o-border-radius: $borderRadius;
+  }
+  &__btn {
+    color: $white;
+  }
+  &__message {
+
+  }
+  &__userName {
+    color: $fiolet;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
