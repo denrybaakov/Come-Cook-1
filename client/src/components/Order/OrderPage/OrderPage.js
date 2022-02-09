@@ -4,15 +4,18 @@ import { useParams } from 'react-router-dom';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import UserIndex from '../../UserPage/UserIndex/UserIndex';
 import { Link } from 'react-router-dom';
+import Chat from '../../Chat/Chat';
 
 export default function OrderPage() {
   const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
+  const { role } = useSelector(state => state.user)
   const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getOrderItem(id));
   }, [])
+
 
   return (
     <section className="profile">
@@ -38,8 +41,13 @@ export default function OrderPage() {
                 <span className="orderId__description">Комментарии: {text}</span>
                 <span className="orderId__description">Цена: {price}</span>
               </div>
+
+              <Chat />
+
+
             </div>
-            <button className="btn-secondary orderId__btn">Принять</button>
+            {role === 'cook' ? <button className="btn-secondary orderId__btn">Принять</button> : null}
+
             {/* <button className="btn-secondary orderId__btn">Написать клиенту</button> */}
 
             {/* <div>{orderItem.date}</div>
