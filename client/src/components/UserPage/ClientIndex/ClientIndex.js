@@ -10,6 +10,7 @@ import ClientSearch from "./ClientSearch"
 import ClientMessage from "./ClientMessage"
 import ClientSettings from "./ClientSetting"
 import ModalAvatar from '../../Modal/Modal'
+import ModalAvatarClient from '../../Modal/ModalAvatarClient'
 
 
 const ClientIndex = () => {
@@ -92,7 +93,8 @@ const ClientIndex = () => {
 
             <div className="profile__avatar">
               <img src={client.avatar ? pathAvatar : avatar} alt="cv" className="profile__img2" />
-              <ModalAvatar />
+              {/* <ModalAvatar /> */}
+              <ModalAvatarClient />
             </div>
 
             {/* <form onSubmit={submitHandler} >

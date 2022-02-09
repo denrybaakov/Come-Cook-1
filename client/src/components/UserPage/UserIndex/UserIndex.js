@@ -52,7 +52,7 @@ const UserIndex = () => {
   }
 
 
-  const pathAvatar = `http://localhost:3042${povar.avatar}`
+  const pathAvatar = `http://localhost:3001${povar.avatar}`
 
   return (
     <>
@@ -61,10 +61,7 @@ const UserIndex = () => {
           <div className="row profile__row">
             <div className="col-30 profile__col-30">
               <div className="profile__avatar">
-
                 <img src={povar.avatar ? pathAvatar : avatar} className="profile__img2" alt='ds' />
-
-
                 <ModalAvatar />
               </div>
               <div className="profile__text">
