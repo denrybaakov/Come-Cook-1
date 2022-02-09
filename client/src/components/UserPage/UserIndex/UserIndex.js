@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../../../redux/actions/userAC'
 import { useState } from 'react'
 
@@ -17,6 +17,7 @@ import avatar from '../img/avatar.png'
 import MainOrder from '../UserContent/MainOrder'
 
 const UserIndex = () => {
+  
 
   const [linkPage, setLinkPage] = useState(false)
 
@@ -45,7 +46,7 @@ const UserIndex = () => {
     }
   }
 
-
+  const { name, email, role } = useSelector(state => state.user)
   const dispatch = useDispatch()
   const logoutHandler = (e) => {
     e.preventDefault()
@@ -62,8 +63,9 @@ const UserIndex = () => {
               <img src={avatar} alt="cv" className="profile__img2" />
             </div>
             <div className="profile__text">
-              <span className="profile__name">Леонардо да Винчи</span>
-              <span>zevs@zevs.com</span>
+              <span className="profile__name">{name}</span>
+              <span>{email}</span>
+              <span>Статус: Повар</span>
             </div>
             <nav className="profile__nav">
               <a href="!#" data-link="index" onClick={changeLink}>Главная</a>

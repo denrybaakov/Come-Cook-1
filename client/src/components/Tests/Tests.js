@@ -11,7 +11,7 @@ export default function Tests() {
   const ws = useSelector(state => state.ws)
 
   ws.onopen = function (e) {
-    // ws.send("Меня зовут Джон");
+     ws.send("Добро пожаловать");
   };
 
   ws.onmessage = function (event) {

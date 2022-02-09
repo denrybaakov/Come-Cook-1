@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../../redux/actions/userAC"
 
 import ClientIndexPage from "../ClientContent/ClientIndexPage"
@@ -13,6 +13,8 @@ import avatar from '../img/avatar.png'
 const ClientIndex = () => {
 
   const [linkPage, setLinkPage] = useState(false)
+
+  const { name, email } = useSelector(state => state.user)
 
   const changeLink = e => {
     e.preventDefault()
@@ -33,6 +35,7 @@ const ClientIndex = () => {
     }
   }
 
+
   const dispatch = useDispatch()
   const logoutHandler = (e) => {
     e.preventDefault()
@@ -48,8 +51,9 @@ const ClientIndex = () => {
               <img src={avatar} alt="cv" className="profile__img2" />
             </div>
             <div className="profile__text">
-              <span className="profile__name">Киану Риз</span>
-              <span>kiany@riz.com</span>
+              <span className="profile__name">{name}</span>
+              <span>{email}</span>
+              <span>Статус : Клиент</span>
             </div>
             <nav className="profile__nav">
               <a href="!#" data-link="index" onClick={changeLink}>Главная</a>

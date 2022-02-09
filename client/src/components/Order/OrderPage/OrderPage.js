@@ -33,7 +33,7 @@ export default function OrderPage() {
                 <span className="orderId__name">Имя: {clientName}</span>
                 <span className="orderId__name">Фамилия: {clientSurname}</span>
                 <span className="orderId__name">Почта: {clientEmail}</span>
-                <span className="orderId__name">Почта: {clientPhone ? clientPhone : 'Информация не заполнена'}</span>
+                <span className="orderId__name">Телефон: {clientPhone ? clientPhone : 'Информация не заполнена'}</span>
               </div>
               <div className="orderId__info">
                 <span className="orderId__description">Дата: {date}</span>
@@ -44,8 +44,8 @@ export default function OrderPage() {
                 <span className="orderId__description">Цена: {price}</span>
               </div>
 
-              {/* <ChatClient /> */}
-              <Tests />
+              <ChatClient />
+         
 
               
 
