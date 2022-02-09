@@ -41,7 +41,7 @@ const ModalEdit = ({ id, index, date, address, title, text, numOfPeople, price }
 
   return (
     <div>
-      <button className="btn-order" onClick={handleOpen}>Редактировать2</button>
+      <button className="btn-order" onClick={handleOpen}>Редактировать</button>
       <Modal
         open={open}
         onClose={handleClose}
