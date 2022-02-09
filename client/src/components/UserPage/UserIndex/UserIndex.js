@@ -52,20 +52,17 @@ const UserIndex = () => {
   }
 
 
+  const pathAvatar = `http://localhost:3042${povar.avatar}`
 
   return (
     <>
-
-
-
       <section className="profile">
         <div className="container">
           <div className="row profile__row">
             <div className="col-30 profile__col-30">
               <div className="profile__avatar">
-                <img src={`http://localhost:3042${povar.avatar}`} className="profile__img2" />
+                <img src={povar.avatar ? pathAvatar : avatar} className="profile__img2" alt='ds' />
                 <ModalAvatar />
-
               </div>
               <div className="profile__text">
                 <span className="profile__name">{name}</span>

@@ -8,6 +8,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { updateOrder } from '../../../redux/actions/ordersAction';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
+import avatarPng from '../../UserPage/img/avatar.png'
 
 
 const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
@@ -25,6 +26,8 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
     dispatch(updateOrder({ id }))
   }
 
+  const pathAvatar = `http://localhost:3001${avatar}`
+
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
     <Accordion expanded={expanded === id} onChange={handleChange(id)} sx={{ marginBottom: '0.7rem' }}>
@@ -35,7 +38,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
       >
         <Typography sx={{ width: '75%', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
           <span className="profile__order-img">
-            <img src={avatar} alt="avatar" />
+            <img src={avatar ? pathAvatar : avatarPng} alt="avatar" />
           </span> {nameClient}   {title}
         </Typography>
         <Typography sx={{ color: 'text.secondary', width: '20%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>{price} руб.</Typography>
