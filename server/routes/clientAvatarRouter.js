@@ -24,18 +24,6 @@ router.route('/')
 
   })
 
-router.route('/')
-.post(async (req, res) => {
-try {
-  
-} catch (error) {
-  
-}
-
-
-}
-
-
 
 module.exports = router;
 

@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import ChatMessage from './ChatMessage';
 
+
 export default function ChatClient() {
 
   const user = useSelector(state => state.user)
@@ -13,7 +14,7 @@ export default function ChatClient() {
   const ws = useSelector(state => state.ws)
 
   ws.onopen = function (e) {
-    ws.send("Меня зовут Джон");
+    ws.send("Добро пожаловать");
   };
 
   ws.onmessage = function (event) {
