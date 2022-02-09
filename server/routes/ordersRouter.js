@@ -117,32 +117,112 @@ router.put('/:id', async (req, res) => {
 })
 
 router.get('/povar/new', async (req, res) => {
-  const newOrdersPovar = await Order.findAll({ where: { status_id: 1 } });
+  const newOrdersPovar = await Order.findAll({
+    where: { status_id: 1 },
+    include: [
+      {
+        model: Client,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+      },
+      {
+        model: Status,
+        attributes: ['name'],
+      },
+      {
+        model: Povar,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
+      },
+    ]
+  });
   console.log(newOrdersPovar);
   res.json({ newOrdersPovar });
 })
 
 router.get('/povar/:id/current', async (req, res) => {
   const povar = await Povar.findOne({ where: { id: req.params.id } });
-  const currentOrdersPovar = await Order.findAll({ where: { povar_id: povar.id, status_id: 2 } });
+  const currentOrdersPovar = await Order.findAll({
+    where: { povar_id: povar.id, status_id: 2 },
+    include: [
+      {
+        model: Client,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+      },
+      {
+        model: Status,
+        attributes: ['name'],
+      },
+      {
+        model: Povar,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
+      },
+    ]
+  });
   res.json({ currentOrdersPovar });
 })
 
 router.get('/povar/:id/finished', async (req, res) => {
   const povar = await Povar.findOne({ where: { id: req.params.id } });
-  const finishedOrdersPovar = await Order.findAll({ where: { povar_id: povar.id, status_id: 3 } });
+  const finishedOrdersPovar = await Order.findAll({
+    where: { povar_id: povar.id, status_id: 3 },
+    include: [
+      {
+        model: Client,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+      },
+      {
+        model: Status,
+        attributes: ['name'],
+      },
+      {
+        model: Povar,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
+      },
+    ]
+  });
   res.json({ finishedOrdersPovar });
 })
 
 router.get('/client/:id/current', async (req, res) => {
   const client = await Client.findOne({ where: { id: req.params.id } });
-  const currentOrdersClient = await Order.findAll({ where: { client_id: client.id, status_id: 2 } });
+  const currentOrdersClient = await Order.findAll({
+    where: { client_id: client.id, status_id: 2 },
+    include: [
+      {
+        model: Client,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+      },
+      {
+        model: Status,
+        attributes: ['name'],
+      },
+      {
+        model: Povar,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
+      },
+    ]
+  });
   res.json({ currentOrdersClient });
 })
 
 router.get('/client/:id/finished', async (req, res) => {
   const client = await Client.findOne({ where: { id: req.params.id } });
-  const finishedOrdersClient = await Order.findAll({ where: { client_id: client.id, status_id: 3 } });
+  const finishedOrdersClient = await Order.findAll({
+    where: { client_id: client.id, status_id: 3 },
+    include: [
+      {
+        model: Client,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'avatar'],
+      },
+      {
+        model: Status,
+        attributes: ['name'],
+      },
+      {
+        model: Povar,
+        attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
+      },
+    ]
+  });
   res.json({ finishedOrdersClient });
 })
 
