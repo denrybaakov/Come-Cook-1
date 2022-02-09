@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
+import { updateOrder } from '../../../redux/actions/ordersAction';
+import { getOrderItem } from '../../../redux/actions/orderIDAction';
 
 const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
 
@@ -15,6 +17,11 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
     setExpanded(isExpanded ? panel : false);
   };
 
+  const dispatch = useDispatch();
+
+  const acceptHandler = () => {
+    dispatch(updateOrder({id}))
+  }
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -45,7 +52,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit">Посмотреть</button>
             </Link>
-            <button className="btn-order edit">Принять</button>
+            <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button>
             {/* <button className="btn-order del"></button> */}
           </div>
         </Typography>
