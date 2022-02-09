@@ -11,7 +11,7 @@ export default function Tests() {
   const ws = useSelector(state => state.ws)
 
   ws.onopen = function (e) {
-    // ws.send("Меня зовут Джон");
+    ws.send("Меня зовут Джон");
   };
 
   ws.onmessage = function (event) {
@@ -19,18 +19,18 @@ export default function Tests() {
   };
 
   const clickHandler = (e) => {
-      console.log(input);
-      ws.send(input)
+    console.log(input);
+    ws.send(input)
 
-      setInput ('')
+    setInput('')
   }
 
   return (
     <>
-      <input onChange={(e) => setInput(e.target.value)} value={input} type={'text'}/><Button onClick={clickHandler} >Отправить</Button>
+      <input onChange={(e) => setInput(e.target.value)} value={input} type={'text'} /><Button onClick={clickHandler} >Отправить</Button>
       {test.map((e, index) => {
         return (
-        <p key = {index}> {e} </p>
+          <p key={index}> {e} </p>
         )
       })}
     </>
