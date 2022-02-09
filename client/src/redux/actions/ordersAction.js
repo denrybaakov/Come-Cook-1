@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CREATE_ORDERS, DELETE_ORDER, GET_ORDERS } from "../types/types";
+import { CREATE_ORDERS, DELETE_ORDER, EDIT_ORDER, GET_ORDERS } from "../types/types";
 
 export const setOrders = (value) => ({
   type: GET_ORDERS,
@@ -28,5 +28,10 @@ export const createOrders = (value) => async (dispatch) => {
 
 export const deleteOrders = (id) => async (dispatch) => {
   await axios.delete(`/orders/${id}`);
-  dispatch({type: DELETE_ORDER, payload: id})
+  dispatch({ type: DELETE_ORDER, payload: id })
+}
+
+export const updateOrder = (value) => async (dispatch) => {
+  const result = await axios.put(`/orders/${value.id}`, value);
+  dispatch({ type: EDIT_ORDER, payload: result.data.updatedOrder })
 }

@@ -62,11 +62,7 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Povar,
-          attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar', 'cuisine_id'],
-          include: {
-            model: Cuisines,
-            attributes: ['name', 'img']
-          }
+          attributes: ['name', 'surname', 'email', 'about', 'phone', 'experience', 'avatar'],
         },
       ]
     })
@@ -79,12 +75,28 @@ router.get('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const order = await Order.findOne({ where: { id: req.params.id } })
+    const order = await Order.findOne({ where: { id } })
     if (req.session.user.id === order.client_id) {
       await Order.destroy({ where: { id } })
       res.sendStatus(200);
     } else {
       console.log('no')
+    }
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+})
+
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const order = await Order.findOne({ where: { id } })
+    if (!order.povar_id) {
+      const updatedOrder = await Order.update({ povar_id: req.session.user.id, status_id: 2 }, { where: { id } });
+      res.json({ updatedOrder })
+    } else {
+      console.log('nonono');
     }
   } catch (error) {
     console.log(error);

@@ -10,7 +10,7 @@ const WebSocket = require('ws');
 const authRouter = require('./routes/authRouter');
 const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
-
+const povars = require('./routes/povarRouter')
 const map = new Map();
 const app = express();
 
