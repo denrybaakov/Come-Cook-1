@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-const ModalChat = () => {
+const ModalEdit = ({ id, index, date, address, title, text, numOfPeople, price }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -33,17 +33,20 @@ const ModalChat = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {/* <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
-          <ChatClient />
+          <h3 className='title'>Изменить заказ</h3>
+          <div className="modalEdit">
+            <input type="text" className="input-profile setting__input" name="date" value={date} />
+            <input type="text" className="input-profile setting__input" name="address" value={address} />
+            <input type="text" className="input-profile setting__input" name="title" value={title} />
+            <input type="text" className="input-profile setting__input" name="text" value={text} />
+            <input type="text" className="input-profile setting__input" name="numOfPeople" value={numOfPeople} />
+            <input type="text" className="input-profile setting__input" name="price" value={price} />
+            <button className="btn-secondary setting__btn">Изменить</button>
+          </div>
         </Box>
       </Modal>
     </div>
   );
 }
 
-export default ModalChat
+export default ModalEdit

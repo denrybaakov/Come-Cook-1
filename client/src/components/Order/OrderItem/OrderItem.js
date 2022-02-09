@@ -10,6 +10,7 @@ import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import { deleteOrders } from '../../../redux/actions/ordersAction';
 import ChatClient from '../../Chat/ChatClient';
 import ModalChat from '../../Modal/Modal';
+import ModalEdit from '../../Modal/ModalEdit';
 
 const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status_id, povar_id, client_id }) => {
 
@@ -57,13 +58,13 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
           <div className="order__group-btn">
 
             {/* {role === 'client' ? <button className="btn-order" onClick={showModal()}>Вывести модалку с сообщениями</button> : null} */}
-            {/* {role === 'client' ? <ModalChat /> : null} */}
+            {role === 'client' ? <ModalEdit id={id} index={index} date={date} address={address} title={title} text={text} numOfPeople={numOfPeople} price={price} /> : null}
 
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
             </Link>
 
-            <button className="btn-order edit">Редактировать</button>
+            {/* <button className="btn-order edit">Редактировать</button> */}
             <button className="btn-order del" onClick={() => deleteHandler(id)}>Отклонить</button>
           </div>
         </Typography>

@@ -140,6 +140,18 @@
   }
 }
 
+.modalEdit {
+  display: flex;
+  flex-direction: column;
+
+  & input {
+    width: 100%;
+    &:first-child {
+      margin-top: 4rem;
+    }
+  }
+}
+
 .chat {
   display: flex;
   flex-direction: column;
