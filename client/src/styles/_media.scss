@@ -1,0 +1,41 @@
+@media screen and (max-width: 1200px) {
+  .profile__row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-30 {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .profile {
+    height: 100%;
+    &__col-30 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    &__avatar {
+      max-width: 175px;
+      max-height: 174px;
+    }
+    &__nav {
+      display: flex;
+      flex-direction: row;
+      & a {
+        text-align: center;
+      }
+    }
+    &__img2 {
+      max-width: 175px;
+      max-height: 174px;
+    }
+
+    &__col-70 {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.order {
+  &__block {
+    background-color: #E1EDD7 !important;
+    // margin-bottom: 1rem !important;
+  }
+  &__subblock {
+    background-color: #F3FAEB !important;
+  }
+  &__content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  &__group-btn {
+    display: flex;
+    justify-content: flex-end;
+    & button:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
