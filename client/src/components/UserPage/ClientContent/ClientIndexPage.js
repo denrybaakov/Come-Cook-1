@@ -1,7 +1,22 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { getCurrentOrdersClient, getFinishedOrdersClient } from "../../../redux/actions/ordersAction";
 
 
 
 const ClientIndexPage = () => {
+
+  const { id } = useSelector(state => state.user)
+  const dispatch = useDispatch();
+  const currentOrders = useSelector(state => state.ordersCurrentClient)
+  const finishedOrders = useSelector(state => state.ordersFinishedClient)
+  console.log('temp in clientindex ----->', finishedOrders);
+
+  useEffect(() => {
+    // dispatch(getCurrentOrdersClient(id))
+    dispatch(getFinishedOrdersClient(id))
+  }, []);
+  
   return (
     <div className="col-70 profile__col-70">
       <h2 className="profile__title">Главная страница Клиента</h2>
