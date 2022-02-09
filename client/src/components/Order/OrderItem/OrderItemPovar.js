@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
@@ -16,6 +16,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
   const [expanded, setExpanded] = React.useState(false);
 
 
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -27,6 +28,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
   }
 
   const pathAvatar = `http://localhost:3001${avatar}`
+  console.log('avata povar', avatar);
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
