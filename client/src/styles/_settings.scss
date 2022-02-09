@@ -286,6 +286,12 @@ textarea {
 
   &__avatar {
     position: relative;
+    max-width: 300px;
+    & img {
+      max-width: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   &__povarBlock {
