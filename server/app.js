@@ -50,7 +50,7 @@ server.on('upgrade', function (request, socket, head) {
   console.log('Parsing session from request...');
 
   sessionParser(request, {}, () => {
- 
+
     if (!request.session.user) {
       socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
       socket.destroy();
@@ -73,8 +73,9 @@ wss.on('connection', function (ws, request) {
 
   ws.on('message', function (message) {
     console.log(`Received message ${message} from user ${userId}`);
-    for(const [userId, wsClient] of map){
-      wsClient.send(`${name} : ${message}`)
+    console.log(request.session.user);
+    for (const [userId, wsClient] of map) {
+      wsClient.send(`${name} =:= ${message}`)
     }
   });
 });
