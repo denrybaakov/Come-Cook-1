@@ -1,0 +1,27 @@
+.povarPreview {
+  position: relative;
+  &__background {
+    min-height: 100vh;
+    background: url('./img/background.png') no-repeat center / cover;
+  }
+  &__text {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+  }
+  & h2 {
+    padding-top: 4rem;
+    font-family: $font2;
+    color: $darkGreen;
+    width: 720px;
+    font-size: 4rem;
+    font-weight: 200;
+    & i {
+      color: $mediumGreen;
+    }
+  }
+  &__text button {
+    margin-top: 15rem;
+  }
+}
