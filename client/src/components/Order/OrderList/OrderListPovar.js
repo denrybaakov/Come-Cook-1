@@ -2,16 +2,19 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders } from '../../../redux/actions/ordersAction';
+import { getNewOrdersPovar } from '../../../redux/actions/ordersAction'
+
 // import OrderItem from '../OrderItem/OrderItem';
 import OrderItemPovar from '../OrderItem/OrderItemPovar';
 
 const OrderListPovar = () => {
-  const allOrders = useSelector(state => state.orders);
+  const allOrders = useSelector(state => state.ordersNewPovar);
   console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOrders())
+    // dispatch(getOrders())
+    dispatch(getNewOrdersPovar())
   }, [])
 
 

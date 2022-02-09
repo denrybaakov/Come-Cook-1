@@ -284,6 +284,10 @@ textarea {
     height: 400px;
   }
 
+  &__avatar {
+    position: relative;
+  }
+
   &__povarBlock {
     display: flex;
     flex-direction: column;

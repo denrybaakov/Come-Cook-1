@@ -14,9 +14,11 @@ import Settings from '../UserContent/Settings'
 import OrderPage from '../../Order/OrderPage/OrderPage'
 import avatar from '../img/avatar.png'
 import MainOrder from '../UserContent/MainOrder'
+import ModalAvatar from '../../Modal/Modal'
 
 const UserIndex = () => {
   const [linkPage, setLinkPage] = useState(false)
+  const povar = useSelector(state => state.user)
   const changeLink = e => {
     e.preventDefault()
     const { link } = e.target.dataset
@@ -49,90 +51,47 @@ const UserIndex = () => {
     dispatch(userLogout())
   }
 
-  const [file, setFile] = useState('')
-  const [filename, setFilename] = useState('Choose File')
-  const [uploadedFile, setUploadedFile] = useState({})
 
-  const povar = useSelector(state => state.user)
- 
-  const submitHandler = async e => {
-    e.preventDefault()
-    const formData = new FormData()
-    formData.append('file', file)
-
-
-    try {
-      const res = await axios.post('/upload', formData, {
-        headers: {
-          'Content-type': 'multipart/form-data'
-        }
-      })
-
-      dispatch(checkUser())
-      const { fileName, filePath } = res.data
-
-      setUploadedFile({ fileName, filePath })
-    } catch (error) {
-      if (error.response.status === 500) {
-        console.log("problem with server");
-      } else {
-        console.log(error.response.data.msg);
-      }
-    }
-  }
-
-  const changeHandler = e => {
-    setFile(e.target.files[0])
-    setFilename(e.target.files[0].name)
-  }
 
   return (
     <>
-      <form onSubmit={submitHandler} >
-        <div>
-          <input type="file" onChange={changeHandler} />
-          <label htmlFor='customFile'>
-          </label>
-        </div>
-        <input type="submit" value="Upload" className='btn' />
-      </form>
 
-      <div>
-        <img src={`http://localhost:3001${povar.avatar}`} alt="" />
-      </div>
 
-    <section className="profile">
-      <div className="container">
-        <div className="row profile__row">
-          <div className="col-30 profile__col-30">
-            <div className="profile__avatar">
-              <img src={avatar} alt="cv" className="profile__img2" />
-            </div>
-            <div className="profile__text">
-              <span className="profile__name">{name}</span>
-              <span>{email}</span>
-              <span>Статус: Повар</span>
-            </div>
-            <nav className="profile__nav">
-              <a href="!#" data-link="index" onClick={changeLink}>Главная</a>
-              <a href="!#" data-link="mainOrder" onClick={changeLink}>Мои заказы</a>
-              {/* <a href="!#" data-link="searchOrder" onClick={changeLink}>Поиск заказов</a>
+
+      <section className="profile">
+        <div className="container">
+          <div className="row profile__row">
+            <div className="col-30 profile__col-30">
+              <div className="profile__avatar">
+                <img src={`http://localhost:3042${povar.avatar}`} className="profile__img2" />
+                <ModalAvatar />
+
+              </div>
+              <div className="profile__text">
+                <span className="profile__name">{name}</span>
+                <span>{email}</span>
+                <span>Статус: Повар</span>
+              </div>
+              <nav className="profile__nav">
+                <a href="!#" data-link="index" onClick={changeLink}>Главная</a>
+                <a href="!#" data-link="mainOrder" onClick={changeLink}>Мои заказы</a>
+                {/* <a href="!#" data-link="searchOrder" onClick={changeLink}>Поиск заказов</a>
               <a href="!#" data-link="currentOrders" onClick={changeLink}>Текущие заказы</a>
               <a href="!#" data-link="completedOrders" onClick={changeLink}>Выполненные заказы</a> */}
-              <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
-              <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
-              <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-              <a href="!#" onClick={logoutHandler}>Выход</a>
-            </nav>
-          </div>
-          
-          {linkPage ? linkPage : <IndexPage />}
-          
-        </div>
-       </div>
-     </section>
+                <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
+                <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
+                <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
+                <a href="!#" onClick={logoutHandler}>Выход</a>
+              </nav>
+            </div>
 
-</>
+            {linkPage ? linkPage : <IndexPage />}
+
+          </div>
+        </div>
+      </section>
+
+    </>
 
 
     // <section className="profile">
