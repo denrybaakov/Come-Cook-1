@@ -8,13 +8,13 @@ import { getNewOrdersPovar } from '../../../redux/actions/ordersAction'
 import OrderItemPovar from '../OrderItem/OrderItemPovar';
 
 const OrderListPovar = () => {
-  const allOrders = useSelector(state => state.orders);
+  const allOrders = useSelector(state => state.ordersNewPovar);
   console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOrders())
-    // dispatch(getNewOrdersPovar())
+    // dispatch(getOrders())
+    dispatch(getNewOrdersPovar())
   }, [])
 
 
