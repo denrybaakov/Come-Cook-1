@@ -32,7 +32,7 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
     dispatch(deleteOrders(id));
   }
 
-  console.log(role, 'roleID');
+  // console.log(role, 'roleID');
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!

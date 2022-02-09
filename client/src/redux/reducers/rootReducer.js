@@ -2,6 +2,11 @@ import { combineReducers } from 'redux';
 import { clientReducer } from '../reducers/clientReducer';
 import { cookReducer } from '../reducers/cookReducer';
 import { orderIDReducer } from './orderIDReducer';
+import { ordersCurrentClientReducer } from './ordersCurrentClientReducer';
+import { ordersCurrentPovarReducer } from './ordersCurrentPovarReducer';
+import { ordersFinishedClientReducer } from './ordersFinishedClientReducer';
+import { ordersFinishedPovarReducer } from './ordersFinishedPovarReducer';
+import { ordersNewPovarReducer } from './ordersNewPovarReducer';
 import { ordersReducer } from "./ordersReducer";
 import { povarIDReducer } from './povarIDReducer';
 import { povarReducer } from './povarReducer';
@@ -17,5 +22,9 @@ export const rootReducer = combineReducers({
   povars: povarReducer,
   povarID: povarIDReducer,
   ws: wsReducer,
-
+  ordersNewPovar: ordersNewPovarReducer,
+  ordersCurrentPovar: ordersCurrentPovarReducer,
+  ordersFinishedPovar: ordersFinishedPovarReducer,
+  ordersCurrentClient: ordersCurrentClientReducer,
+  ordersFinishedClient: ordersFinishedClientReducer
 })
