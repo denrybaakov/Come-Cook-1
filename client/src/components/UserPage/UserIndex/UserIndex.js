@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { userLogout } from '../../../redux/actions/userAC'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkUser } from '../../../redux/actions/userAC'
@@ -12,6 +13,7 @@ import CompletedOrders from '../UserContent/CompletedOrders'
 import Calendar from '../UserContent/Calendar'
 import MessagePage from '../UserContent/Message'
 import Settings from '../UserContent/Settings'
+import OrderPage from '../../Order/OrderPage/OrderPage'
 
 import avatar from '../img/avatar.png'
 import MainOrder from '../UserContent/MainOrder'
@@ -45,7 +47,12 @@ const UserIndex = () => {
     }
   }
 
-  // сделать фиксированным меню лист! 
+
+  const dispatch = useDispatch()
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(userLogout())
+  }
 
   const [file, setFile] = useState('')
   const [filename, setFilename] = useState('Choose File')
@@ -103,7 +110,43 @@ const UserIndex = () => {
       <div>
         <img src={`http://localhost:3001${povar.avatar}`} alt="" />
       </div>
-    </>
+    
+
+    <section className="profile">
+      <div className="container">
+        <div className="row profile__row">
+          <div className="col-30 profile__col-30">
+            <div className="profile__avatar">
+              <img src={avatar} alt="cv" className="profile__img2" />
+            </div>
+            <div className="profile__text">
+              <span className="profile__name">Леонардо да Винчи</span>
+              <span>zevs@zevs.com</span>
+            </div>
+            <nav className="profile__nav">
+              <a href="!#" data-link="index" onClick={changeLink}>Главная</a>
+              <a href="!#" data-link="mainOrder" onClick={changeLink}>Мои заказы</a>
+              {/* <a href="!#" data-link="searchOrder" onClick={changeLink}>Поиск заказов</a>
+              <a href="!#" data-link="currentOrders" onClick={changeLink}>Текущие заказы</a>
+              <a href="!#" data-link="completedOrders" onClick={changeLink}>Выполненные заказы</a> */}
+              <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
+              <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
+              <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
+              <a href="!#" onClick={logoutHandler}>Выход</a>
+            </nav>
+          </div>
+          
+
+
+          {linkPage ? linkPage : <IndexPage />}
+          
+          
+        </div>
+       </div>
+     </section>
+
+</>
+
 
     // <section className="profile">
     //   <div className="container">

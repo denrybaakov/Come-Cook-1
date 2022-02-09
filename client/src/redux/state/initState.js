@@ -2,5 +2,9 @@ export const initState = {
   client: null,
   cook: {},
   user: {},
-  orders: []
+  orders: [],
+  orderID: {},
+  povars: [],
+  povarID: {},
+  ws: new WebSocket("ws://localhost:3042")
 }

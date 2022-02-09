@@ -8,6 +8,7 @@ export default function OrderForm() {
   const [input, setInput] = useState({ date: '', address: '', title: '', text: '', numOfPeople: '', price: '' })
   const inputHandler = (e) => {
     setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    // setInput({ date: '', address: '', title: '', text: '', numOfPeople: '', price: '' })
   }
 
   const dispatch = useDispatch();
@@ -19,16 +20,15 @@ export default function OrderForm() {
 
   return (
     <>
-      <form className='col-30' onSubmit={submitHandler}>
-        <input name='date' type='text' placeholder='Дата мероприятия' onChange={inputHandler} />
-        <input name='address' type='text' placeholder='Адрес' onChange={inputHandler} />
-        <input name='title' type='text' placeholder='Название' onChange={inputHandler} />
-        <input name='text' type='text' placeholder='Описание' onChange={inputHandler} />
-        <input name='numOfPeople' type='text' placeholder='Кол-во людей' onChange={inputHandler} />
-        <input name='price' type='text' placeholder='Цена' onChange={inputHandler} />
-        <button className='btn-secondary'>Knopka</button>
+      <form className='order__form' onSubmit={submitHandler}>
+        <input className="input-profile setting__input" name='date' type='date' placeholder='Дата мероприятия' onChange={inputHandler} />
+        <input className="input-profile setting__input" name='address' type='text' placeholder='Адрес' onChange={inputHandler} />
+        <input className="input-profile setting__input" name='title' type='text' placeholder='Название' onChange={inputHandler} />
+        <input className="input-profile setting__input" name='text' type='text' placeholder='Описание' onChange={inputHandler} />
+        <input className="input-profile setting__input" name='numOfPeople' type='text' placeholder='Кол-во людей' onChange={inputHandler} />
+        <input className="input-profile setting__input" name='price' type='text' placeholder='Цена' onChange={inputHandler} />
+        <button className='btn-secondary'>Создать заказ</button>
       </form>
-      {/* <MapComponent input={input} /> */}
     </>
   );
 }

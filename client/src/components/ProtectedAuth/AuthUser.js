@@ -5,6 +5,7 @@ import ClientIndex from '../UserPage/ClientIndex/ClientIndex';
 import UserIndex from '../UserPage/UserIndex/UserIndex';
 
 const AuthUser = ({ children }) => {
+
     const user = useSelector( state => state.user);
     let location = useLocation();
 
@@ -16,9 +17,14 @@ const AuthUser = ({ children }) => {
       return <ClientIndex/>
     }
 
-    if (user?.role === 'cook') {
-      return <UserIndex/>;
-    }
+
+  if (user?.role === 'client') {
+    return <ClientIndex />
+  }
+
+  if (user?.role === 'cook') {
+    return <UserIndex />;
+  }
 }
 
 export default AuthUser;

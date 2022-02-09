@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Client, Povar, Status }) {
       this.belongsTo(Client, { foreignKey: "client_id" });
       this.belongsTo(Povar, { foreignKey: "povar_id" });
-      this.hasMany(Status, { foreignKey: "status_id" });
+      this.belongsTo(Status, { foreignKey: "status_id" });
     }
   }
   Order.init({

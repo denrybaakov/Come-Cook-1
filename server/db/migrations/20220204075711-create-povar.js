@@ -42,13 +42,6 @@ module.exports = {
       avatar: {
         type: Sequelize.TEXT
       },
-      cuisine_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Cuisines",
-          key: "id"
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
