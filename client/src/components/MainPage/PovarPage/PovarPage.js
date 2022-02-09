@@ -1,6 +1,7 @@
 
 import profile from './img/profile1.jpg'
 import profile2 from './img/nibiru.png'
+import { Link } from 'react-router-dom'
 
 
 
@@ -68,7 +69,9 @@ const PovarPage = () => {
         </div>
 
         <div className="preview__footer">
+          <Link to="/auth/register">
           <button className="btn-secondary">Присоединиться</button>
+          </Link>
         </div>
       </div>
     </section>

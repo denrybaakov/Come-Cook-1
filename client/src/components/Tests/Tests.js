@@ -19,21 +19,18 @@ export default function Tests() {
   };
 
   const clickHandler = (e) => {
-      console.log(input);
-      ws.send(input)
+    console.log(input);
+    ws.send(input)
 
-      setInput ('')
+    setInput('')
   }
 
   return (
     <>
-      <h1>test</h1>
-     
-
-      <input onChange={(e) => setInput(e.target.value)} value={input} type={'text'}/><Button onClick={clickHandler} >Отправить</Button>
+      <input onChange={(e) => setInput(e.target.value)} value={input} type={'text'} /><Button onClick={clickHandler} >Отправить</Button>
       {test.map((e, index) => {
         return (
-        <p key = {index}> {e} </p>
+          <p key={index}> {e} </p>
         )
       })}
     </>

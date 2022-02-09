@@ -22,7 +22,6 @@ export const getСlient = (newUser) => async (dispatch) => {
 
 export const signinClient = ( loginUser) => async ( dispatch ) => {
   const res = await axios.post('/auth/signin', loginUser)
-  console.log(res.data)
   dispatch(setUser(res.data))
 
 }

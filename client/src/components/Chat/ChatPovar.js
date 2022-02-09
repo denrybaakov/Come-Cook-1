@@ -1,12 +1,12 @@
+
+
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import ChatMessage from './ChatMessage';
 
+const ChatPovar = () => {
 
-export default function ChatClient() {
-
-  const user = useSelector(state => state.user)
 
   const [test, setTest] = useState([]);
   const [input, setInput] = useState('');
@@ -14,7 +14,7 @@ export default function ChatClient() {
   const ws = useSelector(state => state.ws)
 
   ws.onopen = function (e) {
-    ws.send("Добро пожаловать");
+    ws.send("Меня зовут Джон");
   };
 
   ws.onmessage = function (event) {
@@ -27,7 +27,6 @@ export default function ChatClient() {
     ws.send(input)
     setInput('')
   }
-
 
   return (
     <div className="chat orderId__chat">
@@ -45,7 +44,7 @@ export default function ChatClient() {
           value={input}
         />
         <button
-          className="chat__btn"
+          className="chat__input"
           onClick={clickHandler}
         >Отправить</button>
       </div>
@@ -54,3 +53,5 @@ export default function ChatClient() {
   )
 
 }
+
+export default ChatPovar
