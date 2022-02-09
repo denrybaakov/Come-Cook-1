@@ -9,12 +9,13 @@ import { userLogout } from "../../../redux/actions/userAC"
 import logo2 from './logo2.png'
 
 const HeaderMain = () => {
-const user = useSelector(state => state.user)
+  const user = useSelector(state => state.user)
 
-const dispatch = useDispatch()
-const logoutHandler = () => {
-  dispatch(userLogout())
-}
+  const dispatch = useDispatch()
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(userLogout())
+  }
 
   return (
     <header className="header">
@@ -24,20 +25,20 @@ const logoutHandler = () => {
           <a href="!#" className="header__link">Вторая страница</a>
           <a href="!#" className="header__link">Цены</a> */}
         </div>
-          
+
         <div className="header__login">
           {user?.id ?
-          <button onClick={logoutHandler} >logout</button>
-          :
-          <>
-          <Link to={'/auth/register'} className="header__link" >Регистрация2</Link>
-          <Link to={'/auth/login'} className="header__link" >Войти</Link>
-          {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
-          </>
-            }
-        
+            <a href="!#" className="header__link" onClick={logoutHandler} >Выйти</a>
+            :
+            <>
+              <Link to={'/auth/register'} className="header__link" >Регистрация</Link>
+              <Link to={'/auth/login'} className="header__link" >Войти</Link>
+              {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
+            </>
+          }
+
         </div>
-                  
+
       </nav>
       <Swiper
         spaceBetween={1}
