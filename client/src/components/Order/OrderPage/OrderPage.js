@@ -5,6 +5,8 @@ import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import UserIndex from '../../UserPage/UserIndex/UserIndex';
 import { Link } from 'react-router-dom';
 import Chat from '../../Chat/Chat';
+import ChatClient from '../../Chat/ChatClient';
+import Tests from '../../Tests/Tests';
 
 export default function OrderPage() {
   const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
@@ -42,7 +44,10 @@ export default function OrderPage() {
                 <span className="orderId__description">Цена: {price}</span>
               </div>
 
-              <Chat />
+              {/* <ChatClient /> */}
+              <Tests />
+
+              
 
 
             </div>
