@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPovarPage } from '../../../redux/actions/povarIDAction';
 
-export default function PovarPage({ id, name, surname, email, about, phone, experience, servicePrice, likes_id, avatar, cuisine_id }) {
+export default function PovarPage({ id, name, surname, email, about, phone, experience, servicePrice, likes_id, avatar }) {
   
   const dispatch = useDispatch();
 

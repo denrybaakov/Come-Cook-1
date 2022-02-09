@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -8,12 +8,17 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import { deleteOrders } from '../../../redux/actions/ordersAction';
+import ChatClient from '../../Chat/ChatClient';
+import ModalChat from '../../Modal/Modal';
+import ModalEdit from '../../Modal/ModalEdit';
 
 const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status_id, povar_id, client_id }) => {
 
   const dispatch = useDispatch();
 
   const [expanded, setExpanded] = React.useState(false);
+
+  const { role } = useSelector(state => state.user)
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -26,6 +31,8 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
   const deleteHandler = (id) => {
     dispatch(deleteOrders(id));
   }
+
+  console.log(role, 'roleID');
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -50,11 +57,14 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
           </div>
           <div className="order__group-btn">
 
-          <Link to={`/orders/${id}`}>
-          <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
-          </Link>
+            {/* {role === 'client' ? <button className="btn-order" onClick={showModal()}>Вывести модалку с сообщениями</button> : null} */}
+            {role === 'client' ? <ModalEdit id={id} index={index} date={date} address={address} title={title} text={text} numOfPeople={numOfPeople} price={price} /> : null}
 
-            <button className="btn-order edit">Редактировать</button>
+            <Link to={`/orders/${id}`}>
+              <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
+            </Link>
+
+            {/* <button className="btn-order edit">Редактировать</button> */}
             <button className="btn-order del" onClick={() => deleteHandler(id)}>Отклонить</button>
           </div>
         </Typography>

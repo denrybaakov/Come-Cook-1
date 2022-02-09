@@ -16,11 +16,11 @@ export default function MapComponent() {
   // let orders = allOrders.map(el => el.address)
   // console.log('orders ---->', orders);
 
-  
+
   useEffect(() => {
     dispatch(getOrders())
     if (allOrders.length)
-    ymaps.ready(init)
+      ymaps.ready(init)
   }, [allOrders.length])
 
   // let mapp = document.getElementsByClassName('ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none')
@@ -39,7 +39,7 @@ export default function MapComponent() {
       zoomMargin: [20]
     });
 
-       
+
     for (let i = 0; i < allOrders.length; i++) {
 
       let date = allOrders[i].date;
@@ -48,9 +48,6 @@ export default function MapComponent() {
       let text = allOrders[i].text;
       let id = allOrders[i].id;
 
-
-
-      console.log('loop--->', id);
       // Создаём коллекцию меток для города
       let cityCollection = new ymaps.GeoObjectCollection();
       let geocoder = ymaps.geocode(allOrders[i].address)
@@ -63,7 +60,7 @@ export default function MapComponent() {
             coordinates, {
             'hintContent': `${address}`,
             'balloonContent': [
-              `<h1>${date}</br>${address}</br></br>${title}</br>${text}</br></br><a href="http://localhost:3000/orders/${id}">Перейти на страницу заказа</a></h1>`,
+              `<h1>${date}</br>${address}</br></br>${title}</br>${text}</br></br><a href="http://localhost:3001/orders/${id}">Перейти на страницу заказа</a></h1>`,
             ]
           },
           )

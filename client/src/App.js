@@ -11,6 +11,7 @@ import Tests from './components/Tests/Tests';
 // import Client from './components/UserPage/Client/Client';
 import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 import PovarPage from './components/UserPage/UserContent/PovarPage';
+import UserIndex from './components/UserPage/UserIndex/UserIndex';
 // import Povar from './components/UserPage/Povar/Povar';
 // import UserIndex from './components/UserPage/UserIndex/UserIndex'
 // import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
@@ -45,7 +46,6 @@ function App() {
           <ProtectedAuth>
             <SignIn />
           </ProtectedAuth>
-
         } />
 
 
@@ -57,6 +57,7 @@ function App() {
         } />
 
         <Route path='/orders/:id' element={
+
           <OrderPage />
         } />
 

@@ -11,6 +11,7 @@ import CompletedOrders from '../UserContent/CompletedOrders'
 import Calendar from '../UserContent/Calendar'
 import MessagePage from '../UserContent/Message'
 import Settings from '../UserContent/Settings'
+import OrderPage from '../../Order/OrderPage/OrderPage'
 
 import avatar from '../img/avatar.png'
 import MainOrder from '../UserContent/MainOrder'
@@ -79,6 +80,7 @@ const UserIndex = () => {
 
 
           {linkPage ? linkPage : <IndexPage />}
+
 
         </div>
       </div>
