@@ -92,16 +92,58 @@ router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const order = await Order.findOne({ where: { id } })
-    if (!order.povar_id) {
-      const updatedOrder = await Order.update({ povar_id: req.session.user.id, status_id: 2 }, { where: { id } });
-      res.json({ updatedOrder })
-    } else {
-      console.log('nonono');
+    if (req.session.user.role === 'cook') {
+      if (!order.povar_id) {
+        const updatedOrder = await Order.update({ povar_id: req.session.user.id, status_id: 2 }, { where: { id } });
+        res.json({ updatedOrder })
+      } else if (order.status_id === 2) {
+        const updatedOrder = await Order.update({ status_id: 3 }, { where: { id } });
+        res.json({ updatedOrder })
+      } else {
+        console.log('nonono');
+      }
+    } else if (req.session.user.role === 'client') {
+      if (req.session.user.id === order.client_id) {
+        const updatedOrder = await Order.update(req.body, { where: { id } })
+        res.json({ updatedOrder })
+      } else {
+        console.log('nono');
+      }
     }
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
+})
+
+router.get('/povar/new', async (req, res) => {
+  const newOrdersPovar = await Order.findAll({ where: { status_id: 1 } });
+  console.log(newOrdersPovar);
+  res.json({ newOrdersPovar });
+})
+
+router.get('/povar/:id/current', async (req, res) => {
+  const povar = await Povar.findOne({ where: { id: req.params.id } });
+  const currentOrdersPovar = await Order.findAll({ where: { povar_id: povar.id, status_id: 2 } });
+  res.json({ currentOrdersPovar });
+})
+
+router.get('/povar/:id/finished', async (req, res) => {
+  const povar = await Povar.findOne({ where: { id: req.params.id } });
+  const finishedOrdersPovar = await Order.findAll({ where: { povar_id: povar.id, status_id: 3 } });
+  res.json({ finishedOrdersPovar });
+})
+
+router.get('/client/:id/current', async (req, res) => {
+  const client = await Client.findOne({ where: { id: req.params.id } });
+  const currentOrdersClient = await Order.findAll({ where: { client_id: client.id, status_id: 2 } });
+  res.json({ currentOrdersClient });
+})
+
+router.get('/client/:id/finished', async (req, res) => {
+  const client = await Client.findOne({ where: { id: req.params.id } });
+  const finishedOrdersClient = await Order.findAll({ where: { client_id: client.id, status_id: 3 } });
+  res.json({ finishedOrdersClient });
 })
 
 module.exports = router;
