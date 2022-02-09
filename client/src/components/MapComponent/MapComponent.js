@@ -48,9 +48,6 @@ export default function MapComponent() {
       let text = allOrders[i].text;
       let id = allOrders[i].id;
 
-
-
-      console.log('loop--->', id);
       // Создаём коллекцию меток для города
       let cityCollection = new ymaps.GeoObjectCollection();
       let geocoder = ymaps.geocode(allOrders[i].address)

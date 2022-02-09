@@ -5,8 +5,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Povar extends Model {
 
-    static associate({ Order, Cuisines, Likes }) {
-      this.belongsTo(Cuisines, { foreignKey: 'cuisine_id' });
+    static associate({ Order, Cuisines, Likes, Connection }) {
+      this.belongsToMany(Cuisines, { through: 'Connection', foreignKey: 'cuisine_id' });
       this.hasMany(Order, { foreignKey: 'povar_id' });
       this.belongsTo(Likes, { foreignKey: 'likes_id' });
     }
@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     servicePrice: DataTypes.INTEGER,
     likes_id: DataTypes.INTEGER,
     avatar: DataTypes.TEXT,
-    cuisine_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Povar',

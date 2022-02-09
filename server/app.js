@@ -12,7 +12,7 @@ const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
 const povars = require('./routes/povarRouter')
 
-const map = new Map();
+const map = new Map();// for ws
 const app = express();
 
 //SOCKET
@@ -40,6 +40,8 @@ app.use('/orders', orders);
 app.use('/auth', authRouter);
 app.use('/povars', povars);
 
+
+//WS
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ clientTracking: false, noServer: true });
 
@@ -70,18 +72,13 @@ wss.on('connection', function (ws, request) {
   map.set(userId, ws);
 
   ws.on('message', function (message) {
-    //
-    // Here we can now use session parameters.
-    //
     console.log(`Received message ${message} from user ${userId}`);
     for(const [userId, wsClient] of map){
       wsClient.send(`${name} : ${message}`)
     }
   });
-
-  
 });
-
+// WS CLOSED
 
 server.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT)
