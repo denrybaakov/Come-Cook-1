@@ -7,7 +7,7 @@ import OrderItem from '../OrderItem/OrderItem';
 const OrderList = () => {
   const allOrders = useSelector(state => state.ordersCurrentClient);
   const {id} = useSelector(state => state.user)
-  // console.log('orderlist --->', allOrders);
+  console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const OrderList = () => {
           text={item.text}
           numOfPeople={item.numOfPeople}
           price={item.price}
+          status={item.status}
         // заинклюдить нужно клиента (вытащить аватарб имя) статус и тд.
         />)
       }
