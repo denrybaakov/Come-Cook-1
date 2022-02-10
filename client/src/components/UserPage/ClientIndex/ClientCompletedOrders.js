@@ -7,14 +7,12 @@ import OrderItem from "../../Order/OrderItem/OrderItem"
 const ClientCompletedOrders = () => {
   const allOrders = useSelector(state => state.ordersFinishedClient);
   const {id} = useSelector(state => state.user)
-  const cuisines = useSelector(state => state.cuisines);
-  console.log('cuisines --->', cuisines);
+ 
   // console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFinishedOrdersClient(id))
-    dispatch(getCuisines())
   }, [])
 
   return (
