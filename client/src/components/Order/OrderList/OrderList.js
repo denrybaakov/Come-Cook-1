@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrders } from '../../../redux/actions/ordersAction';
+import { getCurrentOrdersClient, getOrders } from '../../../redux/actions/ordersAction';
 import OrderItem from '../OrderItem/OrderItem';
 
 const OrderList = () => {
-  const allOrders = useSelector(state => state.orders);
+  const allOrders = useSelector(state => state.ordersCurrentClient);
+  const {id} = useSelector(state => state.user)
   console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOrders())
+    dispatch(getCurrentOrdersClient(id))
   }, [])
 
 
@@ -28,6 +29,7 @@ const OrderList = () => {
           text={item.text}
           numOfPeople={item.numOfPeople}
           price={item.price}
+          status={item.status}
         // заинклюдить нужно клиента (вытащить аватарб имя) статус и тд.
         />)
       }

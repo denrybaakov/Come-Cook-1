@@ -48,6 +48,7 @@ const SignUp = () => {
       <div className="signin__content">
         <h2>Регистрация</h2>
         <input type="text" onChange={inputHandler} name='name' value={inputs.name} className="signin__login" placeholder="Введите имя" />
+
         <input type="email" onChange={inputHandler} name='email' value={inputs.email} className="signin__login" placeholder="Введите email" />
         <input type="password" onChange={inputHandler} name='password' value={inputs.password} className="signin__password" placeholder="Введите пароль" />
 
@@ -75,6 +76,7 @@ const SignUp = () => {
           <option value="cook">Повар</option>
 
         </select> */}
+
 
         <button type="submit">Зарегистрироваться</button>
 

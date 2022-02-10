@@ -45,9 +45,8 @@ const UserIndex = () => {
   }
 
   const { name, email, role } = useSelector(state => state.user)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const logoutHandler = (e) => {
-    e.preventDefault()
     dispatch(userLogout())
   }
 
@@ -61,6 +60,7 @@ const UserIndex = () => {
           <div className="row profile__row">
             <div className="col-30 profile__col-30">
               <div className="profile__avatar">
+
                 <img src={povar.avatar ? pathAvatar : avatar} className="profile__img2" alt='ds' />
                 <ModalAvatar />
               </div>
@@ -78,7 +78,11 @@ const UserIndex = () => {
                 <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
                 <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
                 <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-                <a href="!#" onClick={logoutHandler}>Выход</a>
+                <Link to="/" onClick={logoutHandler}>Выход</Link>
+
+                {/* <a href="/" onClick={logoutHandler}>Выход</a> */}
+
+
               </nav>
             </div>
 

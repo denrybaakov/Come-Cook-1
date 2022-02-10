@@ -1,7 +1,8 @@
 
 .profile {
   min-height: 100vh;
-  background-color: $lightGray;
+  // background-color: $lightGray;
+  background: url("../../../images/backgrounds/clientBG5.jpg") no-repeat center / cover;
   &__col-30, &__col-70, &__col-100 {
     background-color: $white;
     padding: 30px;

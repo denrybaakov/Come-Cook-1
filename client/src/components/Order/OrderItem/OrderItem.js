@@ -12,7 +12,7 @@ import ChatClient from '../../Chat/ChatClient';
 import ModalChat from '../../Modal/Modal';
 import ModalEdit from '../../Modal/ModalEdit';
 
-const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status_id, povar_id, client_id }) => {
+const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status, status_id, povar_id, client_id }) => {
 
   const dispatch = useDispatch();
 
@@ -31,8 +31,6 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
   const deleteHandler = (id) => {
     dispatch(deleteOrders(id));
   }
-
-  // console.log(role, 'roleID');
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -54,6 +52,7 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
             <span className="order__address">Адрес: {address}</span>
             <span className="order__people">Кол-во персон: {numOfPeople}</span>
             <p className="order__text">Описание: {text}</p>
+            <p className="order__text">Статус: {status}</p>
           </div>
           <div className="order__group-btn">
 
@@ -65,7 +64,7 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
             </Link>
 
             {/* <button className="btn-order edit">Редактировать</button> */}
-            <button className="btn-order del" onClick={() => deleteHandler(id)}>Отклонить</button>
+            <button className="btn-order del" onClick={() => deleteHandler(id)}>Удалить</button>
           </div>
         </Typography>
       </AccordionDetails>
