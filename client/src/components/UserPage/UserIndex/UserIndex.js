@@ -60,6 +60,7 @@ const UserIndex = () => {
           <div className="row profile__row">
             <div className="col-30 profile__col-30">
               <div className="profile__avatar">
+
                 <img src={povar.avatar ? pathAvatar : avatar} className="profile__img2" alt='ds' />
                 <ModalAvatar />
               </div>

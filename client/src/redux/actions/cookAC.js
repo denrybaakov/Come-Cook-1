@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_COOK } from "../types/types"
+import { EDIT_POVAR, SET_COOK } from "../types/types"
 import { setUser } from "./userAC"
 
 export const setCook = (value) => {
@@ -26,3 +26,21 @@ export const clientLogout = () => async (dispatch) => {
   await axios.post('/auth/logout')
   dispatch(setCook(null))
 }
+
+//
+
+
+export const getOnePovar = (id) => async (dispatch) => {
+  const result = await axios(`/settings/povar/${id}`);
+  dispatch(setCook(result.data.onePovar))
+}
+
+export const editPovar = (value) => async (dispatch) => {
+  const result = await axios.put(`/settings/povar/`, value)
+  console.log(result.data.povar);
+  dispatch({type: EDIT_POVAR, payload: result.data.povar})
+}
+
+
+
+
