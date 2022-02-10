@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import Chat from '../../Chat/ChatPovar';
 import ChatClient from '../../Chat/ChatClient';
 import Tests from '../../Tests/Tests';
+import { updateOrder } from '../../../redux/actions/ordersAction';
 
 export default function OrderPage() {
-  const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
+  const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status,status_id, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
   const { role } = useSelector(state => state.user)
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -18,7 +19,9 @@ export default function OrderPage() {
     dispatch(getOrderItem(id));
   }, [])
 
-
+  const acceptHandler = () => {
+    dispatch(updateOrder({ id }))
+  }
   return (
     <section className="profile">
       <div className="container">
@@ -50,7 +53,7 @@ export default function OrderPage() {
 
 
             </div>
-            {role === 'cook' ? <button className="btn-secondary orderId__btn">Принять</button> : null}
+            {role === 'cook' ? <Link to="/userpage"><button className="btn-secondary orderId__btn" onClick={() => acceptHandler(id)}>Принять</button></Link> : null}
 
             {/* <button className="btn-secondary orderId__btn">Написать клиенту</button> */}
 

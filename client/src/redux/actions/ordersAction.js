@@ -102,7 +102,13 @@ export const setCurrentOrdersClient = (value) => ({
 
 export const getCurrentOrdersClient = (id) => async (dispatch) => {
   const result = await axios(`/orders/client/${id}/current`);
-  dispatch(setCurrentOrdersClient(result.data.currentOrdersClient))
+  const result2 = result.data.currentOrdersClient.map(el => {
+    return {
+      ...el,
+      status: el.Status.name
+    }
+  })
+  dispatch(setCurrentOrdersClient(result2))
 }
 
 export const setFinishedOrdersClient = (value) => ({
@@ -112,5 +118,11 @@ export const setFinishedOrdersClient = (value) => ({
 
 export const getFinishedOrdersClient = (id) => async (dispatch) => {
   const result = await axios(`/orders/client/${id}/finished`);
-  dispatch(setFinishedOrdersClient(result.data.finishedOrdersClient))
+  const result2 = result.data.finishedOrdersClient.map(el => {
+    return {
+      ...el,
+      status: el.Status.name
+    }
+  })
+  dispatch(setFinishedOrdersClient(result2))
 }

@@ -11,12 +11,12 @@ import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import avatarPng from '../../UserPage/img/avatar.png'
 
 
-const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
+const OrderItemPovar = ({ status_id, id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
 
   const [expanded, setExpanded] = React.useState(false);
 
   const orders = useSelector(state => state.orders)
-  console.log('ALL orders ----> ', orders);
+  // console.log('ALL orders ----> ', orders);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -60,10 +60,9 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit">Посмотреть</button>
             </Link>
-            {/* {
-              orders.map(el => el.status === 1 ? <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> : null )
-            } */}
-            <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button>
+            {status_id === 1 ? <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> : null}
+            {status === 'Активен' ? <button className="btn-order del" onClick={() => acceptHandler(id)}>Завершить заказ</button> : null}
+            {/* <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> */}
             {/* <button className="btn-order del"></button> */}
           </div>
         </Typography>
