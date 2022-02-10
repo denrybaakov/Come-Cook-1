@@ -1,4 +1,4 @@
-import { initState } from "../stategit /initState";
+import { initState } from "../state/initState";
 import { NEW_MESSAGE } from "../types/types";
 
 
