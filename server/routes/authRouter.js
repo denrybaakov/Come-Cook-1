@@ -23,14 +23,18 @@ router.route('/signup')
         const client = await Client.create({ name, email, password: cryptPass })
         const user = { ...client, role: 'client' }
 
-        req.session.user = { id: client.id, name: client.name, email: client.email, role: user.role, avatar: client.avatar, surname: client.surname }
+
+        req.session.user = { id: client.id, name: client.name, surname: client.surname,  email: client.email, role: user.role, avatar: client.avatar, phone: client.phone, experience: client.experience, servicePrice: client.servicePrice, about: client.about }
+
+       
+
 
         return res.json({ user: req.session.user })
       } else if (req.body.role === 'cook') {
         const cook = await Povar.create({ name, email, password: cryptPass })
         const user = { ...cook, role: 'cook' }
 
-        req.session.user = { id: cook.id, name: cook.name, email: cook.email, role: user.role, avatar: cook.avatar }
+        req.session.user = { id: cook.id, name: cook.name, email: cook.email, role: user.role, avatar: cook.avatar, surname: cook.name, phone: cook.phone, experience: cook.experience, servicePrice: cook.servicePrice, about: cook.about }
 
         return res.json({ user: req.session.user })
       }
@@ -52,8 +56,8 @@ router.route('/signin')
         const currentClient = await Client.findOne({ where: { email } })
         const currentUser = { ...currentClient, role: 'client' }
         if (currentClient && await bcrypt.compare(password, currentClient.password)) {
-          req.session.user = { id: currentClient.id, name: currentClient.name, role: currentUser.role, avatar: currentClient.avatar, surname: currentClient.surname  }
-          console.log(req.session.user);
+          
+          req.session.user = { id: currentClient.id, name: currentClient.name, role: currentUser.role, avatar: currentClient.avatar, surname: currentClient.surname, phone: currentClient.phone, experience: currentClient.experience, servicePrice: currentClient.servicePrice, about: currentClient.about  }
           return res.json(req.session.user)
         }
       } catch (error) {
@@ -66,7 +70,7 @@ router.route('/signin')
         const currentCook = await Povar.findOne({ where: { email } })
         const currentUser = { ...currentCook, role: 'cook' }
         if (currentCook && await bcrypt.compare(password, currentCook.password)) {
-          req.session.user = { id: currentCook.id, name: currentCook.name, role: currentUser.role, avatar: currentCook.avatar }
+          req.session.user = { id: currentCook.id, name: currentCook.name, role: currentUser.role, avatar: currentCook.avatar, surname: currentCook.surname, phone: currentCook.phone, experience: currentCook.experience, servicePrice: currentCook.servicePrice, about: currentCook.about }
           return res.json(req.session.user)
         }
       } catch (error) {
