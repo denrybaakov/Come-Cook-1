@@ -8,15 +8,25 @@ import { getNewOrdersPovar } from '../../../redux/actions/ordersAction'
 import OrderItemPovar from '../OrderItem/OrderItemPovar';
 
 const OrderListPovar = () => {
-  const allOrders = useSelector(state => state.orders);
+  const allOrders = useSelector(state => state.ordersNewPovar);
   console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
+
+
+  const [listItem, setListItem] = useState(allOrders)
+
   useEffect(() => {
-    dispatch(getOrders())
-    // dispatch(getNewOrdersPovar())
+    // dispatch(getOrders())
+    dispatch(getNewOrdersPovar())
   }, [])
 
+  // useEffect(() => {
+  //   dispatch(getNewOrdersPovar())
+  // }, [listItem])
+
+
+  console.log('allOrders', allOrders);
 
   return (
 
@@ -35,7 +45,7 @@ const OrderListPovar = () => {
           status={item.status}
           nameClient={item.Client.name}
           emailClient={item.Client.email}
-          avatar={item.avatar}
+          avatar={item.Client.avatar}
         />)
       }
     </div>

@@ -9,6 +9,10 @@
     width: 100%;
   }
 
+  .modal__show {
+    font-size: 0.8rem;
+  }
+
   .profile {
     height: 100%;
     &__col-30 {
@@ -19,7 +23,12 @@
     }
     &__avatar {
       max-width: 175px;
-      max-height: 174px;
+      max-height: 275px;
+      height: 100%;
+      & img {
+        height: 275px;
+        width: 200px;
+      }
     }
     &__nav {
       display: flex;
@@ -31,6 +40,9 @@
     &__img2 {
       max-width: 175px;
       max-height: 174px;
+    }
+    &__text {
+      display: none;
     }
 
     &__col-70 {
