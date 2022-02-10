@@ -14,16 +14,3 @@ const ChatMessage = ({ message }) => {
 }
 
 export default ChatMessage
-
-
-{/* <>
-
-
-
-      <input onChange={(e) => setInput(e.target.value)} value={input} type={'text'} /><button onClick={clickHandler} >Отправить</button>
-      {test.map((e, index) => {
-        return (
-          <p key={index}> {e} </p>
-        )
-      })}
-    </> */}

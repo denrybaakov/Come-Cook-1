@@ -45,9 +45,8 @@ const UserIndex = () => {
   }
 
   const { name, email, role } = useSelector(state => state.user)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const logoutHandler = (e) => {
-    e.preventDefault()
     dispatch(userLogout())
   }
 
@@ -78,7 +77,11 @@ const UserIndex = () => {
                 <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
                 <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
                 <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-                <a href="!#" onClick={logoutHandler}>Выход</a>
+                <Link to="/" onClick={logoutHandler}>Выход</Link>
+
+                {/* <a href="/" onClick={logoutHandler}>Выход</a> */}
+
+
               </nav>
             </div>
 
