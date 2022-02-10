@@ -37,7 +37,7 @@ const { Server } = require("socket.io");
 
 app.use(morgan('dev'));
 
-app.use(express.json({extended: true}))
+app.use(express.json({ extended: true }))
 app.use(cors({
   credentials: true,
   origin: true,
@@ -90,7 +90,7 @@ wss.on('connection', function (ws, request) {
 
   map.set(userId, ws);
 
-  ws.on('message', function (message) {
+  ws.on('message', async function (message) {
     console.log(`Received message ${message} from user ${userId}`);
     console.log(request.session.user);
     for (const [userId, wsClient] of map) {

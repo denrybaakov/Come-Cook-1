@@ -8,6 +8,8 @@ import poly from '../../../images/povars/poly.jpg'
 import masha from '../../../images/povars/masha.jpg'
 import dud from './../../../images/povars/2.png'
 import rd from '../../../images/povars/3.jpg'
+import jenya from '../../../images/povars/5.jpg'
+
 
 
 const PovarPage = () => {
@@ -40,7 +42,7 @@ const PovarPage = () => {
 
           <a className="row__item preview__row__item" href="!#">
             <span className="row__item--title preview__row__item--title">Полина</span>
-            <span className="row__item--ganre preview__row__item--ganre">Специалист по Итальянской кухни</span>
+            <span className="row__item--ganre preview__row__item--ganre">Специалист по Итальянской кухне</span>
             <div className="row__item-img preview__row__item-img">
               <img src={poly} alt="Preview" />
             </div>
@@ -58,7 +60,7 @@ const PovarPage = () => {
             <span className="row__item--title preview__row__item--title">Начинающий повар</span>
             <span className="row__item--ganre preview__row__item--ganre">0 фаза</span>
             <div className="row__item-img preview__row__item-img">
-              <img src={dud} alt="Preview" />
+              <img src={jenya} alt="Preview" />
             </div>
           </a>
 
