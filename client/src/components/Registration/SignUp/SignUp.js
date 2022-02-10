@@ -52,6 +52,7 @@ if(newUser.role === 'client') {
         <input type="password" onChange={inputHandler} name='password' value={inputs.password}  className="signin__password" placeholder="Введите пароль" />
         <select onChange={(e) => setRole(e.target.value)} >
           
+
             <option value="client">Клиент</option>
             <option value="cook">Повар</option>
           

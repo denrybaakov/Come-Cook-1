@@ -15,7 +15,7 @@ const WebSocket = require('ws');
 const authRouter = require('./routes/authRouter');
 const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
-
+const settings = require('./routes/settingsRouter')
 const uploadRouter = require('./routes/cookAvatarRouter')
 const uploadRouterClient = require('./routes/clientAvatarRouter')
 
@@ -58,6 +58,7 @@ app.use('/auth', authRouter);
 app.use('/upload', uploadRouter)
 app.use('/uploadClient', uploadRouterClient)
 app.use('/povars', povars);
+app.use('/settings', settings)
 
 
 //WS
