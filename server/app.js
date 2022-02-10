@@ -18,7 +18,7 @@ const orders = require('./routes/ordersRouter');
 const settings = require('./routes/settingsRouter')
 const uploadRouter = require('./routes/cookAvatarRouter')
 const uploadRouterClient = require('./routes/clientAvatarRouter')
-
+const cuisine = require('./routes/cuisineRouter');
 
 const povars = require('./routes/povarRouter')
 
@@ -59,6 +59,7 @@ app.use('/upload', uploadRouter);
 app.use('/uploadClient', uploadRouterClient);
 app.use('/povars', povars);
 app.use('/settings', settings);
+app.use('/cuisines', cuisine);
 
 //WS
 const server = http.createServer(app);

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate({ Order, Cuisines, Connection }) {
       this.hasMany(Order, { foreignKey: "client_id" });
-      this.belongsToMany(Cuisines, { through: 'Connection', foreignKey: "cuisine_id" });
+      this.belongsToMany(Cuisines, { through: 'Connection', foreignKey: "client_id" });
     }
   }
   Client.init({

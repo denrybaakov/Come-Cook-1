@@ -13,4 +13,5 @@ export const initState = {
   ordersFinishedPovar: [],
   ordersCurrentClient: [],
   ordersFinishedClient: [],
+  cuisines: []
 }
