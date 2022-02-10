@@ -10,6 +10,12 @@ import imgUser7 from './img/user8.jpg'
 import imgUser8 from './img/user111.png'
 import imgUser9 from './img/user222.jpeg'
 
+import gosha from '../../../images/clients/gosha.png'
+import ilona from '../../../images/clients/ilona.jpeg'
+import jyli from '../../../images/clients/jyli.jpeg'
+import artem from '../../../images/clients/artem.jpeg'
+import kiril from '../../../images/clients/kirill.jpeg'
+
 const ClientPage = () => {
   return (
     <section className="client">
@@ -19,55 +25,58 @@ const ClientPage = () => {
       <div className="external">
         <div className="horizontal-scroll-wrapper">
           <div className="img-wrapper slower">
-            <a href="!#" target="_blank" rel="noopener" classNameName='client__text'>
-              <img src={imgUser1} alt="User1" />
-              <p>Это один из лучших сервисов в мире. Поэтому я и хочу его купить. </p>
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={gosha} alt="User1" />
+              <p>Отличный проект</p>
             </a>
           </div>
 
           <div className="img-wrapper faster">
-            <a href="!#" target="_blank" rel="noopener" classNameName='client__text'>
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
               <img src={imgUser9} alt="" />
-              <p>Если Билл настроен серьезно, то 10% от сделки как преподавателю мои.</p>
+              <p >Люблю начосы. Здесь можно найти повара который готовит отличные начосы.</p>
             </a>
           </div>
 
           <div className="img-wrapper slower vertical">
-            <a href="!#" target="_blank" rel="noopener" classNameName='client__text'>
-              <img src={imgUser3} alt="" />
-              <p>А мне просто нравится заказывать раба из этого сервиса</p>
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={ilona} alt="" />
+              <p>Крутяк!</p>
             </a>
           </div>
 
           <div className="img-wrapper slower slower-down">
-            <a href="!#" target="_blank" rel="noopener" classNameName='client__text'>
-              <img src={imgUser4} alt="" />
-              <p>За эту инновационную идею, такую премию дадут...</p>
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={jyli} alt="" />
+              <p>Повара знают свое дело. Очень вкусные блюда готовят</p>
             </a>
           </div>
 
           <div className="img-wrapper">
-            <a href="!#" target="_blank" rel="noopener" classNameName='client__text'>
-              <img src={imgUser5} alt="" />
-              <p></p>
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={artem} alt="" />
+              <p>Какой-то мужик! Какой-то проект!</p>
             </a>
           </div>
 
           <div className="img-wrapper slower">
-            <a href="!#" target="_blank" rel="noopener">
-              <img src={imgUser6} alt="" />
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={kiril} alt="" />
+              <p></p>
             </a>
           </div>
 
           <div className="img-wrapper faster1">
-            <a href="!#" target="_blank" rel="noopener">
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
               <img src={imgUser7} alt="" />
+              <p>Что здесь вообще происходит????</p>
             </a>
           </div>
 
           <div className="img-wrapper slower last">
-            <a href="!#" target="_blank" rel="noopener">
-              <img src={imgUser2} alt="" />
+            <a href="!#" target="_blank" rel="noopener" className='client__text'>
+              <img src={imgUser4} alt="" />
+              <p>За эту инновационную идею, такую премию дадут...</p>
             </a>
           </div>
         </div>
