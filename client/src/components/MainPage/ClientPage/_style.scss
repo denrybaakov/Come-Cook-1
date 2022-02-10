@@ -94,7 +94,7 @@ img {
   max-height: 50vh;
   transition: .5s;
   vertical-align: top;
-  filter: saturate(40%) sepia(30%) hue-rotate(5deg);
+//   filter: saturate(40%) sepia(30%) hue-rotate(5deg);
 }
 a:hover img {
   filter: none;
