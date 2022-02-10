@@ -24,6 +24,7 @@ const HeaderMain = () => {
           {/* <a href="!#" className="header__link">Главная</a>
           <a href="!#" className="header__link">Вторая страница</a>
           <a href="!#" className="header__link">Цены</a> */}
+          <strong className="logo__text header"><i>COME & COOK</i></strong>
         </div>
 
         <div className="header__login">

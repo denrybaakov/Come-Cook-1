@@ -6,6 +6,7 @@ import BenefitsMain from './Benefits/BenefitsMain';
 import ClientPage from './ClientPage/ClientPage';
 import FooterPage from './Footer/FooterPage';
 import PovarPreview from './PovarPreview/PovarPreview';
+import SliderPage from './SliderPage/SliderPage';
 
 export default function Main() {
   return (
@@ -15,7 +16,9 @@ export default function Main() {
       <PovarPage />
       <ClientPage />
       <BenefitsMain />
+      <SliderPage />
       <FooterPage />
     </>
   );
 }
+// меню бург
