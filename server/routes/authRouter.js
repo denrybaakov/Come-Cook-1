@@ -23,7 +23,11 @@ router.route('/signup')
         const client = await Client.create({ name, email, password: cryptPass })
         const user = { ...client, role: 'client' }
 
+
         req.session.user = { id: client.id, name: client.name, surname: client.surname,  email: client.email, role: user.role, avatar: client.avatar, phone: client.phone, experience: client.experience, servicePrice: client.servicePrice, about: client.about }
+
+       
+
 
         return res.json({ user: req.session.user })
       } else if (req.body.role === 'cook') {
@@ -52,6 +56,7 @@ router.route('/signin')
         const currentClient = await Client.findOne({ where: { email } })
         const currentUser = { ...currentClient, role: 'client' }
         if (currentClient && await bcrypt.compare(password, currentClient.password)) {
+          
           req.session.user = { id: currentClient.id, name: currentClient.name, role: currentUser.role, avatar: currentClient.avatar, surname: currentClient.surname, phone: currentClient.phone, experience: currentClient.experience, servicePrice: currentClient.servicePrice, about: currentClient.about  }
           return res.json(req.session.user)
         }

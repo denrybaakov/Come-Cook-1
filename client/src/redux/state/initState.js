@@ -1,5 +1,5 @@
 export const initState = {
-  client: null,
+  client: {},
   cook: {},
   user: {},
   orders: [],
@@ -7,6 +7,7 @@ export const initState = {
   povars: [],
   povarID: {},
   ws: new WebSocket("ws://localhost:3001"),
+  messages: [],
   ordersNewPovar: [],
   ordersCurrentPovar: [],
   ordersFinishedPovar: [],

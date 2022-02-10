@@ -9,14 +9,13 @@ import OrderItemPovar from '../OrderItem/OrderItemPovar';
 
 const OrderListPovar = () => {
   const allOrders = useSelector(state => state.ordersNewPovar);
-  console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
+  // const [listItem, setListItem] = useState(allOrders)
+
   useEffect(() => {
-    // dispatch(getOrders())
     dispatch(getNewOrdersPovar())
   }, [])
-
 
   return (
 
@@ -33,9 +32,10 @@ const OrderListPovar = () => {
           numOfPeople={item.numOfPeople}
           price={item.price}
           status={item.status}
+          status_id={item.status_id}
           nameClient={item.Client.name}
           emailClient={item.Client.email}
-          avatar={item.avatar}
+          avatar={item.Client.avatar}
         />)
       }
     </div>

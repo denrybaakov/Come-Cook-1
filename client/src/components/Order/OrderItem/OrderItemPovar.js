@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
@@ -8,12 +8,15 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { updateOrder } from '../../../redux/actions/ordersAction';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
+import avatarPng from '../../UserPage/img/avatar.png'
 
 
-const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
+const OrderItemPovar = ({ status_id, id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
 
   const [expanded, setExpanded] = React.useState(false);
 
+  const orders = useSelector(state => state.orders)
+  // console.log('ALL orders ----> ', orders);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -25,6 +28,9 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
     dispatch(updateOrder({ id }))
   }
 
+  const pathAvatar = `http://localhost:3001${avatar}`
+  // console.log('avata povar', avatar);
+
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
     <Accordion expanded={expanded === id} onChange={handleChange(id)} sx={{ marginBottom: '0.7rem' }}>
@@ -35,7 +41,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
       >
         <Typography sx={{ width: '75%', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
           <span className="profile__order-img">
-            <img src={avatar} alt="avatar" />
+            <img src={avatar ? pathAvatar : avatarPng} alt="avatar" />
           </span> {nameClient}   {title}
         </Typography>
         <Typography sx={{ color: 'text.secondary', width: '20%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>{price} руб.</Typography>
@@ -54,7 +60,9 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit">Посмотреть</button>
             </Link>
-            <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button>
+            {status_id === 1 ? <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> : null}
+            {status === 'Активен' ? <button className="btn-order del" onClick={() => acceptHandler(id)}>Завершить заказ</button> : null}
+            {/* <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> */}
             {/* <button className="btn-order del"></button> */}
           </div>
         </Typography>

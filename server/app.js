@@ -55,10 +55,10 @@ app.use(sessionParser);
 app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
-app.use('/upload', uploadRouter)
-app.use('/uploadClient', uploadRouterClient)
+app.use('/upload', uploadRouter);
+app.use('/uploadClient', uploadRouterClient);
 app.use('/povars', povars);
-app.use('/settings', settings)
+app.use('/settings', settings);
 
 
 //WS

@@ -10,9 +10,15 @@ const BenefitsMain = () => {
         <div className="benefits__row">
           <div className="benefits__row benefits__row--img"></div>
           <div className="benefits__content">
-            <h2 className="title benefits__title">Наши<br></br><i>преимущества</i></h2>
-            <p className="subtitle benefits__subtitle">У нас их много. Просто лень перечислять. </p>
+            <h2 className="title benefits__title">Как<br></br><i>мы работаем?</i></h2>
+            <p className="subtitle benefits__subtitle">Вы размещает заявку с описанием тех блюд, которые вы хотели бы поесть, указываете дату, место, количество персон и сумму денег, которые Вы готовы заплатить.</p>
+            <p className="subtitle benefits__subtitle">Вашу заявку видят Повара на сайте</p>
+            <p className="subtitle benefits__subtitle">Повар делает отклик</p>
+            <p className="subtitle benefits__subtitle">Вы обговориваете детали</p>
+            <p className="subtitle benefits__subtitle">Повар приезжает к Вам на мероприятие</p>
+
             <div className="benefits__btns">
+
               <img src={ios} alt="Ios" />
               <img src={gPlay} alt="PLay" />
             </div>

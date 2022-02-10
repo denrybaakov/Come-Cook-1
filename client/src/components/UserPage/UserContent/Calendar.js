@@ -12,14 +12,14 @@ const Calendar = () => {
   const finishedOrders = useSelector(state => state.ordersFinishedPovar)
 
 
-  // console.log('temp in calendar ----->', finishedOrders);
+  console.log('temp in calendar ----->', newOrders);
 
 
 
 
 
   useEffect(() => {
-    // dispatch(getNewOrdersPovar())
+    dispatch(getNewOrdersPovar())
     // dispatch(getCurrentOrdersPovar(id))
     // dispatch(getFinishedOrdersPovar(id))
   }, []);

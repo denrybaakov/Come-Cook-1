@@ -1,7 +1,4 @@
-
-
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import ChatMessage from './ChatMessage';
 
@@ -18,12 +15,12 @@ const ChatPovar = () => {
   };
 
   ws.onmessage = function (event) {
-    console.log(event.data);
+    // console.log(event.data);
     setTest(prev => [...prev, event.data])
   };
 
   const clickHandler = (e) => {
-    console.log(input);
+    // console.log(input);
     ws.send(input)
     setInput('')
   }
