@@ -123,11 +123,15 @@ p {
     display: flex !important;
     flex-direction: column;
      & p {
-      // max-width: 250px;
-      width: 250px;
+      width: 290px;
       margin: 0;
       font-family: $font3;
       font-size: 1.3rem;
     }
   }
+}
+
+
+.client__text p {
+  // color: red;
 }

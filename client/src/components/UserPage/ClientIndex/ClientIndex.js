@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { checkUser } from '../../../redux/actions/userAC'
 import avatar from '../img/avatar.png'
@@ -11,12 +11,18 @@ import ClientMessage from "./ClientMessage"
 import ClientSettings from "./ClientSetting"
 import ModalAvatar from '../../Modal/Modal'
 import ModalAvatarClient from '../../Modal/ModalAvatarClient'
+import { getOneClient } from '../../../redux/actions/clientAC'
 import { Link } from 'react-router-dom'
+
 
 
 const ClientIndex = () => {
   const [linkPage, setLinkPage] = useState(false)
-  const { name, email } = useSelector(state => state.user)
+  const { id, name, email } = useSelector(state => state.user)
+
+  useEffect(() => {
+    dispatch(getOneClient(id))
+  }, [])
 
   const changeLink = e => {
     e.preventDefault()

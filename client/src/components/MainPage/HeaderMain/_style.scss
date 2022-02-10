@@ -18,7 +18,7 @@
     display: flex;
     padding: 2rem 0;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     text-align: center;
     z-index: 100;
     background-color: $fiolet;
@@ -83,10 +83,9 @@
   &__logo {
     display: flex;
     position: absolute;
-    top: 15%;
-    left: 2%;
+    bottom: 10%;
+    right: 2%;
     z-index: 11;
-    // flex-direction: column;
   }
   &__title {
     padding-top: 5rem;
@@ -117,7 +116,19 @@
     width: 140px;
     // animation: logoAnimate 24s infinite ;
     // -webkit-animation: logoAnimate 24s infinite ;
+  }
+  &__text {
+    text-align: center;
+  }
 }
+
+.logo__text.header {
+  background-color: transparent;
+  color: $white;
+  font-family: $font2;
+  display: flex;
+  font-size: 2rem;
+  margin-left: 4rem;
 }
 
 
