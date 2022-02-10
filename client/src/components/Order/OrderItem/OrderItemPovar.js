@@ -15,7 +15,8 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
 
   const [expanded, setExpanded] = React.useState(false);
 
-
+  const orders = useSelector(state => state.orders)
+  console.log('ALL orders ----> ', orders);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -28,7 +29,7 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
   }
 
   const pathAvatar = `http://localhost:3001${avatar}`
-  console.log('avata povar', avatar);
+  // console.log('avata povar', avatar);
 
   return (
     // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -59,6 +60,9 @@ const OrderItemPovar = ({ id, index, date, address, title, text, numOfPeople, pr
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit">Посмотреть</button>
             </Link>
+            {/* {
+              orders.map(el => el.status === 1 ? <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> : null )
+            } */}
             <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button>
             {/* <button className="btn-order del"></button> */}
           </div>
