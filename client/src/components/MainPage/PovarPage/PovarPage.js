@@ -70,7 +70,7 @@ const PovarPage = () => {
 
         <div className="preview__footer">
           <Link to="/auth/register">
-          <button className="btn-secondary">Присоединиться</button>
+            <button className="btn-secondary">Присоединиться</button>
           </Link>
         </div>
       </div>

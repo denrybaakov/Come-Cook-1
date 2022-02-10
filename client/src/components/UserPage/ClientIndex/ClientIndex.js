@@ -11,6 +11,7 @@ import ClientMessage from "./ClientMessage"
 import ClientSettings from "./ClientSetting"
 import ModalAvatar from '../../Modal/Modal'
 import ModalAvatarClient from '../../Modal/ModalAvatarClient'
+import { Link } from 'react-router-dom'
 
 
 const ClientIndex = () => {
@@ -77,7 +78,6 @@ const ClientIndex = () => {
   // }
 
   const logoutHandler = (e) => {
-    e.preventDefault()
     dispatch(userLogout())
   }
 
@@ -118,7 +118,7 @@ const ClientIndex = () => {
               <a href="!#" data-link="search" onClick={changeLink}>Поиск</a>
               <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
               <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
-              <a href="!#" onClick={logoutHandler}>Выход</a>
+              <Link to="/" onClick={logoutHandler}>Выход</Link>
             </nav>
           </div>
 

@@ -7,6 +7,7 @@ export const initState = {
   povars: [],
   povarID: {},
   ws: new WebSocket("ws://localhost:3001"),
+  chatState: [],
   ordersNewPovar: [],
   ordersCurrentPovar: [],
   ordersFinishedPovar: [],
