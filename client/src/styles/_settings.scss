@@ -98,6 +98,7 @@ input:focus {
     font-weight: bold;
     color: $white;
     border: none;
+    margin-bottom: 3rem;
     &:focus {
       background-color: #b5c9a2;
       color: $darkGreen;
@@ -245,6 +246,26 @@ button {
   }
 }
 
+.povarCard__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.povarCard__btn {
+  border: 2px solid $fiolet;
+  background-color: transparent;
+  margin-bottom: 4rem;
+  color: $fiolet;
+  padding: 20px;
+}
+
+.povarCard__title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 input {
   padding: 15px 40px;
   border: 1px solid $fiolet;
@@ -348,6 +369,8 @@ textarea {
   }
 
 }
+
+
 
 #map {
   width: 100% !important;

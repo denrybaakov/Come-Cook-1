@@ -75,8 +75,8 @@ const UserIndex = () => {
                 {/* <a href="!#" data-link="searchOrder" onClick={changeLink}>Поиск заказов</a>
               <a href="!#" data-link="currentOrders" onClick={changeLink}>Текущие заказы</a>
               <a href="!#" data-link="completedOrders" onClick={changeLink}>Выполненные заказы</a> */}
-                <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a>
-                <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
+                {/* <a href="!#" data-link="calendar" onClick={changeLink}>Календарь</a> */}
+                {/* <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a> */}
                 <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
                 <Link to="/" onClick={logoutHandler}>Выход</Link>
 
