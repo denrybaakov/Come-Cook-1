@@ -10,6 +10,7 @@ const Settings = () => {
   const povar = useSelector(state => state.user)
   const { id } = useSelector(state => state.user)
 
+  const [cuisine, setCuisine] = useState('')
   const [input, setInput] = useState({
     name: povar.name,
     surname: povar.surname,
@@ -17,8 +18,13 @@ const Settings = () => {
     phone: povar.phone,
     about: povar.about,
     experience: povar.experience,
-    servicePrice: povar.servicePrice
+    servicePrice: povar.servicePrice,
   })
+
+  const handleChange = (event) => {
+    setCuisine(event.target.value)
+  };
+
 
   const cuisines = useSelector(state => state.cuisines);
   console.log('cuisines --->', cuisines);
@@ -53,22 +59,22 @@ const Settings = () => {
           <input type="text" onChange={inputHandler} className="input-profile setting__input" name="servicePrice" value={input.servicePrice} placeholder="Средняя цена услуги" />
 
 
-          <FormControl sx={{ m: 1, minWidth: 120 }}>
+          {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-helper-label">Выберите кухню</InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
             // multiple
             label="Выберите кухню"
-            onChange={inputHandler}
+            onChange={handleChange}
                       >
             {cuisines.map((cuisine) => {
               return (
                 <MenuItem value={cuisine.id}>{cuisine.name}</MenuItem>
               )
-            })}
-          </Select>
-        </FormControl>
+            })} */}
+          {/* </Select>
+        </FormControl> */}
           <textarea type="text" className="input-profile setting__input" name="about" value={input.about} placeholder="Обо мне" />
           <button className="btn-secondary setting__btn">Применить</button>
         </div>
