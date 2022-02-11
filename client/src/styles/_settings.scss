@@ -249,7 +249,13 @@ input {
   padding: 15px 40px;
   border: 1px solid $fiolet;
   background: transparent;
+}
 
+select {
+  padding: 15px 40px;
+  border: 1px solid $fiolet;
+  background: transparent;
+  margin-bottom: 2rem;
 }
 
 button {
