@@ -7,7 +7,6 @@ const ClientMessage = () => {
       <h2 className="profile__title">Сообщения</h2>
       <p>Здесь сообщения</p>
 
-
     </div>
   )
 }

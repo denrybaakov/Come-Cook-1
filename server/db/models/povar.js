@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Povar extends Model {
 
     static associate({ Order, Cuisines, Likes, Connection }) {
-      this.belongsToMany(Cuisines, { through: 'Connection', foreignKey: 'cuisine_id' });// поменять на повар айди
+      this.belongsToMany(Cuisines, { through: 'Connection', foreignKey: 'povar_id' });
       this.hasMany(Order, { foreignKey: 'povar_id' });
       this.belongsTo(Likes, { foreignKey: 'likes_id' });
     }

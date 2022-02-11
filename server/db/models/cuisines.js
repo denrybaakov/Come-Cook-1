@@ -5,8 +5,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Cuisines extends Model {
     static associate({ Client, Povar, Connection }) {
-      this.belongsToMany(Client, { through: 'Connection', foreignKey: 'client_id' });
-      this.belongsToMany(Povar, { through: 'Connection', foreignKey: 'povar_id' }); //поменять на кузин айди
+      this.belongsToMany(Povar, { through: 'Connection', foreignKey: 'cuisine_id' });
+      this.belongsToMany(Client, { through: 'Connection', foreignKey: 'cuisine_id' });
     }
   }
   Cuisines.init({

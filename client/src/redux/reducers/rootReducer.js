@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { clientReducer } from '../reducers/clientReducer';
 import { cookReducer } from '../reducers/cookReducer';
+import { cuisinesReducer } from './cuisinesReducer';
 import { messagesReducer } from './messageReducer';
 import { orderIDReducer } from './orderIDReducer';
 import { ordersCurrentClientReducer } from './ordersCurrentClientReducer';
@@ -28,5 +29,6 @@ export const rootReducer = combineReducers({
   ordersCurrentPovar: ordersCurrentPovarReducer,
   ordersFinishedPovar: ordersFinishedPovarReducer,
   ordersCurrentClient: ordersCurrentClientReducer,
-  ordersFinishedClient: ordersFinishedClientReducer
+  ordersFinishedClient: ordersFinishedClientReducer,
+  cuisines: cuisinesReducer
 })
