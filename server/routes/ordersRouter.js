@@ -185,7 +185,7 @@ router.get('/povar/:id/finished', async (req, res) => {
 router.get('/client/:id/current', async (req, res) => {
   const client = await Client.findOne({ where: { id: req.params.id } });
   const currentOrdersClient = await Order.findAll({
-    where: { client_id: client.id, status_id: 2 },
+    where: { client_id: client.id },
     include: [
       {
         model: Client,

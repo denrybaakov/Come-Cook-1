@@ -67,6 +67,7 @@ function App() {
         } />
 
         <Route path='/test' element={<Tests />}></Route>
+        <Route path='/chat' element={<Tests />}></Route>
 
 
         {/* 

@@ -32,6 +32,7 @@ const OrderListPovar = () => {
           numOfPeople={item.numOfPeople}
           price={item.price}
           status={item.status}
+          status_id={item.status_id}
           nameClient={item.Client.name}
           emailClient={item.Client.email}
           avatar={item.Client.avatar}
