@@ -1,17 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getCuisines } from "../../../redux/actions/cuisinesAction";
 import { getFinishedOrdersClient } from "../../../redux/actions/ordersAction";
 import OrderItem from "../../Order/OrderItem/OrderItem"
 
 const ClientCompletedOrders = () => {
   const allOrders = useSelector(state => state.ordersFinishedClient);
   const {id} = useSelector(state => state.user)
+ 
   // console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFinishedOrdersClient(id))
   }, [])
+
   return (
     <div className="">
       <h2 className="profile__title">Завершенные заказы</h2>
@@ -26,6 +29,7 @@ const ClientCompletedOrders = () => {
           text={item.text}
           numOfPeople={item.numOfPeople}
           price={item.price}
+          status={item.status}
         />)
       }
     </div>

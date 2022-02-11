@@ -32,7 +32,7 @@ export default function OrderPage() {
             <h1 className="orderId__title">{title}</h1>
             <div className="orderId">
               <div className="orderId__block-img">
-                <img src={clientAvatar} alt="" />
+                <img src={`http://localhost:3001${clientAvatar}`} alt="" />
                 <span className="orderId__name">Имя: {clientName}</span>
                 <span className="orderId__name">Фамилия: {clientSurname}</span>
                 <span className="orderId__name">Почта: {clientEmail}</span>
@@ -47,13 +47,15 @@ export default function OrderPage() {
                 <span className="orderId__description">Цена: {price}</span>
               </div>
 
-              <ChatClient />
- 
+
 
 
 
             </div>
+
+            <ChatClient />
             {role === 'cook' ? <Link to="/userpage"><button className="btn-secondary orderId__btn" onClick={() => acceptHandler(id)}>Принять</button></Link> : null}
+
 
             {/* <button className="btn-secondary orderId__btn">Написать клиенту</button> */}
 

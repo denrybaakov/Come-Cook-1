@@ -18,7 +18,7 @@ const orders = require('./routes/ordersRouter');
 const settings = require('./routes/settingsRouter')
 const uploadRouter = require('./routes/cookAvatarRouter')
 const uploadRouterClient = require('./routes/clientAvatarRouter')
-
+const cuisine = require('./routes/cuisineRouter');
 
 const povars = require('./routes/povarRouter')
 
@@ -37,7 +37,7 @@ const { Server } = require("socket.io");
 
 app.use(morgan('dev'));
 
-app.use(express.json({extended: true}))
+app.use(express.json({ extended: true }))
 app.use(cors({
   credentials: true,
   origin: true,
@@ -59,6 +59,7 @@ app.use('/upload', uploadRouter);
 app.use('/uploadClient', uploadRouterClient);
 app.use('/povars', povars);
 app.use('/settings', settings);
+app.use('/cuisines', cuisine);
 
 
 //WS
@@ -89,12 +90,15 @@ wss.on('connection', function (ws, request) {
   const userId = request.session.user.id
   const name = request.session.user.name
 
+
   map.set(userId, ws);
 
-  ws.on('message', function (message) {
+  ws.on('message', async function (message) {
     console.log(`Received message ${message} from user ${userId}`);
     console.log(request.session.user);
     for (const [userId, wsClient] of map) {
+      // wsClient.send({type:'message', payload: {message}})
+      // wsClient.send(message)
       wsClient.send(`${name} =:= ${message}`)
     }
   });

@@ -1,7 +1,10 @@
-import {  useState } from "react"
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import {  useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { editPovar} from "../../../redux/actions/cookAC";
+import { getCuisines } from "../../../redux/actions/cuisinesAction";
 import { checkUser } from "../../../redux/actions/userAC";
+import CuisineItem from "../../Cuisines/CuisineItem";
 
 const Settings = () => {
   const povar = useSelector(state => state.user)
@@ -17,8 +20,12 @@ const Settings = () => {
     servicePrice: povar.servicePrice
   })
 
+  const cuisines = useSelector(state => state.cuisines);
+  console.log('cuisines --->', cuisines);
 
-
+  useEffect(() => {
+    dispatch(getCuisines())
+  }, [])
 
   const dispatch = useDispatch();
 
@@ -29,12 +36,8 @@ const Settings = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     dispatch(editPovar({ id, ...input }))
-
   }
-
-
 
   return (
 
@@ -49,7 +52,26 @@ const Settings = () => {
           <input type="text" onChange={inputHandler} className="input-profile setting__input" name="experience" value={input.experience} placeholder="Опыт" />
           <input type="text" onChange={inputHandler} className="input-profile setting__input" name="servicePrice" value={input.servicePrice} placeholder="Средняя цена услуги" />
 
-          <select  className="input-profile setting__input">/
+
+          <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <InputLabel id="demo-simple-select-helper-label">Выберите кухню</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            multiple
+            label="Выберите кухню"
+            // onChange={handleChange}
+          >
+            {cuisines.map((cuisine) => {
+              return (
+                <MenuItem value={cuisine.name}>{cuisine.name}</MenuItem>
+              )
+            })}
+          </Select>
+        </FormControl>
+
+
+          {/* <select  className="input-profile setting__input">/
             <option value="americanCuisine">Американская кухня</option>
             <option value="britishCuisine">Британская кухня</option>
             <option value="mexicanCuisine">Мексиканская кухня</option>
@@ -74,8 +96,10 @@ const Settings = () => {
             <option value="russianCuisine">Русская кухня</option>
             <option value="ukrainCuisine">Украинская кухня</option>
             <option value="belorusCuisine">Белоруская кухня</option>
-          </select>
           <input type="text" className="input-profile setting__input" placeholder='Добавьте немного информации о себе' name="about" value={input.about} onChange={inputHandler} />
+
+          </select> */}
+
 
           <button className="btn-secondary setting__btn">Применить</button>
         </div>
