@@ -204,6 +204,35 @@ router.get('/client/:id/current', async (req, res) => {
   res.json({ currentOrdersClient });
 })
 
+router.put('/client/:id/current', async (req, res) => {
+  await Order.update(req.body, { where: { id: req.params.id } })
+  const updatedOrder = await Order.findOne({ where: { id: req.params.id },
+    include: 
+      {
+        model: Status,
+        attributes: ['name'],
+      }, 
+    })
+  // console.log(updatedOrder);
+  res.json({ updatedOrder })
+})
+
+router.delete('/client/:id/current', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const order = await Order.findOne({ where: { id } })
+    if (req.session.user.id === order.client_id) {
+      await Order.destroy({ where: { id } })
+      res.sendStatus(200);
+    } else {
+      console.log('no')
+    }
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+})
+
 router.get('/client/:id/finished', async (req, res) => {
   const client = await Client.findOne({ where: { id: req.params.id } });
   const finishedOrdersClient = await Order.findAll({

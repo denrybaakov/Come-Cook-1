@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ChatClient from '../Chat/ChatClient';
 import { useDispatch } from 'react-redux';
-import { updateOrder } from '../../redux/actions/ordersAction';
+import { updateOrder, updateOrderCurrentClient } from '../../redux/actions/ordersAction';
 
 const style = {
   position: 'absolute',
@@ -35,6 +35,7 @@ const ModalEdit = ({ id, index, date, address, title, text, numOfPeople, price }
 
   const editHandler = () => {
     dispatch(updateOrder({id, ...input}))
+    dispatch(updateOrderCurrentClient({id, ...input}))
     setOpen(false)
   }
 

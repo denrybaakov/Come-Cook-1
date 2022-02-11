@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
-import { deleteOrders } from '../../../redux/actions/ordersAction';
+import { deleteOrders, deleteOrdersCurrentClient, updateOrder } from '../../../redux/actions/ordersAction';
 import ChatClient from '../../Chat/ChatClient';
 import ModalChat from '../../Modal/Modal';
 import ModalEdit from '../../Modal/ModalEdit';
@@ -29,7 +29,7 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
   }
 
   const deleteHandler = (id) => {
-    dispatch(deleteOrders(id));
+    dispatch(deleteOrdersCurrentClient(id));
   }
 
   return (
