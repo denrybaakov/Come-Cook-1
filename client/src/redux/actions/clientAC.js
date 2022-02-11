@@ -32,6 +32,8 @@ export const getOneClient = (id) => async (dispatch) => {
 }
 
 export const editClient = (value) => async (dispatch) => {
-  const result = await axios.put(`/settings/client/${value.id}`, value)
+  const result = await axios.put(`/settings/client/`, value)
+  const res = await axios.post('/auth/check')
+  dispatch(setUser(res.data.user))
   dispatch({type: EDIT_CLIENT, payload: result.data.client})
 }

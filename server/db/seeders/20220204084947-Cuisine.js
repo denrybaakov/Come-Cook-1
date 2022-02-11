@@ -1,166 +1,166 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Cuisines', [{
-      name: 'britishCuisine',
+      name: 'Британская кухня',
       img: '../../../client/src/styles/img/british.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'americanCuisine',
+      name: 'Американская кухня',
       img: '../../../client/src/images/cuisineImages/american.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'mexicanCuisine',
+      name: 'Мексиканская кухня',
       img: '../../../client/src/images/cuisineImages/mexican.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'armenianCuisine',
+      name: 'Армянская кухня',
       img: '../../../client/src/simages/cuisineImages/armenian.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'turkishCuisine',
+      name: 'Турецкая кухня',
       img: '../../../client/src/images/cuisineImages/turkish.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'arabicCuisine',
+      name: 'Арабская кухня',
       img: '../../../client/src/images/cuisineImages/arabic.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'greekCuisine',
+      name: 'Греческая кухня',
       img: '../../../client/src/images/cuisineImages/greek.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'mediterraneanCuisine',
+      name: 'Средиземноморская кухня',
       img: '../../../client/src/images/cuisineImages/mediterranean.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'italianCuisine',
+      name: 'Итальянская кухня',
       img: '../../../client/src/images/cuisineImages/italian.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'spainCuisine',
+      name: 'Испанская кухня',
       img: '../../../client/src/images/cuisineImages/spain.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'frenchCuisine',
+      name: 'Французская кухня',
       img: '../../../client/src/images/cuisineImages/french.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'germanCuisine',
+      name: 'Немецкая кухня',
       img: '../../../client/src/images/cuisineImages/german.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'georgianCuisine',
+      name: 'Грузинская кухня',
       img: '../../../client/src/images/cuisineImages/georgian.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'caucasusCuisine',
+      name: 'Кавказская кухня',
       img: '../../../client/src/images/cuisineImages/caucasus.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'koreanCuisine',
+      name: 'Корейская кухня',
       img: '../../../client/src/images/cuisineImages/korean.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'japanCuisine',
+      name: 'Японская кухня',
       img: '../../../client/src/images/cuisineImages/japan.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'chinaCuisine',
+      name: 'Китайская кухня',
       img: '../../../client/src/images/cuisineImages/china.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'thaiCuisine',
+      name: 'Тайская кухня',
       img: '../../../client/src/images/cuisineImages/thai.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'hongkongCuisine',
+      name: 'Гонконгская кухня',
       img: '../../../client/src/images/cuisineImages/hongkong.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'vietnamCuisine',
+      name: 'Вьетнамская кухня',
       img: '../../../client/src/images/cuisineImages/vietnam.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'asianCuisine',
+      name: 'Азиатская кухня',
       img: '../../../client/src/images/cuisineImages/asian.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'indianCuisine',
+      name: 'Индийская кухня',
       img: '../../../client/src/images/cuisineImages/indian.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'ukrainCuisine',
+      name: 'Украиснкая кухня',
       img: '../../../client/src/simages/cuisineImages/ukrain.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'belorusCuisine',
+      name: 'Белоруская кухня',
       img: '../../../client/src/images/cuisineImages/belorus.png',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
 
     {
-      name: 'russianCuisine',
+      name: 'Русская кухня',
       img: '../../../client/src/images/cuisineImages/russian.png',
       createdAt: new Date(),
       updatedAt: new Date(),

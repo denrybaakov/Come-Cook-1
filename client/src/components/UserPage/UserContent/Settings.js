@@ -32,7 +32,6 @@ const Settings = () => {
 
     dispatch(editPovar({ id, ...input }))
 
-    dispatch(checkUser())
   }
 
 
@@ -76,7 +75,7 @@ const Settings = () => {
             <option value="ukrainCuisine">Украинская кухня</option>
             <option value="belorusCuisine">Белоруская кухня</option>
           </select>
-          <textarea type="text" className="input-profile setting__input" name="about" value={input.about} placeholder="Обо мне" />
+          <input type="text" className="input-profile setting__input" placeholder='Добавьте немного информации о себе' name="about" value={input.about} onChange={inputHandler} />
 
           <button className="btn-secondary setting__btn">Применить</button>
         </div>
