@@ -1,6 +1,6 @@
 import axios from "axios"
 import { EDIT_POVAR, SET_COOK } from "../types/types"
-import { setUser } from "./userAC"
+import { setUser, checkUser } from "./userAC"
 
 export const setCook = (value) => {
   return {
@@ -37,8 +37,10 @@ export const getOnePovar = (id) => async (dispatch) => {
 
 export const editPovar = (value) => async (dispatch) => {
   const result = await axios.put(`/settings/povar/`, value)
-  console.log(result.data.povar);
+  const res = await axios.post('/auth/check')
+  dispatch(setUser(res.data.user))
   dispatch({type: EDIT_POVAR, payload: result.data.povar})
+  
 }
 
 
