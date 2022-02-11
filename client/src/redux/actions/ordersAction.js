@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CREATE_ORDERS, DELETE_ORDER, EDIT_ORDER, GET_ALL_CURRENT_ORDERS_CLIENT, GET_ALL_CURRENT_ORDERS_POVAR, GET_ALL_FINISHED_ORDERS_CLIENT, GET_ALL_FINISHED_ORDERS_POVAR, GET_ALL_NEW_ORDERS_POVAR, GET_ORDERS } from "../types/types";
+import { CREATE_ORDERS, DELETE_ORDER, DELETE_ORDER_CURRENT_CLIENT, EDIT_ORDER, EDIT_ORDERS_CURRENT_CLIENT, GET_ALL_CURRENT_ORDERS_CLIENT, GET_ALL_CURRENT_ORDERS_POVAR, GET_ALL_FINISHED_ORDERS_CLIENT, GET_ALL_FINISHED_ORDERS_POVAR, GET_ALL_NEW_ORDERS_POVAR, GET_ORDERS } from "../types/types";
 
 export const setOrders = (value) => ({
   type: GET_ORDERS,
@@ -109,6 +109,20 @@ export const getCurrentOrdersClient = (id) => async (dispatch) => {
     }
   })
   dispatch(setCurrentOrdersClient(result2))
+}
+
+export const updateOrderCurrentClient = (value) => async (dispatch) => {
+  const result = await axios.put(`/orders/client/${value.id}/current`, value);
+  const result2 = {
+    ...result.data.updatedOrder,
+    status: result.data.updatedOrder.Status.name
+  }
+  dispatch({ type: EDIT_ORDERS_CURRENT_CLIENT, payload: result2 })
+}
+
+export const deleteOrdersCurrentClient = (id) => async (dispatch) => {
+  await axios.delete(`/orders/${id}`);
+  dispatch({ type: DELETE_ORDER_CURRENT_CLIENT, payload: id })
 }
 
 export const setFinishedOrdersClient = (value) => ({

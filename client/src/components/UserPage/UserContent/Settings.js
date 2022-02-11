@@ -58,49 +58,18 @@ const Settings = () => {
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
-            multiple
+            // multiple
             label="Выберите кухню"
-            // onChange={handleChange}
-          >
+            onChange={inputHandler}
+                      >
             {cuisines.map((cuisine) => {
               return (
-                <MenuItem value={cuisine.name}>{cuisine.name}</MenuItem>
+                <MenuItem value={cuisine.id}>{cuisine.name}</MenuItem>
               )
             })}
           </Select>
         </FormControl>
-
-
-          {/* <select  className="input-profile setting__input">/
-            <option value="americanCuisine">Американская кухня</option>
-            <option value="britishCuisine">Британская кухня</option>
-            <option value="mexicanCuisine">Мексиканская кухня</option>
-            <option value="armenianCuisine">Армянская кухня</option>
-            <option value="georgianCuisine">Грузиснкая кухня</option>
-            <option value="caucasusCuisine">Кавказская кухня</option>
-            <option value="turkishCuisine">Турецкая кухня</option>
-            <option value="arabicCuisine">Арабская кухня</option>
-            <option value="greekCuisine">Греческая кухня</option>
-            <option value="mediterraneanCuisine">Средиземноморская кухня</option>
-            <option value="italianCuisine">Итальянская кухня</option>
-            <option value="spainCuisine">Испанская кухня</option>
-            <option value="germanCuisine">Немецкая кухня</option>
-            <option value="asianCuisine">Азиатская кухня</option>
-            <option value="indianCuisine">Индийская кухня</option>
-            <option value="koreanCuisine">Корейская кухня</option>
-            <option value="japanCuisine">Японская кухня</option>
-            <option value="chinaCuisine">Китайская кухня</option>
-            <option value="thaiCuisine">Тайская кухня</option>
-            <option value="hongkongCuisine">Гонкконгская кухня</option>
-            <option value="vietnamCuisine">Вьетнамская кухня</option>
-            <option value="russianCuisine">Русская кухня</option>
-            <option value="ukrainCuisine">Украинская кухня</option>
-            <option value="belorusCuisine">Белоруская кухня</option>
-          <input type="text" className="input-profile setting__input" placeholder='Добавьте немного информации о себе' name="about" value={input.about} onChange={inputHandler} />
-
-          </select> */}
-
-
+          <textarea type="text" className="input-profile setting__input" name="about" value={input.about} placeholder="Обо мне" />
           <button className="btn-secondary setting__btn">Применить</button>
         </div>
       </form>

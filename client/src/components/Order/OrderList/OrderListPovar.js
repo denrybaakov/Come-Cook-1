@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrders } from '../../../redux/actions/ordersAction';
+import { getOrders, updateOrderNewPovar } from '../../../redux/actions/ordersAction';
 import { getNewOrdersPovar } from '../../../redux/actions/ordersAction'
 
 // import OrderItem from '../OrderItem/OrderItem';
@@ -17,6 +17,7 @@ const OrderListPovar = () => {
     dispatch(getNewOrdersPovar())
   }, [])
 
+  
   return (
 
     <div className="profile__list">
