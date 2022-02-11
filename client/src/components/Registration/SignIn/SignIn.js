@@ -22,7 +22,7 @@ const SignIn = () => {
   }
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    // setAge(event.target.value);
     setRole(event.target.value)
   };
 
@@ -46,27 +46,17 @@ const SignIn = () => {
   return (
 
     <form onSubmit={submitHandler} className="signin">
-      <div className="logo signin__logo">
+      <div className="logo signin__logo signin__logo">
         <strong className="logo__text"><i>COME<br></br>& <br></br>COOK</i></strong>
       </div>
       <div className="signin__content">
         <h2>Вход в личный кабинет</h2>
         <input onChange={inputHandler} name='email' value={inputs.email} type="email" className="signin__login" placeholder="Введите email" />
         <input onChange={inputHandler} name='password' value={inputs.password} type="password" className="signin__password" placeholder="Введите пароль" />
-
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-helper-label">Выберите роль</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            value={age}
-            label="Выберите роль"
-            onChange={handleChange}
-          >
-            <MenuItem value="client">Клиент</MenuItem>
-            <MenuItem value="cook">Повар</MenuItem>
-          </Select>
-        </FormControl>
+        <select name="" id="" onChange={handleChange} className="select">
+          <option value="client">Клиент</option>
+          <option value="cook">Повар</option>
+        </select>
 
         <button type="submit">войти</button>
       </div>

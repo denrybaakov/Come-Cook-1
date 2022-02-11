@@ -3,10 +3,11 @@
   &__background {
     min-height: 100vh;
     background: url('./img/background.png') no-repeat center / cover;
+    // background-position-y: 10px;
   }
   &__text {
     position: absolute;
-    top: 5%;
+    top: 1%;
     left: 5%;
     z-index: 1;
   }

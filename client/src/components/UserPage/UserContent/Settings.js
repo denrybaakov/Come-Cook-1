@@ -37,7 +37,6 @@ const Settings = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(editPovar({ id, ...input }))
-    dispatch(checkUser())
   }
 
   return (
@@ -70,9 +69,7 @@ const Settings = () => {
             })}
           </Select>
         </FormControl>
-
           <textarea type="text" className="input-profile setting__input" name="about" value={input.about} placeholder="Обо мне" />
-
           <button className="btn-secondary setting__btn">Применить</button>
         </div>
       </form>

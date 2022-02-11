@@ -14,7 +14,7 @@ export default function PovarList() {
 
   return (
     <>
-      <div>povar list</div>
+      {/* <div>povar list</div> */}
       <ul>
         <li>{allPovars.map(el => <PovarItem key={el.id} id={el.id} name={el.name} surname={el.surname} email={el.email} about={el.about} phone={el.phone} experience={el.experience} servicePrice={el.servicePrice} likes_id={el.likes_id} avatar={el.avatar} />)}</li>
       </ul>
