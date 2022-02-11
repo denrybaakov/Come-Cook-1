@@ -116,7 +116,7 @@ const ClientIndex = () => {
               <a href="!#" data-link="index" onClick={changeLink}>Главная</a>
               <a href="!#" data-link="mainOrder" onClick={changeLink}>Заказы</a>
               <a href="!#" data-link="search" onClick={changeLink}>Поиск</a>
-              <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a>
+              {/* <a href="!#" data-link="message" onClick={changeLink}>Сообщения</a> */}
               <a href="!#" data-link="settings" onClick={changeLink}>Настройки</a>
               <a href="!#" onClick={logoutHandler}>Выход</a>
             </nav>

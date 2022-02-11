@@ -3,7 +3,16 @@
   background-color: $fiolet;
   &__block {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & em {
+      color: $white;
+    }
+    & img {
+      max-width: 170px;
+
+    }
   }
   &__logo img  {
     width: 120px;
