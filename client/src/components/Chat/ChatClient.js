@@ -21,7 +21,7 @@ export default function ChatClient() {
   const ws = useSelector(state => state.ws)
 
   ws.onopen = function (e) {
-    //ws.send("Добро пожаловать");
+    // ws.send("Добро пожаловать");
   };
 
   ws.onmessage = function (event) {

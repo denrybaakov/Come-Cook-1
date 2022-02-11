@@ -97,7 +97,9 @@ wss.on('connection', function (ws, request) {
     console.log(`Received message ${message} from user ${userId}`);
     console.log(request.session.user);
     for (const [userId, wsClient] of map) {
-      wsClient.send({type:'message', payload: {message}})
+      // wsClient.send({type:'message', payload: {message}})
+      // wsClient.send(message)
+      wsClient.send(`${name} =:= ${message}`)
     }
   });
 });
