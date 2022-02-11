@@ -10,7 +10,7 @@ import Tests from '../../Tests/Tests';
 import { updateOrder } from '../../../redux/actions/ordersAction';
 
 export default function OrderPage() {
-  const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status,status_id, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
+  const { clientAvatar, clientSurname, clientEmail, clientPhone, clientName, status, status_id, price, numOfPeople, text, title, address, date } = useSelector(state => state.orderID)
   const { role } = useSelector(state => state.user)
   const dispatch = useDispatch();
   const { id } = useParams();

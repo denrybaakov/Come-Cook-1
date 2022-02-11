@@ -60,7 +60,7 @@ export default function MapComponent() {
             coordinates, {
             'hintContent': `${address}`,
             'balloonContent': [
-              `<h1>${date}</br>${address}</br></br>${title}</br>${text}</br></br><a href="http://localhost:3001/orders/${id}">Перейти на страницу заказа</a></h1>`,
+              `<h1>${date}</br>${address}</br></br>${title}</br>${text}</br></br><a href="http://localhost:3000/orders/${id}">Перейти на страницу заказа</a></h1>`,
             ]
           },
           )

@@ -45,10 +45,10 @@ export default function PovarPage({ id, name, surname, email, about, phone, expe
           <AccordionDetails className='order__subblock'>
             <Typography >
               <div className="order__content">
-                <span className="order__date">О поворе: {about} </span>
-                <span className="order__date">Опыт: {experience} </span>
-                <span className="order__address">Средний чек повара: {servicePrice}</span>
-                <span className="order__people">Телефон: {phone}</span>
+                <span className="order__date">О поваре: {about ? about : 'Пользователь не добавил информацию о себе'} </span>
+                <span className="order__date">Опыт: {experience ? experience : 'Пользователь не добавил информацию о себе'} лет </span>
+                <span className="order__address">Средний чек повара: {servicePrice ? servicePrice : 'Пользователь не добавил информацию о себе'} рублей</span>
+                <span className="order__people">Телефон: {phone ? phone : 'Пользователь не добавил информацию о себе'}</span>
               </div>
               <div className="order__group-btn">
                 <Link to={`/povars/${id}`}>
