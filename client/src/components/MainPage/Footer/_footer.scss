@@ -1,0 +1,50 @@
+.footer {
+  padding: 8rem 0 5rem 0;
+  background-color: $fiolet;
+  &__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & em {
+      color: $white;
+    }
+    & img {
+      max-width: 170px;
+
+    }
+  }
+  &__logo img  {
+    width: 120px;
+  }
+  &__logo strong {
+    font-size: 2rem;
+    right: -188px;
+    
+  }
+  &__logo strong i {
+    font-size: 3rem;
+  }
+
+  &__subtitle {
+    max-width: 400px;
+    width: 100%;
+    text-align: start;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    & .info__item {
+      margin-bottom: 1.2rem;
+      & a {
+        color: $white;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}
+
+

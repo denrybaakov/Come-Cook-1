@@ -1,0 +1,120 @@
+
+.profile {
+  min-height: 100vh;
+  // background-color: $lightGray;
+  background: url("../../../images/backgrounds/clientBG5.jpg") no-repeat center / cover;
+  &__col-30, &__col-70, &__col-100 {
+    background-color: $white;
+    padding: 30px;
+    border-radius: $borderRadius ;
+    -webkit-border-radius: $borderRadius ;
+    -moz-border-radius: $borderRadius ;
+    -ms-border-radius: $borderRadius ;
+    -o-border-radius: $borderRadius ;
+    
+  }
+  &__col-70.transparent {
+    background-color: transparent;
+    padding-top: 0;
+  }
+  &__img2 {
+    object-fit: contain;
+  }
+
+  &__col-30 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    // max-height: 450px;
+  }
+
+  &__avatar {
+    margin-bottom: 20px;
+    max-width: 300px;
+    width: 100%;
+    max-height: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 20px 0;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+    font-style: normal;
+  }
+
+  & span {
+    font-style: italic;
+  }
+
+  &__title {
+    color: $black;
+    font-size: 1.9rem;
+    text-transform: lowercase;
+    text-align: start;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    
+    & a {
+      display: inline-block;
+      padding: 15px 10px;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        background-color: $fiolet;
+        color: $white;
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    &-item {
+      // background: linear-gradient(270deg, #003AD2 0%, #0097EC 100%);
+      // box-shadow: 4px 4px 10px rgba(1, 149, 236, 0.3);
+      background-color: $white;
+      padding: 20px 10px;
+      border-radius: $borderRadius ;
+      -webkit-border-radius: $borderRadius ;
+      -moz-border-radius: $borderRadius ;
+      -ms-border-radius: $borderRadius ;
+      -o-border-radius: $borderRadius ;
+      max-width: 200px;
+      width: 100%;
+      height: 100%;
+      align-self: stretch;
+      align-content: stretch;
+      & strong {
+        display: block;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+      }
+    }
+    &-item:nth-child(2) {
+      // background: linear-gradient(269.97deg, #5900C9 0.02%, #9852F0 99.98%);
+      // box-shadow: 4px 4px 10px rgba(151, 80, 239, 0.3);
+    }
+    &-item:nth-child(3) {
+      // background: linear-gradient(270.23deg, #00A843 0.19%, #1FD071 99.8%);
+      // box-shadow: 4px 4px 10px rgba(31, 208, 112, 0.3);
+    }
+
+
+  }
+}

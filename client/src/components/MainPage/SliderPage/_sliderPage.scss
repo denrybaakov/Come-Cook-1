@@ -1,0 +1,20 @@
+.sliderPage {
+  padding: 4rem 0;
+  // background-color: rgb(214, 235, 187);
+  &__title {
+    margin-bottom: 7rem;
+  }
+  &__boxes {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__box-title {
+    margin-bottom: 2rem;
+  }
+}
+
+.mySwiper {
+  width: 400px;
+  margin: 0;
+}

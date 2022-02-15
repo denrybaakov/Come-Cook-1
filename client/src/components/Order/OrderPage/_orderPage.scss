@@ -1,0 +1,32 @@
+.orderId {
+  display: flex;
+  &__title {
+    font-size: 3rem;
+  }
+  &__block-img {
+    display: flex;
+    flex-direction: column;
+    & img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4rem;
+  }
+  &__description {
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    margin-top: 2rem;
+  }
+}
