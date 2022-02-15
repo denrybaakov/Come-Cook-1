@@ -16,9 +16,8 @@ export const clientReducer = (state = {}, action) => {
         }
       })
 
-    default: 
+    default:
       return state
-
   }
 
 }

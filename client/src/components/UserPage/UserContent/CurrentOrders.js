@@ -6,7 +6,6 @@ import OrderItemPovar from "../../Order/OrderItem/OrderItemPovar"
 const CurrentOrders = () => {
   const allOrders = useSelector(state => state.ordersCurrentPovar);
   const { id } = useSelector(state => state.user)
-  // console.log('orderlist --->', allOrders[0].status);
   const dispatch = useDispatch();
 
   useEffect(() => {

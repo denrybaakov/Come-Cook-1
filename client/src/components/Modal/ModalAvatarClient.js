@@ -38,7 +38,6 @@ const ModalAvatarClient = () => {
     const formData = new FormData()
     formData.append('file', file)
 
-
     try {
       const res = await axios.post('/uploadClient', formData, {
         headers: {
@@ -80,7 +79,6 @@ const ModalAvatarClient = () => {
           <input className="file" type="file" onChange={changeHandler} />
           <button type="submit" value="Upload" className='btn-secondary' onClick={submitHandler} >Применить</button>
 
-          {/* <ChatClient /> */}
         </Box>
       </Modal>
     </div>

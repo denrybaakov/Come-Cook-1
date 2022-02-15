@@ -1,7 +1,6 @@
 import { initState } from "../state/initState";
 import { NEW_MESSAGE } from "../types/types";
 
-
 export const messagesReducer = (state = initState, action) => {
 
   const { type, payload } = action; 

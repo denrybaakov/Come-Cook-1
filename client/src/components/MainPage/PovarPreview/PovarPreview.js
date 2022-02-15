@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import 'swiper/css'
@@ -20,7 +19,6 @@ const PovarPreview = () => {
         <SwiperSlide>
           <div className="povarPreview__background"></div>
         </SwiperSlide>
-
 
       </Swiper>
       <div className="povarPreview__text">

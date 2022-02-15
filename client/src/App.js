@@ -8,16 +8,10 @@ import ProtectedAuth from './components/ProtectedAuth/ProtectedAuth';
 import SignIn from './components/Registration/SignIn/SignIn'
 import SignUp from './components/Registration/SignUp/SignUp';
 import Tests from './components/Tests/Tests';
-// import Client from './components/UserPage/Client/Client';
 import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 import PovarPage from './components/UserPage/UserContent/PovarPage';
 import UserIndex from './components/UserPage/UserIndex/UserIndex';
-// import Povar from './components/UserPage/Povar/Povar';
-// import UserIndex from './components/UserPage/UserIndex/UserIndex'
-// import ClientIndex from './components/UserPage/ClientIndex/ClientIndex';
 import { checkUser } from './redux/actions/userAC';
-
-
 
 function App() {
   const dispatch = useDispatch()
@@ -69,14 +63,6 @@ function App() {
         <Route path='/test' element={<Tests />}></Route>
         <Route path='/chat' element={<Tests />}></Route>
 
-
-        {/* 
-        <Routes>
-          <Route path='/' element={<Main />}></Route>
-          <Route path='/auth/login' element={<SignIn />}></Route>
-          <Route path='/auth/register' element={<SignUp />}></Route>
-          <Route path='/povar' element={<UserIndex />}></Route>
-          <Route path='/client' element={<ClientIndex />}></Route> */}
       </Routes>
     </>
   );

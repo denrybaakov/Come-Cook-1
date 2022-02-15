@@ -1,8 +1,6 @@
 import MapComponent from "../../MapComponent/MapComponent"
 import OrderListPovar from "../../Order/OrderList/OrderListPovar"
 
-
-
 const SearchOrder = () => {
   return (
     <div className="profile__povar-order">
@@ -11,7 +9,6 @@ const SearchOrder = () => {
         <OrderListPovar />
         <MapComponent className='' />
       </div>
-      {/* здесь заинклюденный список всех заказов. ТО что видит повар */}
     </div>
   )
 }

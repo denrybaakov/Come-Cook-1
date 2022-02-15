@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 
-
 const ChatMessage = ({ message }) => {
   const { role } = useSelector(state => state.user)
   const [userName, userMessage] = message.split('=:=')

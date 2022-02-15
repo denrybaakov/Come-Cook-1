@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createOrders } from '../../../redux/actions/ordersAction';
-import MapComponent from '../../MapComponent/MapComponent';
 
 export default function OrderForm() {
 
   const [input, setInput] = useState({ date: '', address: '', title: '', text: '', numOfPeople: '', price: '' })
   const inputHandler = (e) => {
     setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    // setInput({ date: '', address: '', title: '', text: '', numOfPeople: '', price: '' })
   }
 
   const dispatch = useDispatch();

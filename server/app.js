@@ -11,9 +11,7 @@ const path = require('path')
 
 const WebSocket = require('ws');
 
-
 const authRouter = require('./routes/authRouter');
-const index = require('./routes/indexRouter');
 const orders = require('./routes/ordersRouter');
 const settings = require('./routes/settingsRouter')
 const uploadRouter = require('./routes/cookAvatarRouter')
@@ -25,8 +23,6 @@ const povars = require('./routes/povarRouter')
 const map = new Map();// for ws
 const app = express();
 
-
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(fileUpload())
 
@@ -34,9 +30,7 @@ app.use(fileUpload())
 const http = require('http');
 const { Server } = require("socket.io");
 
-
 app.use(morgan('dev'));
-
 app.use(express.json({ extended: true }))
 app.use(cors({
   credentials: true,
@@ -52,7 +46,6 @@ const sessionParser = session({
 })
 app.use(sessionParser);
 
-app.use('/', index);
 app.use('/orders', orders);
 app.use('/auth', authRouter);
 app.use('/upload', uploadRouter);
@@ -60,7 +53,6 @@ app.use('/uploadClient', uploadRouterClient);
 app.use('/povars', povars);
 app.use('/settings', settings);
 app.use('/cuisines', cuisine);
-
 
 //WS
 const server = http.createServer(app);
@@ -89,7 +81,6 @@ server.on('upgrade', function (request, socket, head) {
 wss.on('connection', function (ws, request) {
   const userId = request.session.user.id
   const name = request.session.user.name
-
 
   map.set(userId, ws);
 

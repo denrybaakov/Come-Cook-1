@@ -1,7 +1,4 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Parallax, Navigation } from "swiper";
-import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -11,7 +8,6 @@ import img2 from '../../../images/cooks/2.jpg'
 import img3 from '../../../images/cooks/3.jpg'
 import img4 from '../../../images/cooks/4.jpg'
 import img5 from '../../../images/sliderImg/11.jpg'
-
 
 const IndexPage = () => {
   return (

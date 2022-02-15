@@ -9,10 +9,6 @@ router.get('/', async (req, res) => {
           model: Likes,
           attributes: ['like', 'dislike'],
         },
-        // {
-        //   model: Cuisines,
-        //   attributes: ['name', 'img'],
-        // },
       ]
     });
   res.json({ allPovars });
@@ -28,10 +24,6 @@ router.get('/:id', async (req, res) => {
         model: Likes,
         attributes: ['like', 'dislike'],
       },
-      // {
-      //   model: Cuisines,
-      //   attributes: ['name', 'img'],
-      // },
     ]
   });
   res.json({ onePovar });

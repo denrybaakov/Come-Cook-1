@@ -213,7 +213,6 @@ router.put('/client/:id/current', async (req, res) => {
         attributes: ['name'],
       }, 
     })
-  // console.log(updatedOrder);
   res.json({ updatedOrder })
 })
 

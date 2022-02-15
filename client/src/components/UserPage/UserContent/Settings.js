@@ -1,10 +1,7 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import {  useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { editPovar} from "../../../redux/actions/cookAC";
 import { getCuisines } from "../../../redux/actions/cuisinesAction";
-import { checkUser } from "../../../redux/actions/userAC";
-import CuisineItem from "../../Cuisines/CuisineItem";
 
 const Settings = () => {
   const povar = useSelector(state => state.user)
@@ -25,9 +22,7 @@ const Settings = () => {
     setCuisine(event.target.value)
   };
 
-
   const cuisines = useSelector(state => state.cuisines);
-  console.log('cuisines --->', cuisines);
 
   useEffect(() => {
     dispatch(getCuisines())

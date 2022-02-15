@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
@@ -7,9 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
-import { deleteOrders, deleteOrdersCurrentClient, updateOrder } from '../../../redux/actions/ordersAction';
-import ChatClient from '../../Chat/ChatClient';
-import ModalChat from '../../Modal/Modal';
+import { deleteOrdersCurrentClient } from '../../../redux/actions/ordersAction';
 import ModalEdit from '../../Modal/ModalEdit';
 
 const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, status, status_id, povar_id, client_id }) => {
@@ -33,7 +30,6 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
   }
 
   return (
-    // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
     <Accordion expanded={expanded === id} onChange={handleChange(id)}>
       <AccordionSummary
         className='order__block'
@@ -56,14 +52,12 @@ const OrderItem = ({ id, index, date, address, title, text, numOfPeople, price, 
           </div>
           <div className="order__group-btn">
 
-            {/* {role === 'client' ? <button className="btn-order" onClick={showModal()}>Вывести модалку с сообщениями</button> : null} */}
             {role === 'client' ? <ModalEdit id={id} index={index} date={date} address={address} title={title} text={text} numOfPeople={numOfPeople} price={price} /> : null}
 
             <Link to={`/orders/${id}`}>
               <button className="btn-order edit" onClick={() => getOrderHandler(id)}>Открыть</button>
             </Link>
 
-            {/* <button className="btn-order edit">Редактировать</button> */}
             <button className="btn-order del" onClick={() => deleteHandler(id)}>Удалить</button>
           </div>
         </Typography>

@@ -3,13 +3,6 @@ import { useDispatch } from 'react-redux';
 import { signinClient } from '../../../redux/actions/clientAC';
 import { signInCook } from '../../../redux/actions/cookAC';
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
-
 const SignIn = () => {
 
   const [inputs, setInputs] = useState({ email: '', password: '' })
@@ -22,7 +15,6 @@ const SignIn = () => {
   }
 
   const handleChange = (event) => {
-    // setAge(event.target.value);
     setRole(event.target.value)
   };
 

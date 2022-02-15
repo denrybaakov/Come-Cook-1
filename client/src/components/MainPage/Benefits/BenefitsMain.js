@@ -1,5 +1,3 @@
-
-
 import ios from './img/ios.svg'
 import gPlay from './img/gplay.svg'
 
@@ -16,9 +14,7 @@ const BenefitsMain = () => {
             <p className="subtitle benefits__subtitle">Повар делает отклик</p>
             <p className="subtitle benefits__subtitle">Вы обговориваете детали</p>
             <p className="subtitle benefits__subtitle">Повар приезжает к Вам на мероприятие</p>
-
             <div className="benefits__btns">
-
               <img src={ios} alt="Ios" />
               <img src={gPlay} alt="PLay" />
             </div>

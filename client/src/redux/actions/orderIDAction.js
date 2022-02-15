@@ -19,8 +19,6 @@ export const getOrderItem = (id) => async (dispatch) => {
     clientPhone: result.data.orderItem.Client.phone,
     clientAbout: result.data.orderItem.Client.about,
     status: result.data.orderItem.Status.name,
-    // povarName: result.data.orderItem.Povar.name,
-    // povarCuisine: result.data.orderItem.Povar.Cuisine.name
   }
   dispatch(getOrderID(result2));
 }

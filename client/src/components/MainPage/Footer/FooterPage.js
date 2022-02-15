@@ -1,4 +1,3 @@
-
 import logoFooter from '../../../images/img/eat.png'
 
 const FooterPage = () => {

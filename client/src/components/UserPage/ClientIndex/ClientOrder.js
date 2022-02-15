@@ -1,4 +1,3 @@
-import MapComponent from "../../MapComponent/MapComponent"
 import OrderList from "../../Order/OrderList/OrderList"
 
 const ClientOrder = () => {

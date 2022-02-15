@@ -39,7 +39,6 @@ const ModalEdit = ({ id, index, date, address, title, text, numOfPeople, price }
     setOpen(false)
   }
 
-
   return (
     <div>
       <button className="btn-order" onClick={handleOpen}>Редактировать</button>

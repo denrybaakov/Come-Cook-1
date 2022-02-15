@@ -1,16 +1,11 @@
-
-
 import profile2 from './img/nibiru.png'
 import { Link } from 'react-router-dom'
-
 import ivlev from '../../../images/povars/ivlev.jpg'
 import poly from '../../../images/povars/poly.jpg'
 import masha from '../../../images/povars/masha.jpg'
 import dud from './../../../images/povars/2.png'
 import rd from '../../../images/povars/3.jpg'
 import jenya from '../../../images/povars/5.jpg'
-
-
 
 const PovarPage = () => {
 
@@ -71,8 +66,7 @@ const PovarPage = () => {
               <img src={rd} alt="Preview" />
             </div>
           </a>
-
-
+          
         </div>
 
         <div className="preview__footer">

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { editClient } from "../../../redux/actions/clientAC";
-import { checkUser } from "../../../redux/actions/userAC";
 
 const ClientSettings = () => {
 const client = useSelector(state => state.user)
@@ -25,7 +24,6 @@ const submitHandler = (e) => {
   e.preventDefault();
   dispatch(editClient({ id, ...input }))
 }
-
 
   return (
     <div className="col-70 profile__col-70">

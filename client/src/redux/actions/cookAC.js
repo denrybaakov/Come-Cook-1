@@ -29,7 +29,6 @@ export const clientLogout = () => async (dispatch) => {
 
 //
 
-
 export const getOnePovar = (id) => async (dispatch) => {
   const result = await axios(`/settings/povar/${id}`);
   dispatch(setCook(result.data.onePovar))
@@ -42,7 +41,3 @@ export const editPovar = (value) => async (dispatch) => {
   dispatch({type: EDIT_POVAR, payload: result.data.povar})
   
 }
-
-
-
-

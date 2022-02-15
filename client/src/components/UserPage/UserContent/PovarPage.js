@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 export default function PovarPage() {
 
   const povar = useSelector(state => state.povarID)
-  console.log('povar page ---->', povar);
 
   return (
     <>
@@ -14,9 +13,6 @@ export default function PovarPage() {
     <div>{povar.phone}</div>
     <div>{povar.servicePrice}</div>
     <div>{povar.surname}</div>
-    <div>{povar.name}</div>
-    <div>{povar.name}</div>
-    <div>{povar.name}</div>
     </>
   );
 }

@@ -6,12 +6,12 @@ import OrderItemPovar from "../../Order/OrderItem/OrderItemPovar"
 const CompletedOrders = () => {
   const allOrders = useSelector(state => state.ordersFinishedPovar);
   const { id } = useSelector(state => state.user)
-  // console.log('orderlist --->', allOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFinishedOrdersPovar(id))
   }, [])
+  
   return (
     <div className="">
       <h2 className="profile__title">Завершенные заказы</h2>

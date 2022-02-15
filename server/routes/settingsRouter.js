@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Client, Povar } = require('../db/models')
 
-
 router.put('/povar', async (req, res) => {
   try {
     const { id } = req.session.user
@@ -17,7 +16,6 @@ router.put('/povar', async (req, res) => {
   }
 })
 
-  
 router.put('/client', async (req, res) => {
   try {
     const { id } = req.session.user
@@ -25,7 +23,6 @@ router.put('/client', async (req, res) => {
      const client = await Client.findOne({where: {id}})
      
     req.session.user = {...req.session.user,id: client.id, name: client.name, surname: client.surname, email: client.email, password: client.password, about: client.about, phone: client.phone}
-    // console.log(req.session.user);
     res.json(req.session.user);
 
   } catch (error) {
@@ -34,8 +31,4 @@ router.put('/client', async (req, res) => {
   }
 })
 
-
-
-
 module.exports = router;
-

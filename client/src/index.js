@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.scss'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3001'; // порт бэк rybakov
+axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 ReactDOM.render(
@@ -17,7 +17,6 @@ ReactDOM.render(
         <App />
       </Provider>
     </BrowserRouter>
-
   </React.StrictMode>,
   document.getElementById('root')
 );

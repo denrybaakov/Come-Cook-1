@@ -2,11 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOrderItem } from '../../../redux/actions/orderIDAction';
-import UserIndex from '../../UserPage/UserIndex/UserIndex';
 import { Link } from 'react-router-dom';
-import Chat from '../../Chat/ChatPovar';
 import ChatClient from '../../Chat/ChatClient';
-import Tests from '../../Tests/Tests';
 import { updateOrder } from '../../../redux/actions/ordersAction';
 
 export default function OrderPage() {
@@ -47,30 +44,10 @@ export default function OrderPage() {
                 <span className="orderId__description">Цена: {price}</span>
               </div>
 
-
-
-
-
             </div>
 
             <ChatClient />
             {role === 'cook' ? <Link to="/userpage"><button className="btn-secondary orderId__btn" onClick={() => acceptHandler(id)}>Принять</button></Link> : null}
-
-
-            {/* <button className="btn-secondary orderId__btn">Написать клиенту</button> */}
-
-            {/* <div>{orderItem.date}</div>
-            <div>{orderItem.address}</div>
-            <div>{orderItem.title}</div>
-            <div>{orderItem.text}</div>
-            <div>{orderItem.numOfPeople}</div>
-            <div>{orderItem.price}</div>
-            <div>{orderItem.status}</div>
-            <div>{orderItem.clientName}</div>
-            <div>{orderItem.clientSurname}</div>
-            <div>{}</div>
-            <div>{orderItem.clientEmail}</div>
-            <div>{orderItem.clientPhone}</div> */}
           </div>
         </div>
       </div>

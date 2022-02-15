@@ -16,8 +16,6 @@ export const cookReducer = (state = {}, action) => {
         }
       })
 
-
-
     default: {
       return state
     }

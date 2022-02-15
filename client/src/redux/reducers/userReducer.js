@@ -1,6 +1,5 @@
 import { SET_USER } from "../types/types"
 
-
 export const userReducer = (state = {}, action) => {
   const {type, payload} = action
 
@@ -10,8 +9,6 @@ export const userReducer = (state = {}, action) => {
   
     default: {
       return state
-    }
-      
+    } 
   }
-  
 }

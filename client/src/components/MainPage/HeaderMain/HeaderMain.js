@@ -21,27 +21,20 @@ const HeaderMain = () => {
     <header className="header">
       <nav className="header__nav">
         <div className="header__block-link">
-          {/* <a href="!#" className="header__link">Главная</a>
-          <a href="!#" className="header__link">Вторая страница</a>
-          <a href="!#" className="header__link">Цены</a> */}
           <strong className="logo__text header"><i>COME & COOK</i></strong>
         </div>
-
         <div className="header__login">
           {user?.id ?
             <>
               <Link to="/userpage" className="header__link">Мой профиль</Link>
               <a href="!#" className="header__link" onClick={logoutHandler} >Выйти</a>
             </>
-
             :
             <>
               <Link to={'/auth/register'} className="header__link" >Регистрация</Link>
               <Link to={'/auth/login'} className="header__link" >Войти</Link>
-              {/* <Link><button onClick={logoutHandler}>выйти</button></Link> */}
             </>
           }
-
         </div>
 
       </nav>
@@ -62,7 +55,6 @@ const HeaderMain = () => {
         <SwiperSlide>
           <div className="header__background header__background--slide1"></div>
         </SwiperSlide>
-
       </Swiper>
 
       <div class="logo header__logo">

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
@@ -7,16 +6,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { updateOrder } from '../../../redux/actions/ordersAction';
-import { getOrderItem } from '../../../redux/actions/orderIDAction';
 import avatarPng from '../../UserPage/img/avatar.png'
-
 
 const OrderItemPovar = ({ status_id, id, index, date, address, title, text, numOfPeople, price, status, nameClient, emailClient, avatar }) => {
 
   const [expanded, setExpanded] = React.useState(false);
 
   const orders = useSelector(state => state.orders)
-  // console.log('ALL orders ----> ', orders);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -29,10 +25,8 @@ const OrderItemPovar = ({ status_id, id, index, date, address, title, text, numO
   }
 
   const pathAvatar = `http://localhost:3001${avatar}`
-  // console.log('avata povar', avatar);
 
   return (
-    // пофиксить!!!!!!!!!!!!!!!!!!!!!!!!!!
     <Accordion expanded={expanded === id} onChange={handleChange(id)} sx={{ marginBottom: '0.7rem' }}>
       <AccordionSummary
         className='order__block'
@@ -62,8 +56,6 @@ const OrderItemPovar = ({ status_id, id, index, date, address, title, text, numO
             </Link>
             {status_id === 1 ? <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> : null}
             {status === 'Активен' ? <button className="btn-order del" onClick={() => acceptHandler(id)}>Завершить заказ</button> : null}
-            {/* <button className="btn-order edit" onClick={() => acceptHandler(id)}>Принять</button> */}
-            {/* <button className="btn-order del"></button> */}
           </div>
         </Typography>
       </AccordionDetails>

@@ -8,7 +8,6 @@ export const setUser = (value) => {
   }
 }
 
-
 export const checkUser = () => (dispatch) => {
   axios.post('/auth/check')
   .then(res => dispatch(setUser(res.data.user)))

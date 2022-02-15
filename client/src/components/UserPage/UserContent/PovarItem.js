@@ -3,15 +3,11 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPovarPage } from '../../../redux/actions/povarIDAction';
 
-
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
-
 import avatar2 from '../../UserPage/img/avatar.png'
-
-
 
 export default function PovarPage({ id, name, surname, email, about, phone, experience, servicePrice, likes_id, avatar }) {
 
@@ -59,15 +55,6 @@ export default function PovarPage({ id, name, surname, email, about, phone, expe
           </AccordionDetails>
         </Accordion>
       </div>
-
-      {/* <div>{name}</div>
-      <div>{surname}</div>
-      <div>{email}</div>
-      <div>{about}</div>
-      <div>{phone}</div>
-      <div>{experience}</div>
-      <div>{servicePrice}</div>
-      <div>{avatar}</div> */}
 
     </>
   );

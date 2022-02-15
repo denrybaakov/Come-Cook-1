@@ -10,7 +10,6 @@ router.route('/check')
     res.sendStatus(401)
   })
 
-
 router.route('/signup')
   .post(async (req, res) => {
     try {
@@ -23,11 +22,7 @@ router.route('/signup')
         const client = await Client.create({ name, email, password: cryptPass })
         const user = { ...client, role: 'client' }
 
-
         req.session.user = { id: client.id, name: client.name, surname: client.surname,  email: client.email, role: user.role, avatar: client.avatar, phone: client.phone, experience: client.experience, servicePrice: client.servicePrice, about: client.about }
-
-       
-
 
         return res.json({ user: req.session.user })
       } else if (req.body.role === 'cook') {
@@ -45,7 +40,6 @@ router.route('/signup')
 
     }
   })
-
 
 router.route('/signin')
   .post(async (req, res) => {
